@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './pages/home/home';
+import Detail from './pages/detail/detail';
+import Category from './pages/categ/categ';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useParams,useLocation } from 'react-router-dom';
 
 function App() {
+	const { category } = useParams();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<Home />} />
+		 </Route>
+		 <Route path={'/product/:id'}>
+            <Route index element={<Detail />} />
+		 </Route>
+		  <Route path={'/:category'}>
+            <Route index element={<Category />} />
+		 </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

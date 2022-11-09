@@ -1,0 +1,128 @@
+
+
+
+
+
+
+.header{
+  .firstHeader{
+      background-color:#ff7f00;
+  .imgNav{
+      height: 3.48rem;
+  img{
+     height: 100%;
+     width: 100%;
+    }
+  }
+  }
+.secondHeader{
+   background-color:whitesmoke;
+   .gridHeader{
+     height: 2rem;
+	 display: flex;
+     justify-content: space-between;
+     align-items: center;
+	.contGrid{
+	  display: flex;
+      justify-content: center;
+      align-items: center;
+	  .star{
+	   width: 14px;
+       height: 14px;
+       background-color: #ff7f00;
+       border-radius: 50%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+	   .iconStar{
+	     color: white;
+         font-size: 12px;
+	   }
+	  }
+	  .text{
+	    margin-left: 6px;
+		font-weight: 600;
+		color: #ff7f00;
+	  }
+	  .text:hover{
+	   text-decoration: underline;
+	   cursor:pointer;
+	  }
+	  .langs{
+	    display: flex;
+        justify-content: space-between;
+        align-items: center;
+		.lang:first-child{
+		  margin-right:16px;
+		}
+	  .lang{
+	    display: flex;
+        justify-content: space-between;
+        align-items: center;
+		font-size: 1.05rem;
+		color: #918e8e;
+		cursor:pointer;
+		&.active{
+		  cursor: auto;
+          opacity: 0.5;
+		}
+		.img{
+	       width: 18px;
+           border-radius: 50%;
+           height: 18px;
+		   margin-right: 5px;
+	    }
+	   }
+	  }
+	}
+   }
+  
+  
+  }
+.LastHeader{
+   background-color: white;
+   .contLast{
+     display: flex;
+     height: 5rem;
+     align-items: center;
+    .logo{
+     width: 14rem;
+	 .imglogo{
+	   width: 66%;
+       margin-left: -3%;
+	 }
+   }
+   .fieldInput{
+      width: 36rem;
+	  .imput{
+	    width: 28rem!important;
+        margin-right: 1rem;
+	  }
+   }
+   .contItem{
+     flex: 1;
+     display: flex;
+     justify-content: space-between;
+	 .item{
+	  display: flex;
+      align-items: center;
+	  color: #282828;
+	  font-size: 1rem;
+	  cursor:pointer;
+	  &:hover{
+	    color: #ff7f00;
+	  }
+	  .iconItem{
+	    font-size: 24px;
+		margin-right: 4px;
+		margin-bottom: 4px;
+	  }
+	  .user{
+	    margin-bottom: 6px;
+	  }
+	 }
+   }
+   }
+   
+}
+}

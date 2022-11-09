@@ -1,0 +1,57 @@
+.footer{
+  background-color: #000;
+  margin-top: 45px;
+  overflow: hidden;
+  padding-top: 10px;
+  .imgLogo{
+    width:10rem;
+	margin-top: -60px;
+  }
+  .secondGrid{
+    .InscText{
+	  color: #bdb6b6;
+	  margin-top: -3rem;
+      margin-bottom: 10px;
+	  h5{
+	    color: white;
+        margin-bottom: 8px;
+	  }
+	}
+	.inputFooter{
+	 display:flex;
+	  .input{
+	    background-color: white!important;
+      }
+	}
+  }
+  .lastGrid{
+    margin-top: 10px;
+   .poche{
+     display: flex;
+	 align-items: center;
+     color: white;
+	 margin-bottom: 6px;
+	 .mark{
+     width: 3rem;
+     }
+    .pocheText{
+	 margin-left: 10px;
+     display: flex;
+     flex-direction: column;
+	 color: #bdb6b6;
+	 .text{
+	   margin-bottom: 12px;
+	   color: white;
+	 }
+	}
+   
+   }
+   .imgSvg{
+	  width: 7.5rem;
+	  margin-top: -35px;
+	}
+  }
+}
+
+
+

@@ -1,0 +1,30 @@
+.sidebar{
+  width: 13rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+  background-color: white;
+  padding-top: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+  .itemBar{
+    display: flex;
+    justify-content: flex-start;
+	color: #282828;
+	font-size: 1.3rem;
+	margin-bottom: 6.6px;
+	cursor:pointer;
+	&:hover{
+	  color:orange;
+	}
+	h6{
+	 margin: inherit;
+	 font-weight: 600;
+	 margin-left: 8px;
+	}
+  }
+}
+
+
+

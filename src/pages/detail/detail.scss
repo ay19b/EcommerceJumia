@@ -1,0 +1,54 @@
+.detail{
+  .linkPages{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+	margin-top: 10px;
+	font-size: 13px;
+	.link{
+	  margin-right:4px;
+	}
+	.active{
+	  color: #75757a;
+	}
+  }
+  .contentProd{
+    display: flex;
+    justify-content: space-between;
+	margin-top: 15px;
+    .detailCont{
+      width: 55rem;
+      background-color: white;
+      display: flex;
+	  .img{
+	    width: 18rem;
+	  }
+	  .infDtl{
+	    margin: 15px;
+		display: flex;
+        flex-direction: column;
+		width: 100%;
+		.prod{
+		  font-size: 18px;
+          font-weight: 600;
+		}
+		.MuiRating-root {
+         font-size: 1.2rem!important;
+        }
+		.blackfrd{
+		  width: 8rem;
+          height: 16px;
+		}
+	  }
+    }
+  .delivery{
+    background-color: white;
+	width: 18rem;
+  }
+  }
+  
+}
+
+
+
+
