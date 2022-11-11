@@ -1,4 +1,18 @@
 .detail{
+   .Sidebar{
+   transition:transform 0.6s;
+   z-index: 100;
+   &.close{
+	 transform: translate(-200%);
+   }
+  .sidebar{
+    position: fixed;
+    margin-top: -19px;
+    box-shadow: 0px 0px 9px 0px #ccc !important;
+    height: 23rem;
+	z-index: 100;
+   }
+  }
   .linkPages{
     display: flex;
     flex-wrap: wrap;

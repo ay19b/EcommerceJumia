@@ -81,15 +81,45 @@
   }
 .LastHeader{
    background-color: white;
+   &.active{
+     position: fixed;
+     z-index: 100;
+     width: 100%;
+     top: 0%;
+	 boxShadow: 0px 8px 6px -5px rgba(0,0,0,0.65);
+     animation-name: scrollNav;
+     animation-duration: .4s;
+   }
+   @keyframes scrollNav{
+          0%{
+            opacity: 0;
+            transform: translateY(-60px);
+          };
+          100%{
+            opacity: 1;
+            transform: translateY(0);
+          };
+      };
    .contLast{
      display: flex;
      height: 5rem;
      align-items: center;
     .logo{
      width: 14rem;
+	 display: flex;
+     align-items: center;
+	 .menu{
+	  font-size: 27px;
+      margin-right: 10px;
+	  cursor:pointer;
+	 }
 	 .imglogo{
 	   width: 66%;
        margin-left: -3%;
+	   margin-top: 5px;
+	   .img{
+	     width: 94%;
+	   }
 	 }
    }
    .fieldInput{
@@ -125,4 +155,5 @@
    }
    
 }
+
 }

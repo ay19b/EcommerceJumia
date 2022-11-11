@@ -7,13 +7,16 @@ import Category from '../../component/products/products';
 import Offer from '../../component/offer/offer';
 import Fashmia from '../../component/fashmia/fashmia';
 import {Container} from '@mui/material'
+import './home.scss'
+
 
 export default function Home() {
   
   
     return (
+	<div className="home">
     <Layout>
-       <Main />
+        <Main />
 	    <Pub />
 	    <Promo />
 	    <Category cag={'Supermarket'} title={'Supermarket'}/>
@@ -24,5 +27,6 @@ export default function Home() {
 	    <Category cag={'Sports'} title={'Sports'}/>
 	    <Category cag={'computing'} title={'computing'}/>
     </Layout>
+	</div>
     )
 }

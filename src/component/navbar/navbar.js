@@ -14,8 +14,30 @@ import france from "../../images/france.png";
 import jumia from "../../images/Jumia.png";
 import './nav.scss';
 import Top from '../../images/TOP.gif'
+import {MenuContext} from '../../context/menuContext'
+import { useContext } from "react";
+
 
 const Nav = () => {
+    const { dispatch } = useContext(MenuContext);
+    const { menu } = useContext(MenuContext);
+    const [navbar, setNavbar] = useState(false);
+	
+	const fixedNav=()=>{
+      if(window.scrollY>=100){
+        setNavbar(true)
+      }else{
+        setNavbar(false)
+      }
+    }
+	
+	useEffect(() => {
+      fixedNav()
+      window.addEventListener('scroll',fixedNav)  
+    })
+   
+	
+	
     return (
       <section className='header'>
        <div className='firstHeader'>
@@ -50,15 +72,13 @@ const Nav = () => {
 			  </div>
 			 </Container>
 		  </div>
-		  <div className='LastHeader'>
+		  <div className={!navbar?'LastHeader':'LastHeader active'}>
 		    <Container> 
 			  <div className='contLast'>
 			    
 			    <div className="logo">
-				 <HiMenu />
-				  <Link to={'/'}>
-				   <img src={jumia} className="imglogo"/>
-				  </Link> 
+				 <HiMenu className="menu" onClick={() => dispatch({ type: "TOGGLE" })}/>
+				 <Link to="/" className="imglogo"><img src={jumia} className="img"/></Link>
 				</div>
 				<div className="fieldInput">
 				  <TextField

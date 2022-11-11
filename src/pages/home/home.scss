@@ -1,41 +1,7 @@
-.main{
-  height: 23rem;
-  margin-top: 20px;
- .contMain{
-    display: flex;
-    justify-content: space-between;
-	.info{
-	  .card{
-	    display: flex;
-        justify-content: center;
-        flex-direction: column;
-		background-color: white;
-		margin-bottom: 13px;
-		border-radius: 5px;
-		padding: 4px;
-		.itemCard{
-		  display: flex;
-		  align-items: center;
-		  padding-left: 10px;
-		  cursor:pointer;
-		  img{
-		    width: 36px;
-            height: 36px;
-		  }
-		  h4{
-		    margin-left: 11px;
-            font-size: 15px;
-            font-weight: 600;
-			color: #484848;
-		  }
-		} 
-	  }
-	  .blackFrd{
-	    border-radius: 5px;
-		overflow: hidden;
-	  }
-	}
- }
+.home{
+ .header .LastHeader .logo .menu{
+     display:none;
+ } 
 }
 
 

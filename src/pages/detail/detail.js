@@ -20,23 +20,34 @@ import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import Category from '../../component/products/products'
+import Sidebar from '../../component/sidebar/sidebar'
+import {MenuContext} from '../../context/menuContext'
+import { useContext } from "react";
 
 export default function Detail() {
   const { id } = useParams();
   const product =Data[id-1];
+  const { menu } = useContext(MenuContext);
+  const { dispatch } = useContext(MenuContext);
   const location = useLocation();
   const [age, setAge] = useState('');
 
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+  
   useEffect(() => {
     window.scrollTo(0,0);
   }, [location]);
+  
+  
     return (
+	  <div className='detail'> 
         <Layout>
-               <div className='detail'> 
-                  <div className='linkPages'>
+		   <div className={!menu ? 'Sidebar close' : 'Sidebar'} >
+	         <Sidebar />	
+	       </div>
+                <div className='linkPages'>
 	                  <span className='link'>
                         <Link to="/">Home</Link>
                       </span> 			
@@ -160,7 +171,8 @@ export default function Detail() {
                             message="Product added to Cart" 
                         /> 
                       
-               </div>
-          </Layout>     
+               
+          </Layout>  
+		</div> 
     )
 }

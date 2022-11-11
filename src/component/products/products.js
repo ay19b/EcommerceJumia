@@ -6,7 +6,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Data from '../../Library/stock'
 import './products.scss'
-
+import {MenuContext} from '../../context/menuContext'
+import { useContext } from "react";
 
 const responsive = {
   superLargeDesktop: {
@@ -16,7 +17,8 @@ const responsive = {
 };
 
 export default function Category({cag,title}) {
-
+    const { dispatch } = useContext(MenuContext);
+    const { menu } = useContext(MenuContext);
    return(
           <div className='category'>
              
@@ -30,10 +32,10 @@ export default function Category({cag,title}) {
                  </Link>
               </div>
               <Carousel 
-              responsive={responsive}
-              autoPlay={false}
-			  className='swiper'
-            >
+                responsive={responsive}
+                autoPlay={false}
+			    className='swiper'
+              >
               
               {Data
                     .filter((filter) => filter.category === cag)
@@ -41,7 +43,7 @@ export default function Category({cag,title}) {
                       
                         return(
                            <div key={product.id} className='product'>
-                            <Link to={`/product/${product.id}`} key={product.id}>
+                            <Link to={`/product/${product.id}`} key={product.id} onClick={() => dispatch({ type: "open" })}>
                               <img src={product.image} className='img'/>
                               <h6 className='prodName'>{product.product}-{product.desc}</h6>
                               <h6 className='price'>{product.price} DA</h6>
