@@ -1,5 +1,6 @@
 import {Typography, Container,Grid,Badge,Button,InputAdornment,TextField} from '@mui/material'
 import React,{useState,useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import {GiAlliedStar} from "react-icons/gi";
 import {HiSearch,HiMenu,HiOutlineShoppingCart,HiOutlineChevronDown} from "react-icons/hi";
 import {AiOutlineUser,AiTwotoneStar} from "react-icons/ai";
@@ -52,8 +53,12 @@ const Nav = () => {
 		  <div className='LastHeader'>
 		    <Container> 
 			  <div className='contLast'>
+			    
 			    <div className="logo">
+				 <HiMenu />
+				  <Link to={'/'}>
 				   <img src={jumia} className="imglogo"/>
+				  </Link> 
 				</div>
 				<div className="fieldInput">
 				  <TextField

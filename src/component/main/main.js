@@ -12,8 +12,7 @@ import "./main.scss"
 const Main = () => {
     return (
       <section className='main'>
-        <Container>
-		 <div className='contMain'>
+        <div className='contMain'>
 		   <Sidebar />
 		   <Carousel />
 		   <div className="info">
@@ -37,7 +36,6 @@ const Main = () => {
 			 </div>
 		   </div>
 		 </div>
-        </Container>
       </section>
     );
   }

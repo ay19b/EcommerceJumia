@@ -6,23 +6,23 @@ import Promo from '../../component/promo/promo';
 import Category from '../../component/products/products';
 import Offer from '../../component/offer/offer';
 import Fashmia from '../../component/fashmia/fashmia';
-
+import {Container} from '@mui/material'
 
 export default function Home() {
   
   
     return (
     <Layout>
-	  <Main />
-	  <Pub />
-	  <Promo />
-	  <Category cag={'Supermarket'}/>
-	  <Category cag={'Fashion'}/>
-	  <Offer />
-	  <Fashmia />
-	  <Category cag={'appliance'}/>
-	  <Category cag={'Sports'}/>
-	  <Category cag={'computing'}/>
-	 </Layout>
+       <Main />
+	    <Pub />
+	    <Promo />
+	    <Category cag={'Supermarket'} title={'Supermarket'}/>
+	    <Category cag={'Fashion'} title={'Fashion'}/>
+	    <Offer />
+	    <Fashmia />
+	    <Category cag={'appliance'}title={'appliance'} />
+	    <Category cag={'Sports'} title={'Sports'}/>
+	    <Category cag={'computing'} title={'computing'}/>
+    </Layout>
     )
 }

@@ -11,17 +11,17 @@ import './products.scss'
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 0 },
-    items: 7
+    items: 6,
   },
 };
 
-export default function Category({cag}) {
+export default function Category({cag,title}) {
 
    return(
           <div className='category'>
-              <Container>
+             
               <div className='headProd' style={{backgroundColor: '#17A8D6'}}>
-                  <h6 className='categoryName'>{cag}</h6>
+                  <h6 className='categoryName'>{title}</h6>
                    <Link to={`/${cag}`}>
                     <div className='headProdRight'>
                        <h6>Voir plus</h6>
@@ -53,7 +53,7 @@ export default function Category({cag}) {
                
 
             </Carousel> 
-             </Container>
+            
             </div>
    )
     

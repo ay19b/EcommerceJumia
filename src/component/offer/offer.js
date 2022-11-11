@@ -10,7 +10,7 @@ export default function Offer() {
     
   return (
     <div className="offer">
-        <Container>
+        
               <div className='headProd'>
                   <Typography variant='h6'>Offres incontournables</Typography>
               </div>
@@ -29,7 +29,7 @@ export default function Offer() {
                 </div>
 
               </div>
-        </Container>
+        
     </div>
   )
 }

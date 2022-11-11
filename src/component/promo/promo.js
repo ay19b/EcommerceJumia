@@ -8,7 +8,7 @@ import './promo.scss'
 export default function Promo() {
   return (
     <div className="promo">
-        <Container>
+        
               <div className='headProd'>
                   <Typography variant='h6'>CODES PROMOS TVs</Typography>
               </div>
@@ -17,7 +17,7 @@ export default function Promo() {
                 <img src={two} alt='a' className='img'/>
                 <img src={three} alt='a' className='img'/>     
               </div>
-        </Container>
+        
     </div>
   )
 }

@@ -18,12 +18,12 @@ function Pub(){
   
     return(
 	<div className='pub'>
-	    <Container>
+	    
             <Carousel 
               responsive={responsive}
               autoPlay={false}
             >
-                    {pub.map((item)=>{
+             {pub.map((item)=>{
                const {id,img}=item;
                return(
                    
@@ -33,7 +33,7 @@ function Pub(){
                )
            })}
            </Carousel>   
-        </Container>		   
+        		   
 	 </div>
     )
 }

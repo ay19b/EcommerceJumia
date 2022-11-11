@@ -35,6 +35,7 @@
      border: 3px solid transparent;
      margin-top: 12px;
      margin-bottom: 12px;
+	 margin-right: 4px;
 	 &:hover{
         transform: scale(1.05,1.05);
         boxShadow: 0px 0px 9px 0px #ccc;
@@ -68,6 +69,12 @@
    .react-multiple-carousel__arrow--right {
      right: calc(0% + 1px)!important;
     }
+	.react-multiple-carousel__arrow--left {
+      left: calc(0% + 1px)!important;
+    }
+	.react-multi-carousel-item{
+	 width:100%!important;
+	}
 }
 
 

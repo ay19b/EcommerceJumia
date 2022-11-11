@@ -8,14 +8,13 @@ export default function Fashmia() {
    
   return (
     <div className="fashmia">
-        <Container>
-              <div className='headProd'>
-                  <Typography variant='h6'>La mode par Jumia</Typography>
-              </div>
-              <div className='fashionImg'>
-                 <img src={one} alt='a' className='img'/>
-              </div>
-        </Container>
+        <div className='headProd'>
+            <Typography variant='h6'>La mode par Jumia</Typography>
+        </div>
+         <div className='fashionImg'>
+            <img src={one} alt='a' className='img'/>
+        </div>
+        
     </div>
   )
 }

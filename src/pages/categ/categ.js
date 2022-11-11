@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import Layout from '../../component/layout/layout'
 import { Typography , Container, Grid} from "@mui/material";
 import Data from '../../Library/stock'
+import './catg.scss'
+
 
 const Category=()=> {
   const { category } = useParams();
@@ -11,17 +13,15 @@ const Category=()=> {
   console.log(category)
     return (
       <Layout>
-        <div className='category'>
-        <Container>
+        <div className='categories'>
             <div className='linkPages'>
-				      <Typography variant='body2' className='link'>
-                  <Link to="/">Home</Link>
-              </Typography> 		
-			  
-              <Typography variant='body2'className='link'>></Typography>
-			        <Typography variant='body2'className='link'>{category}</Typography>
-			      </div> 
-        <Grid container spacing={3}>
+	                  <span className='link'>
+                        <Link to="/">Home</Link>
+                      </span> 			
+			          <span className='link'>></span>
+			          <span className='link active'>{category}</span>
+			 </div>  	  
+        <div className='listProduct'>
          
            {Data
               .filter((filterData) => filterData.category === category)
@@ -30,20 +30,20 @@ const Category=()=> {
                 
                   return(
                     
-                  <Grid item md={3} sm={5} xs={12} className='product' key={product.id}>
+                  <div className='product' key={product.id}>
                     <Link to={`/product/${product.id}`} key={product.id}>
                        <img src={product.image} className='img'/>
-                       <h2>{product.product}</h2>
-                       <span>{product.price} DA</span>
+                       <h6 className='prodName'>{product.product}-{product.desc}</h6>
+                       <h6 className='price'>{product.price} DA</h6>
                     </Link>
-                  </Grid>
+                  </div>
                      
                      
                   )
               })
           }
-         </Grid>
-        </Container>
+         </div>
+        
       </div>
    </Layout>           
             
