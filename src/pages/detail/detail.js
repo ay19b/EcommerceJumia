@@ -23,15 +23,25 @@ import Category from '../../component/products/products'
 import Sidebar from '../../component/sidebar/sidebar'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
+import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux'
+import {SelectProduct} from '../../features/productSlice'
+import {add} from "../../features/productSlice"
+import {incrementProduct,decrementProduct} from "../../features/productSlice"
 
 export default function Detail() {
   const { id } = useParams();
-  const product =Data[id-1];
   const { menu } = useContext(MenuContext);
-  const { dispatch } = useContext(MenuContext);
   const location = useLocation();
   const [age, setAge] = useState('');
+  const [count, setCount] = useState(0);
+  const prod = useSelector(SelectProduct);
+  const dispatch = useDispatch();
+  const product =prod[id-1];
+  const [state, setState] = useState(false);
 
+
+  
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -39,6 +49,27 @@ export default function Detail() {
   useEffect(() => {
     window.scrollTo(0,0);
   }, [location]);
+  
+  const handleClick = () => {
+    setState(true)
+    dispatch(add(product))
+  };
+
+  const handleClose = () => {
+    setState(false);
+  };
+
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [location]);
+
+  useEffect(() => {
+    setCount(JSON.parse(window.localStorage.getItem('count')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('count', count);
+  }, [count]);
   
   
     return (
@@ -82,11 +113,11 @@ export default function Detail() {
                                <h6 className="price">{product.price} DA</h6>
 							   <h6 className='inf'>Quelques variantes avec peu de stock</h6>
 							   <h6 className='inf'>+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba</h6>
-                               <Button disabled={product.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd' >
+                               <Button disabled={product.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
                                  J'achète 
                                </Button>
 							   <Divider />
-							   <div className="listOffer">Offres</div>
+							   <div className="listOffer" onClick={() => dispatch(incrementProduct(prod))}>Offres</div>
 							   
 							   <div className='inf'>
 							    <div className="icon">
@@ -168,6 +199,8 @@ export default function Detail() {
                        <Snackbar
                             anchorOrigin={ { vertical: 'top', horizontal: 'center' } }
                             autoHideDuration={1500}
+                            open={state}
+                            onClose={handleClose}
                             message="Product added to Cart" 
                         /> 
                       

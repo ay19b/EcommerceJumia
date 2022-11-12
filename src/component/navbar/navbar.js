@@ -16,12 +16,18 @@ import './nav.scss';
 import Top from '../../images/TOP.gif'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
+import Sidebar from '../sidebar/sidebar'
+import {SelectProduct} from '../../features/productSlice';
+import {useSelector} from "react-redux";
+
 
 
 const Nav = () => {
     const { dispatch } = useContext(MenuContext);
     const { menu } = useContext(MenuContext);
     const [navbar, setNavbar] = useState(false);
+	const product = useSelector(SelectProduct)
+    const cartProducts = product.filter((product) => product.added);
 	
 	const fixedNav=()=>{
       if(window.scrollY>=100){
@@ -80,6 +86,7 @@ const Nav = () => {
 				 <HiMenu className="menu" onClick={() => dispatch({ type: "TOGGLE" })}/>
 				 <Link to="/" className="imglogo"><img src={jumia} className="img"/></Link>
 				</div>
+				
 				<div className="fieldInput">
 				  <TextField
                    id="outlined-hidden-label-small"
@@ -108,9 +115,13 @@ const Nav = () => {
                      <HiOutlineChevronDown />
 				   </div>
 				   <div className="item">
-				     <HiOutlineShoppingCart className="iconItem"/>
+				   <Link to={'/cart'} className="item">
+				     
+					 <Badge badgeContent={cartProducts.length} color="primary" className='iconNav'>
+                       <HiOutlineShoppingCart className="iconItem"/>
+                     </Badge>
                       Panier
-                     
+                     </Link>
 				   </div>
 				</div>
 				
@@ -126,3 +137,4 @@ const Nav = () => {
   
 
 export default Nav
+

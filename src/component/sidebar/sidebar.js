@@ -15,12 +15,12 @@ function Sidebar() {
           {Side.map((item)=>{
               const {id,name,icon,path}= item;
               return(   
-                <>          
+                <Link to={path} key={id} onClick={() => dispatch({ type: "open" })}>           
                    <div key={id} className="itemBar">
                      {icon}
                      <h6>{name}</h6>
                    </div>
-                </>   
+                 </Link>    
               )
           })}
       </div>

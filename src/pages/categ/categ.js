@@ -8,13 +8,15 @@ import './catg.scss'
 import Sidebar from '../../component/sidebar/sidebar'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
+import {SelectProduct} from '../../features/productSlice'
+import {useSelector } from 'react-redux'
 
 
 const Category=()=> {
   const { category } = useParams();
   const { menu } = useContext(MenuContext);
   const { dispatch } = useContext(MenuContext);
- 
+  const products = useSelector(SelectProduct);
  
     return (
 	<div className='categories'>
@@ -33,7 +35,7 @@ const Category=()=> {
 		 
         <div className='listProduct'>
          
-           {Data
+           {products
               .filter((filterData) => filterData.category === category)
               .slice(0, 10)
               .map((product)=>{

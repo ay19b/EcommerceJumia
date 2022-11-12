@@ -8,6 +8,7 @@ import Data from '../../Library/stock'
 import './products.scss'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
+import {SelectProduct} from '../../features/productSlice'
 
 const responsive = {
   superLargeDesktop: {
@@ -19,6 +20,7 @@ const responsive = {
 export default function Category({cag,title}) {
     const { dispatch } = useContext(MenuContext);
     const { menu } = useContext(MenuContext);
+	const products = useSelector(SelectProduct);
    return(
           <div className='category'>
              
@@ -37,7 +39,7 @@ export default function Category({cag,title}) {
 			    className='swiper'
               >
               
-              {Data
+              {products
                     .filter((filter) => filter.category === cag)
                     .map((product)=>{
                       
