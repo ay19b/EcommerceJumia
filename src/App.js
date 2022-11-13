@@ -8,6 +8,7 @@ import { useParams,useLocation } from 'react-router-dom';
 
 function App() {
 	const { category } = useParams();
+	
   return (
     <div className="App">
      <BrowserRouter>
@@ -21,9 +22,15 @@ function App() {
 		  <Route path={'/:category'}>
             <Route index element={<Category />} />
 		 </Route>
-		 <Route path={'/cart'}>
+		 <Route path={'cart'}>
             <Route index element={<Cart />} />
-		 </Route>
+		</Route>
+		<Route path={'/cart/:Id'}>
+            <Route index element={<Cart />} />
+        </Route>
+		 
+		 
+		
         </Routes>
       </BrowserRouter>
     </div>

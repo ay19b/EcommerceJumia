@@ -140,6 +140,65 @@
 	}
   }
   }
+  .emptyBasket{
+     background-color: white;
+     text-align: center;
+	 margin-top: 15px;
+	 margin-bottom: 15px;
+	 padding: 25px;
+	 .iconEmpty{
+	   color: orange;
+       font-size: 4rem;
+	 }
+	 .empty{
+	   font-size: 19px;
+       margin-bottom: 8px;
+	 }
+	 .emptyCatg{
+	   font-size: 16px;
+       font-weight: 600;
+       margin-bottom: 16px;
+	 }
+	 .emptyBtn{
+	   background-color: #ff7f00!important;
+	   color: white!important;
+	 }
+  }
 }
 
+.btnRemove{
+		color:white!important;
+		background-color:orange!important;
+		width:100%;
+		border:none!important;
+		&:hover{
+			background-color:#d07f2b!important;
+		}
+}
+.MuiDialogTitle-root{
+   display: flex!important;
+   align-items: center!important;
+   justify-content: space-between!important;
+   svg{
+    cursor:pointer!important;
+   }
+}
+.MuiBackdrop-root{
+   background-color: rgba(0,0,0,0.2)!important;
+}
 
+.dialog{
+  .MuiSnackbar-root{
+    top: 0px!important;
+	width: 100vw!important;
+	text-align:center!important;
+  }
+  .MuiPaper-root{
+     background-color: green!important;
+	 width: 100%!important;
+	 display: flex!important;
+     justify-content: center!important;
+	 font-size: 15px!important;
+	 font-weight: bold!important;
+  }
+}

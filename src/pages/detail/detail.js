@@ -7,12 +7,11 @@ import {BsShieldFillCheck,BsTruck} from "react-icons/bs";
 import {SiHackthebox} from "react-icons/si";
 import {GrFacebookOption} from "react-icons/gr";
 import {TbTruckDelivery} from "react-icons/tb";
-import {Grid,Container,Typography,Button,Snackbar} from '@mui/material';
+import {Button,Snackbar} from '@mui/material';
 import Rating from '@mui/material/Rating';
 import Divider from '@mui/material/Divider';
 import {Link} from 'react-router-dom';
 import Layout from '../../component/layout/layout'
-import Data from '../../Library/stock'
 import './detail.scss'
 import black from "../../images/blackFri.png"
 import FormControl from '@mui/material/FormControl';
@@ -117,7 +116,7 @@ export default function Detail() {
                                  J'achète 
                                </Button>
 							   <Divider />
-							   <div className="listOffer" onClick={() => dispatch(incrementProduct(prod))}>Offres</div>
+							   <div className="listOffer">Offres</div>
 							   
 							   <div className='inf'>
 							    <div className="icon">
@@ -201,7 +200,7 @@ export default function Detail() {
                             autoHideDuration={1500}
                             open={state}
                             onClose={handleClose}
-                            message="Product added to Cart" 
+                            message="Produit ajouté au panier" 
                         /> 
                       
                

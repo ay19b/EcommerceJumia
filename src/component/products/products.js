@@ -29,7 +29,7 @@ export default function Category({cag,title}) {
                    <Link to={`/${cag}`}>
                     <div className='headProdRight'>
                        <h6>Voir plus</h6>
-					   <RiArrowDropRightLine />
+					             <RiArrowDropRightLine />
                     </div>
                  </Link>
               </div>

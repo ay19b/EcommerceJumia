@@ -203,6 +203,19 @@
 	  }
 	}
   }
+  .MuiSnackbar-root{
+    top: 0px!important;
+	width: 100vw!important;
+	text-align:center!important;
+  }
+  .MuiPaper-root{
+     background-color: green!important;
+	 width: 100%!important;
+	 display: flex!important;
+     justify-content: center!important;
+	 font-size: 15px!important;
+	 font-weight: bold!important;
+  }
 }
 
 

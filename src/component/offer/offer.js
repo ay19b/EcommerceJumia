@@ -15,18 +15,18 @@ export default function Offer() {
                   <Typography variant='h6'>Offres incontournables</Typography>
               </div>
               <div className='offerbanner'>
-                <div>
+                
                   <img src={skone} alt='a' className='img'/>
-                </div>
-                <div>
+                
+               
                   <img src={sktwo} alt='a' className='img'/>
-                </div>
-                <div>
+                
+               
                   <img src={skthree} alt='a' className='img'/>
-                </div>
-                <div>
+                
+                
                   <img src={skfour} alt='a' className='img'/>
-                </div>
+                
 
               </div>
         

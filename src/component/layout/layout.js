@@ -7,11 +7,11 @@ export default function Layout({children}) {
   return (
       <>
          <Nav />
-		  <Container>
+		     <Container>
 	        {children}
-	      </Container>	
-		  <ScrollToTop />
-	     <Footer />
+	       </Container>	
+		     <ScrollToTop />
+	       <Footer />
 		 
       </>
   );

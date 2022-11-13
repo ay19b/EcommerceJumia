@@ -11,17 +11,21 @@ import {FaTrash} from "react-icons/fa";
 import { useContext } from "react";
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
 import ariel from '../../images/supermarket/ariel.jpg'
 import { useSelector,useDispatch } from "react-redux";
 import {selectTotalAmount} from "../../features/variableSlice"
 import {incrementProduct,decrementProduct} from "../../features/productSlice"
 import {setTotalAmount} from "../../features/variableSlice"
 import {SelectProduct} from '../../features/productSlice'
-import {remove} from "../../features/productSlice"
+import AlertDialog from './dialoge'
+import {TiShoppingCart} from "react-icons/ti";
+
 
 const Cart=()=> {
   const { category } = useParams();
   const { menu } = useContext(MenuContext);
+  const location = useLocation();
   let totalAmount = useSelector(selectTotalAmount);
   const product = useSelector(SelectProduct);
   const cartProducts = product.filter((product) => product.added);
@@ -31,11 +35,16 @@ const Cart=()=> {
   
   const handleClickOpen = () => {
     setOpen(true);
+	
   };
 
   const handleClose = () => {
     setOpen(false);
   };
+  
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [location]);
   
   
   let sum = cartProducts
@@ -49,7 +58,25 @@ const Cart=()=> {
     return acc + curr;
   }, 0);
   
-  
+  if(cartProducts.length==0){
+    return(
+     <div className='cart'> 
+      <Layout>
+      <div className={!menu ? 'Sidebar close' : 'Sidebar'} >
+	         <Sidebar />	
+	  </div>
+      <div className='emptyBasket'>
+        <TiShoppingCart className='iconEmpty'/>
+        <h5 className='empty'>Votre panier est vide !</h5>
+        <h6 className='emptyCatg'>Parcourez nos catégories et découvrez nos meilleures offres !</h6>
+        <Link to="/">
+		  <Button color='primary' variant="contained" className='emptyBtn'>START YOUR SHOPPING</Button>
+		</Link>
+      </div>
+      </Layout>
+     </div> 
+    )
+  }
     return (
 	<div className='cart'> 
         <Layout>
@@ -80,12 +107,12 @@ const Cart=()=> {
 				</div>
 				<div className='Btns'>
                    <div className='dlt'>
-                   
-                    <Button variant="text" color='primary' startIcon={<FaTrash/>} onClick={() => dispatch(remove(prod))}>
+                   <Link to={`/cart/${prod.id}`} key={prod.id}>
+                    <Button variant="text" color='primary' startIcon={<FaTrash/>} onClick={handleClickOpen}>
                      supprimer
                     </Button>
-                   
-                  
+                   </Link>
+                    <AlertDialog  open={open} handleClose={handleClose} />
                     </div>  
                    
                      <div className='quantity'>

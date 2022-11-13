@@ -17,7 +17,14 @@ const Category=()=> {
   const { menu } = useContext(MenuContext);
   const { dispatch } = useContext(MenuContext);
   const products = useSelector(SelectProduct);
+  const location = useLocation();
  
+ 
+ useEffect(() => {
+    window.scrollTo(0,0);
+  }, [location]);
+  
+  
     return (
 	<div className='categories'>
       <Layout>
