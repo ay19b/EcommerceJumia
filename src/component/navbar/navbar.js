@@ -80,6 +80,9 @@ const Nav = () => {
 		  </div>
 		  <div className={!navbar?'LastHeader':'LastHeader active'}>
 		    <Container> 
+			  <div className={!menu ? 'Sidebar close' : 'Sidebar'} >
+	              <Sidebar />	
+	            </div>
 			  <div className='contLast'>
 			    
 			    <div className="logo">
@@ -106,13 +109,13 @@ const Nav = () => {
 				<div className="contItem">
 				   <div className="item">
 				     <AiOutlineUser className="iconItem user"/>
-                      Se connecter
-                     <HiOutlineChevronDown />
+                      <h6>Se connecter</h6>
+                     <HiOutlineChevronDown className="arrow"/>
 				   </div>
 				   <div className="item">
 				     <IoMdHelpCircleOutline className="iconItem"/>
-                      Aide
-                     <HiOutlineChevronDown />
+                     <h6>Aide</h6>
+                     <HiOutlineChevronDown className="arrow"/>
 				   </div>
 				   <div className="item">
 				   <Link to={'/cart'} className="item">
@@ -120,13 +123,27 @@ const Nav = () => {
 					 <Badge badgeContent={cartProducts.length} color="primary" className='iconNav'>
                        <HiOutlineShoppingCart className="iconItem"/>
                      </Badge>
-                      Panier
+                     <h6>Panier</h6>
                      </Link>
 				   </div>
 				</div>
 				
 			  </div>
-		      
+		      <div className='search'>
+			    <TextField
+                   id="outlined-hidden-label-small"
+				   className='input'
+                   size="small"
+                   variant="outlined"
+                   placeholder="Cherchez un produit, une marque ou une catégorie"
+                   InputProps={{
+                   startAdornment: <InputAdornment position="start">
+                                      <HiSearch />
+                                   </InputAdornment> 
+                   }} 
+
+                  />
+			  </div>
 			 </Container>
 		  </div>
        

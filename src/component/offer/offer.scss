@@ -17,7 +17,7 @@
 	  cursor:pointer;
 	  margin-bottom: 8px;
 	  &:hover{
-        transform: scale(1.05,1.05);
+        transform: scale(1.01,1.01);
         outline: none;
      }
 	}
@@ -26,3 +26,13 @@
 
 
 
+@media only screen and (max-width: 810px) {
+  .offer{
+    .offerbanner{
+     .img {
+       width: 98%;
+       height: 15rem;
+     }
+    }
+  }
+}

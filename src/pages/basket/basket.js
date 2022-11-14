@@ -62,9 +62,6 @@ const Cart=()=> {
     return(
      <div className='cart'> 
       <Layout>
-      <div className={!menu ? 'Sidebar close' : 'Sidebar'} >
-	         <Sidebar />	
-	  </div>
       <div className='emptyBasket'>
         <TiShoppingCart className='iconEmpty'/>
         <h5 className='empty'>Votre panier est vide !</h5>
@@ -80,9 +77,6 @@ const Cart=()=> {
     return (
 	<div className='cart'> 
         <Layout>
-		   <div className={!menu ? 'Sidebar close' : 'Sidebar'} >
-	         <Sidebar />	
-	       </div>
            <div className='contentCart'>     
 			<div className="CartProd">
 				<span className='title'>Panier ({cartProducts.length})</span>
@@ -95,10 +89,14 @@ const Cart=()=> {
              <div className="Cart" key={prod.id}>
 				  <div className="prod">
 				  <div className='imgProd'>
-				    <img src={prod.image} className='img'/>
+				    <Link to={`/product/${prod.id}`} key={product.id}>
+				      <img src={prod.image} className='img'/>
+					</Link>
 				  </div>
 				  <div className='infProd'>
-				    <h6 className='nameProd'>{prod.product}</h6>
+				    <Link to={`/product/${prod.id}`} key={product.id}>
+					  <h6 className='nameProd'>{prod.product}</h6>
+					</Link> 
 					<span className='seller'>Vendeur:</span>
 					<span className='remaining'>Quelques articles restants</span>
 					<p className='prg'>Éligible à la livraison gratuite (uniquement en point de retrait sur la Wilaya Alger.)</p>

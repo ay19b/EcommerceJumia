@@ -38,6 +38,48 @@
  }
 }
 
+@media only screen and (max-width: 1140px) {
+  .main{
+    
+	.info{
+	  display: none;
+	}
+	.banner {
+     width: 75vw;
+	 height: 24rem;
+	  .listImg{
+	     width: 100%;
+		 height: 100%;
+	  }
+	 .swiper{
+	   height: 100%!important;
+	 }
+    }
+  }
+}
 
 
+@media only screen and (max-width: 810px) {
+
+  .main{
+    .sidebar{
+	  display: none;
+	}
+	.info{
+	  display: none;
+	}
+	.banner {
+     width: 100vw;
+	 height: 25rem;
+	  .listImg{
+	     width: 100%;
+		 height: 100%;
+	  }
+	 .swiper{
+	   height: 100%!important;
+	 }
+    }
+  }
+
+}
 

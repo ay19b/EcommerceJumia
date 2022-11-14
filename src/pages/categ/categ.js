@@ -28,11 +28,7 @@ const Category=()=> {
     return (
 	<div className='categories'>
       <Layout>
-	  <div className={!menu ? 'Sidebar close' : 'Sidebar'}>
-	    <Sidebar />	
-	  </div>
-	   
-        <div className='linkPages'>
+	     <div className='linkPages'>
 	                  <span className='link'>
                         <Link to="/">Home</Link>
                       </span> 			

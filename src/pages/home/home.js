@@ -8,10 +8,13 @@ import Offer from '../../component/offer/offer';
 import Fashmia from '../../component/fashmia/fashmia';
 import {Container} from '@mui/material'
 import './home.scss'
+import {MenuContext} from '../../context/menuContext'
+import { useContext } from "react";
+import Sidebar from '../../component/sidebar/sidebar'
 
 
 export default function Home() {
-  
+    const { menu } = useContext(MenuContext);
   
     return (
 	<div className="home">

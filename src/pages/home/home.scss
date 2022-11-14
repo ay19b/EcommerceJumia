@@ -2,6 +2,32 @@
  .header .LastHeader .logo .menu{
      display:none;
  } 
+ .Sidebar{
+   transition:transform 0.6s;
+   z-index: 100;
+   position: relative;
+   &.close{
+	 transform: translate(-200%);
+   }
+  .sidebar{
+    position: fixed;
+    margin-top: -19px;
+    box-shadow: 0px 0px 9px 0px #ccc !important;
+    height: 23rem;
+	z-index: 1000;
+   }
+  }
+}
+
+
+@media only screen and (max-width: 810px) {
+ .home{
+ .Sidebar{
+  .sidebar{
+    margin-top: -80px;
+   }
+  }
+}
 }
 
 

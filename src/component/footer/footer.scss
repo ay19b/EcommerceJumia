@@ -3,11 +3,17 @@
   margin-top: 45px;
   overflow: hidden;
   padding-top: 10px;
+  .ContFooter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   .imgLogo{
     width:10rem;
 	margin-top: -60px;
+	flex: 0.15;
   }
   .secondGrid{
+    flex: 0.65;
     .InscText{
 	  color: #bdb6b6;
 	  margin-top: -3rem;
@@ -50,6 +56,59 @@
 	  width: 7.5rem;
 	  margin-top: -35px;
 	}
+  }
+  .langs{
+	    display: none;
+        justify-content: space-between;
+        align-items: center;
+		width: 97%;
+        margin-top: -35px;
+        margin-bottom: 5px;
+		
+	  .lang{
+	    display: flex;
+        justify-content: center;
+        align-items: center;
+		font-size: 1.2rem;
+		color: #918e8e;
+		cursor:pointer;
+		flex: 0.5;
+		border: 1px solid #ccc;
+        padding: 8px;
+		&.active{
+		  cursor: auto;
+          opacity: 0.5;
+		}
+		.img{
+	       width: 18px;
+           border-radius: 50%;
+           height: 18px;
+		   margin-right: 5px;
+	    }
+	   }
+	  }
+  }
+}
+
+
+
+
+@media only screen and (max-width: 810px) {
+  .footer{
+  .ContFooter{
+     flex-direction: column;
+	 padding: 10px;
+	 width: 100%;
+	 .secondGrid{
+	   display: none;
+	 }
+	 .lastGrid{
+	   display: none;
+	 }
+	 .langs{
+	   display: flex;
+	 }
+  }
   }
 }
 

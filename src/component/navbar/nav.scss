@@ -87,7 +87,7 @@
    @keyframes scrollNav{
           0%{
             opacity: 0;
-            transform: translateY(-60px);
+            transform: translateY(-40px);
           };
           100%{
             opacity: 1;
@@ -140,6 +140,10 @@
 		margin-right: 4px;
 		margin-bottom: 4px;
 	  }
+	  h6{
+	    font-weight: 500;
+        font-size: 1rem;
+	  }
 	  .MuiBadge-badge{
 	    background-color: #ff7f00 !important;
 	  }
@@ -148,8 +152,98 @@
 	  }
 	 }
    }
-   }
    
+   }
+   .Sidebar{
+   transition:transform 0.6s;
+   z-index: 100;
+   position: relative;
+   &.close{
+	 transform: translate(-200%);
+   }
+  .sidebar{
+    position: fixed;
+    margin-top: 55px;
+    box-shadow: 0px 0px 9px 0px #ccc !important;
+    height: 23rem;
+	z-index: 1000;
+   }
+  }
+   .search{
+     display:none;
+   }
 }
 
+}
+
+
+@media only screen and (max-width: 1140px) {
+  .header .LastHeader .contLast .contItem {
+    justify-content: flex-end;
+  }
+  .header .LastHeader .contLast .contItem .item h6{
+    display: none;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .header .MuiFormControl-root {
+    width: 70% !important;
+    margin-right: 1rem !important;
+  }
+}
+
+@media only screen and (max-width: 810px) {
+  .header{
+   .firstHeader{
+     .MuiContainer-root{
+	   padding-left: 0px !important;
+       padding-right: 0px !important;
+	 }
+     .imgNav {
+       height: 4.48rem;
+      }
+    }
+	.secondHeader{
+	  display:none;
+	}
+	.LastHeader{
+	 padding-bottom: 1px;
+	  .logo{
+	    .menu {
+          display: block!important;
+        }
+	  }
+	  .contLast{
+	   height: 4rem;
+	    .contItem{
+		 justify-content: flex-end;
+		 .item{
+		  margin-left: 5px;
+		   h6 {
+            display:none;
+          }
+		  .arrow{
+		    display:none;
+		  }
+		  &:nth-child(2){
+		    display:none;
+		  }
+		 } 
+		}
+		.fieldInput{
+		  display:none;
+		}
+	  }
+	  .search{
+	    display:block;
+		margin-bottom: 8px;
+	    .MuiFormControl-root {
+          width: 100% !important;
+        }
+		.MuiInputBase-root{
+		  border-radius: 18px!important;
+		}
+	  }
+	}
+  }
 }
