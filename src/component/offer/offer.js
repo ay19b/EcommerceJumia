@@ -5,14 +5,16 @@ import sktwo from '../../images/sktwo.jpg'
 import skthree from '../../images/skthree.jpg'
 import skfour from '../../images/skfour.jpg'
 import './offer.scss'
+import {useTranslation} from 'react-i18next'
+
 
 export default function Offer() {
-    
+    const { t, i18n } = useTranslation();
   return (
     <div className="offer">
         
               <div className='headProd'>
-                  <Typography variant='h6'>Offres incontournables</Typography>
+                  <Typography variant='h6'>{t('Offres incontournables')}</Typography>
               </div>
               <div className='offerbanner'>
                 

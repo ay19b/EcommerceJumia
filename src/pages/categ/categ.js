@@ -10,7 +10,7 @@ import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
 import {SelectProduct} from '../../features/productSlice'
 import {useSelector } from 'react-redux'
-
+import {useTranslation} from 'react-i18next'
 
 const Category=()=> {
   const { category } = useParams();
@@ -18,7 +18,7 @@ const Category=()=> {
   const { dispatch } = useContext(MenuContext);
   const products = useSelector(SelectProduct);
   const location = useLocation();
- 
+  const { t, i18n } = useTranslation();
  
  useEffect(() => {
     window.scrollTo(0,0);
@@ -30,10 +30,10 @@ const Category=()=> {
       <Layout>
 	     <div className='linkPages'>
 	                  <span className='link'>
-                        <Link to="/">Home</Link>
+                        <Link to="/">{t("Home")}</Link>
                       </span> 			
 			          <span className='link'>></span>
-			          <span className='link active'>{category}</span>
+			          <span className='link active'>{t(category)}</span>
 			 </div>  
 		 
         <div className='listProduct'>
@@ -49,7 +49,7 @@ const Category=()=> {
                     <Link to={`/product/${product.id}`} key={product.id} onClick={() => dispatch({ type: "open" })} >
                        <img src={product.image} className='img'/>
                        <h6 className='prodName'>{product.product}-{product.desc}</h6>
-                       <h6 className='price'>{product.price} DA</h6>
+                       <h6 className='price'>{product.price} {t("DA")}</h6>
                     </Link>
                   </div>
                      

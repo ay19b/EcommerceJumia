@@ -70,7 +70,7 @@
         justify-content: center;
         align-items: center;
 		font-size: 1.2rem;
-		color: #918e8e;
+		color: #424141;
 		cursor:pointer;
 		flex: 0.5;
 		border: 1px solid #ccc;
@@ -78,6 +78,9 @@
 		&.active{
 		  cursor: auto;
           opacity: 0.5;
+		  .img{
+		    cursor: text;
+		  }
 		}
 		.img{
 	       width: 18px;
@@ -93,8 +96,9 @@
 
 
 
-@media only screen and (max-width: 810px) {
+@media only screen and (max-width: 1000px) {
   .footer{
+  direction: ltr;
   .ContFooter{
      flex-direction: column;
 	 padding: 10px;

@@ -27,6 +27,8 @@ import {useDispatch} from 'react-redux'
 import {SelectProduct} from '../../features/productSlice'
 import {add} from "../../features/productSlice"
 import {incrementProduct,decrementProduct} from "../../features/productSlice"
+import {useTranslation} from 'react-i18next'
+
 
 export default function Detail() {
   const { id } = useParams();
@@ -38,6 +40,7 @@ export default function Detail() {
   const dispatch = useDispatch();
   const product =prod[id-1];
   const [state, setState] = useState(false);
+  const { t, i18n } = useTranslation();
 
 
   
@@ -76,14 +79,14 @@ export default function Detail() {
         <Layout>
 		    <div className='linkPages'>
 	                  <span className='link'>
-                        <Link to="/">Home</Link>
+                        <Link to="/">{t("Home")}</Link>
                       </span> 			
 			          <span className='link'>></span>
                       <span  className='link'>
-                         <Link to={`/${product.category}`}>{product.category}</Link>
+                         <Link to={`/${product.category}`}>{t(product.category)}</Link>
                       </span> 			
 			          <span className='link'>></span>
-			          <span className='link active'>detailProd</span>
+			          <span className='link active'>{product.desc}</span>
 			        </div>   
 					<div className="contentProd">
                        <div className='detailCont'>
@@ -93,7 +96,7 @@ export default function Detail() {
 						   <img src={product.image} />
 						   <img src={product.image} />
 						 </div>
-						 <div className="share">Partagez ce produit</div>
+						 <div className="share">{t("Partagez ce produit")}</div>
 						 <div className='iconSocial'>
 						  <GrFacebookOption className="icon"/>
 						  <AiOutlineTwitter className="icon"/>
@@ -106,35 +109,35 @@ export default function Detail() {
                                <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
 							   <img src={black} className="blackfrd"/>
 							   <Divider />
-                               <h6 className="price">{product.price} DA</h6>
-							   <h6 className='inf'>Quelques variantes avec peu de stock</h6>
-							   <h6 className='inf'>+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba</h6>
+                               <h6 className="price">{product.price} {t("DA")}</h6>
+							   <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
+							   <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
                                <Button disabled={product.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
-                                 J'achète 
+                                 {t("J'achète")} 
                                </Button>
 							   <Divider />
-							   <div className="listOffer">Offres</div>
+							   <div className="listOffer">{t("Offres")}</div>
 							   
 							   <div className='inf'>
 							    <div className="icon">
 				                 <AiTwotoneStar className='iconStar'/>
 				                </div>
-							    <h6>Ce produit n'est pas éligible à un retour, consultez les conditions ici.</h6>
+							    <h6>{t("Ce produit n'est pas éligible à un retour, consultez les conditions ici.")}</h6>
 							   </div>
 							   <div className='inf'>
 							    <div className="iconShield">
 				                 <BsShieldFillCheck className='shield'/>
 				                </div>
-							    <h6>Payez en ligne avec votre carte CIB/EDAHABIA en toute sécurité.</h6>
+							    <h6>{t("Payez en ligne avec votre carte CIB/EDAHABIA en toute sécurité.")}</h6>
 							   </div>
 							  
                          </div>   
                             
                        </div>
 					   <div className="delivery">
-					    <div className="title">Livraison & Retours</div>
+					    <div className="title">{t("Livraison & Retours")}</div>
 						<Divider />
-						<div className="address">Choisissez un lieu de livraison</div>
+						<div className="address">{t("Choisissez un lieu de livraison")}</div>
 						<FormControl >
                           <Select
                             value={age}
@@ -143,11 +146,11 @@ export default function Detail() {
                             inputProps={{ 'aria-label': 'Without label' }}
                           >
                             <MenuItem value="">
-                              <em>Alger</em>
+                              <em>{t("Alger")}</em>
                             </MenuItem>
-                            <MenuItem value={10}>Setif</MenuItem>
-                            <MenuItem value={20}>Oran</MenuItem>
-                            <MenuItem value={30}>Bejaia</MenuItem>
+                            <MenuItem value={10}>{t("Setif")}</MenuItem>
+                            <MenuItem value={20}>{t("Oran")}</MenuItem>
+                            <MenuItem value={30}>{t("Bejaia")}</MenuItem>
                           </Select>
                         </FormControl>
 						<FormControl >
@@ -158,34 +161,34 @@ export default function Detail() {
                             inputProps={{ 'aria-label': 'Without label' }}
                           >
                             <MenuItem value="">
-                              <em>Alger</em>
+                              <em>{t("Alger")}</em>
                             </MenuItem>
-                            <MenuItem value={10}>Setif</MenuItem>
-                            <MenuItem value={20}>Oran</MenuItem>
-                            <MenuItem value={30}>Bejaia</MenuItem>
+                            <MenuItem value={10}>{t("Setif")}</MenuItem>
+                            <MenuItem value={20}>{t("Oran")}</MenuItem>
+                            <MenuItem value={30}>{t("Bejaia")}</MenuItem>
                           </Select>
                         </FormControl>
 						<div className="DetailDelivery">
 						 <TbTruckDelivery className="icon"/>
 						 <div className="centerDeatil">
-						  <div>Livraison à domicile</div>
-						  <div className="dtl">Livraison 390 DA Le 13 novembre si vous commandez d'ici 6hrs 59mins</div>
+						  <div>{t("Livraison à domicile")}</div>
+						  <div className="dtl">{t("Livraison 390 DA Le 13 novembre si vous commandez d'ici 6hrs 59mins")}</div>
 						 </div>
-						 <div className="linkDtl">Details</div>
+						 <div className="linkDtl">{t("Details")}</div>
 						</div>
 						<div className="DetailDelivery">
 						 <HiOutlineBriefcase className="icon"/>
 						 <div className="centerDeatil">
-						  <div>Point de retrait </div>
-						  <div className="dtl">Livraison gratuite (vous économisez 300 DA)Retrait le 13 novembre si vous commandez d'ici 6hrs 59mins</div>
+						  <div>{t("Point de retrait")} </div>
+						  <div className="dtl">{t("Livraison gratuite (vous économisez 300 DA)Retrait le 13 novembre si vous commandez d'ici 6hrs 59mins")}</div>
 						 </div>
-						 <div className="linkDtl">Details</div>
+						 <div className="linkDtl">{t("Details")}</div>
 						</div>
 						<div className="DetailDelivery">
 						 <SiHackthebox className="icon"/>
 						 <div className="centerDeatil">
-						  <div>Modalités de retour</div>
-						  <div className="dtl">Retour gratuit sous 15 jours sur les produits Boutique Officielle et 7 jours sur les autres produitsEn savoir plus</div>
+						  <div>{t("Modalités de retour")}</div>
+						  <div className="dtl">{t("Retour gratuit sous 15 jours sur les produits Boutique Officielle et 7 jours sur les autres produitsEn savoir plus")}</div>
 						 </div>
 						 <div className="linkDtl"></div>
 						</div>
@@ -197,7 +200,7 @@ export default function Detail() {
                             autoHideDuration={1500}
                             open={state}
                             onClose={handleClose}
-                            message="Produit ajouté au panier" 
+                            message={t("Produit ajouté au panier")}
                         /> 
                       
                

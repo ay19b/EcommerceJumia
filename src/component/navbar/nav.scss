@@ -54,11 +54,14 @@
         justify-content: space-between;
         align-items: center;
 		font-size: 1.05rem;
-		color: #918e8e;
+		color: #424141;
 		cursor:pointer;
 		&.active{
 		  cursor: auto;
           opacity: 0.5;
+		  .img{
+		    cursor: text;
+		  }
 		}
 		.img{
 	       width: 18px;
@@ -161,6 +164,9 @@
    &.close{
 	 transform: translate(-200%);
    }
+   &.off{
+	 transform: translate(100%);
+   }
   .sidebar{
     position: fixed;
     margin-top: 55px;
@@ -189,6 +195,12 @@
   .header .MuiFormControl-root {
     width: 70% !important;
     margin-right: 1rem !important;
+  }
+  .header .search .MuiFormControl-root {
+    margin-right: 0rem !important;
+  }
+  .header .secondHeader{
+    display:none;
   }
 }
 

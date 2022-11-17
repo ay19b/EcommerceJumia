@@ -2,6 +2,7 @@
 	font-family: Roboto,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;
 	
 }
+
 .headProd{
       display: flex;
       justify-content: space-between;
@@ -20,7 +21,6 @@
 }
 .footer .MuiFormControl-root{
 	width: 17rem!important;
-    margin-right: 1rem!important;
 	background-color: white!important;
 	border-radius: 4px!important;
 }
@@ -41,15 +41,13 @@
 	background-color: #ff7f00!important;
 	letter-spacing: 0px!important;
 	font-size: 0.775rem !important;
-	width: 7rem !important;
-	padding: 8px 16px !important;
+	padding: 8px 12px !important;
 }
 .footer .MuiButtonBase-root{
 	background-color: transparent !important;
     letter-spacing: 0px !important;
     font-size: 0.775rem !important;
-    width: 7rem !important;
-    padding: 8px 16px !important;
+    padding: 8px 18px !important;
     color: white!important ;
     border: 0.7px solid white !important;
 }
@@ -100,7 +98,9 @@
   background-color: #939393!important;
 }
 
-
+[dir="rtl"] .MuiPaper-root{
+    direction: ltr!important;
+  }
 
 
 .inputfooter .MuiTextField-root{

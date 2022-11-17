@@ -1,13 +1,19 @@
 .top-to-btm{
   position: relative;
 }
-.icon-position{
+.right{
   position: fixed;
   bottom: 40px;
-  right: 18px;
+  right:18px;
   z-index: 20;
 }
-.icon-style{
+.left{
+  position: fixed;
+  bottom: 40px;
+  left:18px;
+  z-index: 20;
+}
+.iconScroll{
   background-color: white;
   border-radius: 50%;
   height: 40px;
@@ -17,7 +23,7 @@
   animation: movebtn 3s ease-in-out infinite;
   transition: all .5s ease-in-out;
 }
-.icon-style:hover{
+.iconScroll:hover{
   animation: none;
   background: #fff;
   color: #551B54;

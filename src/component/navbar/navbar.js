@@ -1,14 +1,9 @@
-import {Typography, Container,Grid,Badge,Button,InputAdornment,TextField} from '@mui/material'
+import {Container,Badge,Button,InputAdornment,TextField} from '@mui/material'
 import React,{useState,useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import {GiAlliedStar} from "react-icons/gi";
 import {HiSearch,HiMenu,HiOutlineShoppingCart,HiOutlineChevronDown} from "react-icons/hi";
 import {AiOutlineUser,AiTwotoneStar} from "react-icons/ai";
-import {BsPerson} from "react-icons/bs";
-import {TiShoppingCart} from "react-icons/ti";
-import {RiArrowDropDownLine} from 'react-icons/ri';
 import {IoMdHelpCircleOutline} from "react-icons/io";
-import Avatar from 'react-avatar';
 import algeria from "../../images/algeria.png";
 import france from "../../images/france.png";
 import jumia from "../../images/Jumia.png";
@@ -19,6 +14,7 @@ import { useContext } from "react";
 import Sidebar from '../sidebar/sidebar'
 import {SelectProduct} from '../../features/productSlice';
 import {useSelector} from "react-redux";
+import {useTranslation} from 'react-i18next'
 
 
 
@@ -28,7 +24,11 @@ const Nav = () => {
     const [navbar, setNavbar] = useState(false);
 	const product = useSelector(SelectProduct)
     const cartProducts = product.filter((product) => product.added);
-	
+	const { t, i18n } = useTranslation();
+    const handleChangeLng = (lng) => {
+		i18n.changeLanguage(lng);
+		localStorage.setItem("lng", lng);
+	};
 	const fixedNav=()=>{
       if(window.scrollY>=100){
         setNavbar(true)
@@ -60,27 +60,26 @@ const Nav = () => {
 				   <div className="star">
 				     <AiTwotoneStar className='iconStar'/>
 				   </div>			   
-				   <h6 className="text">Vendez sur Jumia</h6>
+				   <h6 className="text">{t('Vendez sur Jumia')}</h6>
 				</div>
 				<div className="contGrid">
 				  <div className='langs'>
-				    <div className="lang active">
+				    <div className={i18n.language == 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
                         <img src={france} className="img"/>
                         <h6>francais</h6>
                      </div>
-                     <div className="lang">
+                     <div className={i18n.language == 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
                         <img src={algeria} className="img"/>
                         <h6>العربية</h6>
                      </div>
 				  </div>
-				   
 				</div>
 			  </div>
 			 </Container>
 		  </div>
 		  <div className={!navbar?'LastHeader':'LastHeader active'}>
 		    <Container> 
-			  <div className={!menu ? 'Sidebar close' : 'Sidebar'} >
+			  <div  className={i18n.language == 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
 	              <Sidebar />	
 	            </div>
 			  <div className='contLast'>
@@ -96,7 +95,7 @@ const Nav = () => {
 				   className='input'
                    size="small"
                    variant="outlined"
-                   placeholder="Cherchez un produit, une marque ou une catégorie"
+                   placeholder={t("Cherchez un produit, une marque ou une catégorie")}
                    InputProps={{
                    startAdornment: <InputAdornment position="start">
                                       <HiSearch />
@@ -104,17 +103,17 @@ const Nav = () => {
                    }} 
 
                   />
-                  <Button variant="contained">RECHARCHER</Button>
+                  <Button variant="contained">{t("RECHARCHER")}</Button>
 				</div>
 				<div className="contItem">
 				   <div className="item">
 				     <AiOutlineUser className="iconItem user"/>
-                      <h6>Se connecter</h6>
+                      <h6>{t('Se connecter')}</h6>
                      <HiOutlineChevronDown className="arrow"/>
 				   </div>
 				   <div className="item">
 				     <IoMdHelpCircleOutline className="iconItem"/>
-                     <h6>Aide</h6>
+                     <h6>{t('Aide')}</h6>
                      <HiOutlineChevronDown className="arrow"/>
 				   </div>
 				   <div className="item">
@@ -123,7 +122,7 @@ const Nav = () => {
 					 <Badge badgeContent={cartProducts.length} color="primary" className='iconNav'>
                        <HiOutlineShoppingCart className="iconItem"/>
                      </Badge>
-                     <h6>Panier</h6>
+                     <h6>{t('Panier')}</h6>
                      </Link>
 				   </div>
 				</div>
@@ -135,7 +134,7 @@ const Nav = () => {
 				   className='input'
                    size="small"
                    variant="outlined"
-                   placeholder="Cherchez un produit, une marque ou une catégorie"
+                   placeholder={t("Cherchez un produit, une marque ou une catégorie")}
                    InputProps={{
                    startAdornment: <InputAdornment position="start">
                                       <HiSearch />

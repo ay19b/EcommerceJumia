@@ -38,7 +38,6 @@
      border: 3px solid transparent;
      margin-top: 12px;
      margin-bottom: 12px;
-	 margin-right: 4px;
 	 &:hover{
         transform: scale(1.05,1.05);
         boxShadow: 0px 0px 9px 0px #ccc;
@@ -65,6 +64,9 @@
        font-weight: 600;
        color: #262626;
 	   margin-left: 6px;
+	 }
+	 .rtl{
+	     direction: rtl;
 	 }
    
    }

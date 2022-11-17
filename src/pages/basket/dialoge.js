@@ -7,7 +7,7 @@ import {SelectProduct} from '../../features/productSlice'
 import { useSelector,useDispatch } from "react-redux";
 import {remove} from "../../features/productSlice"
 import './basket.scss'
-
+import {useTranslation} from 'react-i18next'
 
 export default function AlertDialog({open,handleClose}) {
   const prod = useSelector(SelectProduct);
@@ -15,7 +15,7 @@ export default function AlertDialog({open,handleClose}) {
   const { Id  } = useParams();
   const product =prod[Id-1];
   const [state, setState] = useState(false);
-  
+  const { t, i18n } = useTranslation();
   
   const Remove= () => {
     dispatch(remove(product))
@@ -38,17 +38,17 @@ export default function AlertDialog({open,handleClose}) {
 	   style={{backgroundColor: 'transparent!important'}}
      >
      <DialogTitle id="responsive-dialog-title">
-       {"Retirer du panier"}
+        {t("Retirer du panier")}
      <MdClose onClick={handleClose}/>
      </DialogTitle>
      <DialogContent>
      <DialogContentText id="alert-dialog-description">
-       Voulez-vous vraiment supprimer cet article du panier ?
+       {t("Voulez-vous vraiment supprimer cet article du panier ?")}
       </DialogContentText>
      </DialogContent>
      <DialogActions>
       <Button variant="outlined"  startIcon={<FaTrash />} className='btnRemove' onClick={Remove}  autoFocus>
-        Supprimer le produit 
+        {t('Supprimer le produit')}
       </Button>
      
      </DialogActions>
@@ -59,7 +59,7 @@ export default function AlertDialog({open,handleClose}) {
         autoHideDuration={10500}
         open={state}
         onClose={handleOff}
-        message="Le produit a été retiré du panier" 
+        message={t("Le produit a été retiré du panier")} 
     /> 
     </div>
      );

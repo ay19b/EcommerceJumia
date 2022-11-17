@@ -20,6 +20,14 @@
 }
 
 
+
+@media only screen and (max-width: 1110px) {
+ .home .header .LastHeader .logo .menu {
+   display: block !important;
+  }
+}
+
+
 @media only screen and (max-width: 810px) {
  .home{
  .Sidebar{

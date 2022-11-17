@@ -20,7 +20,7 @@ import {setTotalAmount} from "../../features/variableSlice"
 import {SelectProduct} from '../../features/productSlice'
 import AlertDialog from './dialoge'
 import {TiShoppingCart} from "react-icons/ti";
-
+import {useTranslation} from 'react-i18next'
 
 const Cart=()=> {
   const { category } = useParams();
@@ -31,7 +31,7 @@ const Cart=()=> {
   const cartProducts = product.filter((product) => product.added);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  
+   const { t, i18n } = useTranslation();
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -42,9 +42,7 @@ const Cart=()=> {
     setOpen(false);
   };
   
-  useEffect(() => {
-    window.scrollTo(0,0);
-  }, [location]);
+  
   
   
   let sum = cartProducts
@@ -64,10 +62,10 @@ const Cart=()=> {
       <Layout>
       <div className='emptyBasket'>
         <TiShoppingCart className='iconEmpty'/>
-        <h5 className='empty'>Votre panier est vide !</h5>
-        <h6 className='emptyCatg'>Parcourez nos catégories et découvrez nos meilleures offres !</h6>
+        <h5 className='empty'>{t("Votre panier est vide")} !</h5>
+        <h6 className='emptyCatg'>{t("Parcourez nos catégories et découvrez nos meilleures offres")}!</h6>
         <Link to="/">
-		  <Button color='primary' variant="contained" className='emptyBtn'>START YOUR SHOPPING</Button>
+		  <Button color='primary' variant="contained" className='emptyBtn'>{t("COMMENCEZ VOS ACHATS")}</Button>
 		</Link>
       </div>
       </Layout>
@@ -79,7 +77,7 @@ const Cart=()=> {
         <Layout>
            <div className='contentCart'>     
 			<div className="CartProd">
-				<span className='title'>Panier ({cartProducts.length})</span>
+				<span className='title'>{t("Panier")} ({cartProducts.length})</span>
 				<Divider/>
 				
 		{cartProducts
@@ -97,17 +95,17 @@ const Cart=()=> {
 				    <Link to={`/product/${prod.id}`} key={product.id}>
 					  <h6 className='nameProd'>{prod.product}</h6>
 					</Link> 
-					<span className='seller'>Vendeur:</span>
-					<span className='remaining'>Quelques articles restants</span>
-					<p className='prg'>Éligible à la livraison gratuite (uniquement en point de retrait sur la Wilaya Alger.)</p>
+					<span className='seller'>{t("Vendeur")}:</span>
+					<span className='remaining'>{t("Quelques articles restants")}</span>
+					<p className='prg'>{t("Éligible à la livraison gratuite (uniquement en point de retrait sur la Wilaya Alger.)")}</p>
 				  </div>
-				  <div className='price'>{prod.price}DA</div>
+				  <div className='price'>{prod.price}{t("DA")}</div>
 				</div>
 				<div className='Btns'>
                    <div className='dlt'>
                    <Link to={`/cart/${prod.id}`} key={prod.id}>
                     <Button variant="text" color='primary' startIcon={<FaTrash/>} onClick={handleClickOpen}>
-                     supprimer
+                     {t("supprimer")}
                     </Button>
                    </Link>
                     <AlertDialog  open={open} handleClose={handleClose} />
@@ -132,18 +130,18 @@ const Cart=()=> {
 
 			
            <div className='resume'>  
-                <div className="title">RÉSUMÉ DU PANIER</div>
+                <div className="title">{t("RÉSUMÉ DU PANIER")}</div>
 				<Divider />
 				<div className="amount">
-				  <span>Sous-total</span>
+				  <span>{t("Sous-total")}</span>
 				  <span>{sum}</span>
 				</div>
-				<p>Frais de livraison non inclus à ce stade.</p>
+				<p>{t("Frais de livraison non inclus à ce stade.")}</p>
 				<Divider />
-				<div className='freeDvl'>Livraison gratuite</div>
-				<p className='prg'>Les articles Jumia Express sont éligibles à la livraison gratuite en point de retrait sur Alger</p>
+				<div className='freeDvl'>{t("Livraison gratuite")}</div>
+				<p className='prg'>{t("Les articles Jumia Express sont éligibles à la livraison gratuite en point de retrait sur Alger")}</p>
 				<Divider />
-				<Button color='primary'variant="contained"className='btn'>Commander ({sum})DA</Button>
+				<Button color='primary'variant="contained"className='btn'>{t("Commander")} ({sum}){t("DA")}</Button>
 			</div> 			
 						
 			</div>		   

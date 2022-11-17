@@ -4,11 +4,13 @@ import {Link} from 'react-router-dom';
 import './sidebar.scss';
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
-
+import {useTranslation} from 'react-i18next'
 
 function Sidebar() {
     const { dispatch } = useContext(MenuContext);
     const { menu } = useContext(MenuContext);
+	const { t, i18n } = useTranslation();
+	
 	
     return(
       <div className="sidebar" onMouseLeave={() => dispatch({ type: "open" })} > 
@@ -18,7 +20,7 @@ function Sidebar() {
                 <Link to={path} key={id} onClick={() => dispatch({ type: "open" })}>           
                    <div key={id} className="itemBar">
                      {icon}
-                     <h6>{name}</h6>
+                     <h6>{t(name)}</h6>
                    </div>
                  </Link>    
               )

@@ -22,13 +22,13 @@ export default function Home() {
         <Main />
 	    <Pub />
 	    <Promo />
-	    <Category cag={'Supermarket'} title={'Supermarket'}/>
-	    <Category cag={'Fashion'} title={'Fashion'}/>
+	    <Category cag={'Supermarket'} title={'Supermarché'}/>
+	    <Category cag={'Fashion'} title={'Mode'}/>
 	    <Offer />
 	    <Fashmia />
-	    <Category cag={'appliance'}title={'appliance'} />
-	    <Category cag={'Sports'} title={'Sports'}/>
-	    <Category cag={'computing'} title={'computing'}/>
+	    <Category cag={'appliance'}title={'Électroménager, TV & Audio'} />
+	    <Category cag={'Sports'} title={'Articles de sport'}/>
+	    <Category cag={'computing'} title={'Informatique'}/>
     </Layout>
 	</div>
     )
