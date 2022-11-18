@@ -1,37 +1,25 @@
-import React, {useState,useEffect} from 'react'
-import { useParams,useLocation } from 'react-router-dom';
+import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Layout from '../../component/layout/layout'
-import { Typography , Container, Grid} from "@mui/material";
-import Data from '../../Library/stock'
 import './basket.scss'
-import Sidebar from '../../component/sidebar/sidebar'
-import {MenuContext} from '../../context/menuContext'
 import {FaTrash} from "react-icons/fa";
-import { useContext } from "react";
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
-import Snackbar from '@mui/material/Snackbar';
-import ariel from '../../images/supermarket/ariel.jpg'
 import { useSelector,useDispatch } from "react-redux";
-import {selectTotalAmount} from "../../features/variableSlice"
 import {incrementProduct,decrementProduct} from "../../features/productSlice"
-import {setTotalAmount} from "../../features/variableSlice"
 import {SelectProduct} from '../../features/productSlice'
 import AlertDialog from './dialoge'
 import {TiShoppingCart} from "react-icons/ti";
 import {useTranslation} from 'react-i18next'
+import {Helmet} from "react-helmet";
+import mark from '../../images/mark.png'
 
 const Cart=()=> {
-  const { category } = useParams();
-  const { menu } = useContext(MenuContext);
-  const location = useLocation();
-  let totalAmount = useSelector(selectTotalAmount);
   const product = useSelector(SelectProduct);
   const cartProducts = product.filter((product) => product.added);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-   const { t, i18n } = useTranslation();
+   const {t} = useTranslation();
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -56,9 +44,13 @@ const Cart=()=> {
     return acc + curr;
   }, 0);
   
-  if(cartProducts.length==0){
+  if(cartProducts.length===0){
     return(
      <div className='cart'> 
+	   <Helmet>
+             <title>{t('Cart')}</title>
+			 <link rel="icon" href={mark} />
+        </Helmet>
       <Layout>
       <div className='emptyBasket'>
         <TiShoppingCart className='iconEmpty'/>
@@ -74,6 +66,10 @@ const Cart=()=> {
   }
     return (
 	<div className='cart'> 
+	      <Helmet>
+             <title>{t('Cart')}</title>
+			 <link rel="icon" href={mark} />
+          </Helmet>
         <Layout>
            <div className='contentCart'>     
 			<div className="CartProd">
@@ -88,7 +84,7 @@ const Cart=()=> {
 				  <div className="prod">
 				  <div className='imgProd'>
 				    <Link to={`/product/${prod.id}`} key={product.id}>
-				      <img src={prod.image} className='img'/>
+				      <img src={prod.image} alt={prod.id} className='img'/>
 					</Link>
 				  </div>
 				  <div className='infProd'>
@@ -112,9 +108,9 @@ const Cart=()=> {
                     </div>  
                    
                      <div className='quantity'>
-                      <Button color='primary'  variant="contained" disabled={prod.quantity==1} onClick={() => dispatch(decrementProduct(prod))} >-</Button>
+                      <Button color='primary'  variant="contained" disabled={prod.quantity===1} onClick={() => dispatch(decrementProduct(prod))} >-</Button>
                         <h6 className='itemQuant'>{prod.quantity}</h6>
-                      <Button color='primary'  variant="contained" disabled={prod.quantity==10} onClick={() => dispatch(incrementProduct(prod))}>+</Button>
+                      <Button color='primary'  variant="contained" disabled={prod.quantity===10} onClick={() => dispatch(incrementProduct(prod))}>+</Button>
                      </div>
                    
                   </div>

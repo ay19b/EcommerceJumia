@@ -1,5 +1,4 @@
 import React from 'react';
-import {FaAppleAlt} from "react-icons/fa";
 import {HiOutlineOfficeBuilding,HiOutlineDotsCircleHorizontal} from "react-icons/hi";
 import {BsPhone} from "react-icons/bs";
 import {GiHealthPotion} from "react-icons/gi";
@@ -7,7 +6,6 @@ import {GiMuscleUp} from "react-icons/gi";
 import {FaBaby} from "react-icons/fa";
 import {HiOutlineDesktopComputer} from "react-icons/hi";
 import {GrGamepad} from "react-icons/gr";
-import {BiGame} from "react-icons/bi";
 import {CiApple} from "react-icons/ci";
 import {TbMotorbike} from "react-icons/tb";
 

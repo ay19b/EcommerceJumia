@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import {Dialog,DialogContentText,DialogTitle,DialogActions,DialogContent,Button,Snackbar} from '@mui/material'
 import {MdClose} from "react-icons/md";
 import {FaTrash} from "react-icons/fa";
@@ -15,7 +15,7 @@ export default function AlertDialog({open,handleClose}) {
   const { Id  } = useParams();
   const product =prod[Id-1];
   const [state, setState] = useState(false);
-  const { t, i18n } = useTranslation();
+  const {t} = useTranslation();
   
   const Remove= () => {
     dispatch(remove(product))

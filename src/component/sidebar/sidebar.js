@@ -8,8 +8,7 @@ import {useTranslation} from 'react-i18next'
 
 function Sidebar() {
     const { dispatch } = useContext(MenuContext);
-    const { menu } = useContext(MenuContext);
-	const { t, i18n } = useTranslation();
+	const {t} = useTranslation();
 	
 	
     return(

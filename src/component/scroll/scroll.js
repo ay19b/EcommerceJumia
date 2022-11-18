@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {MdOutlineKeyboardArrowUp} from "react-icons/md";
-import "./scroll.css";
+import "./scroll.scss";
 import {useTranslation} from 'react-i18next'
 
 
 const ScrollToTop = () => {
-	const { t, i18n } = useTranslation();
+	const {i18n } = useTranslation();
     const [showTopBtn, setShowTopBtn] = useState(false);
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -27,7 +27,7 @@ const ScrollToTop = () => {
             {" "}
             {showTopBtn && (
                 <MdOutlineKeyboardArrowUp
-					className={i18n.language == 'ar'?"left iconScroll":"right iconScroll"}
+					className={i18n.language === 'ar'?"left iconScroll":"right iconScroll"}
                     onClick={goToTop}
                 />
             )}{" "}

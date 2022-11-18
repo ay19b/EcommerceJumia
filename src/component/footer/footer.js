@@ -4,7 +4,7 @@ import mark from "../../images/mark.png";
 import google from "../../images/google.svg";
 import app from "../../images/app.svg";
 import {HiEnvelope} from "react-icons/hi2";
-import { Grid ,Container, Typography,TextField,InputAdornment,Button} from '@mui/material';
+import {Container,TextField,InputAdornment,Button} from '@mui/material';
 import './footer.scss'
 import algeria from "../../images/algeria.png";
 import france from "../../images/france.png";
@@ -23,7 +23,7 @@ const Footer=()=> {
      <Container>
       <div className='ContFooter'>
        
-        <img src={jumiaFooter} className='imgLogo'/>
+        <img src={jumiaFooter} alt='jumiaFooter' className='imgLogo'/>
         
         <div  className='secondGrid'>
 		        <div className='InscText'>
@@ -48,24 +48,24 @@ const Footer=()=> {
         </div>
         <div className='lastGrid'>
 		  <div className='poche'>
-		    <img src={mark} className='mark'/>
+		    <img src={mark} className='mark' alt="star"/>
             <div className="pocheText">
                <h6 className='text'>{t('JUMIA DANS VOTRE POCHE!')}</h6>
 			   <h6>{t('Téléchargez notre application gratuite')}</h6>
              </div>
           </div>
-		  <img src={google} className='imgSvg' style={{marginRight: '6px'}}/>
-		  <img src={app} className='imgSvg'/>
+		  <img src={google} alt="googleApp" className='imgSvg' style={{marginRight: '6px'}}/>
+		  <img src={app} alt="app" className='imgSvg'/>
         </div>
 		
 		
 				 <div className='langs'>
-				    <div className={i18n.language == 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
-                        <img src={france} className="img"/>
+				    <div className={i18n.language === 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
+                        <img src={france} className="img" alt="france"/>
                         <h6>francais</h6>
                      </div>
-                     <div className={i18n.language == 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
-                        <img src={algeria} className="img"/>
+                     <div className={i18n.language === 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
+                        <img src={algeria} className="img" alt="algeria"/>
                         <h6>العربية</h6>
                      </div>
 				  </div>

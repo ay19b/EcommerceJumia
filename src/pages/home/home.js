@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import Layout from '../../component/layout/layout';
 import Main from '../../component/main/main';
 import Pub from '../../component/pub/pub';
@@ -6,18 +6,20 @@ import Promo from '../../component/promo/promo';
 import Category from '../../component/products/products';
 import Offer from '../../component/offer/offer';
 import Fashmia from '../../component/fashmia/fashmia';
-import {Container} from '@mui/material'
 import './home.scss'
-import {MenuContext} from '../../context/menuContext'
-import { useContext } from "react";
-import Sidebar from '../../component/sidebar/sidebar'
-
+import {Helmet} from "react-helmet";
+import {useTranslation} from 'react-i18next'
+import mark from '../../images/mark.png'
 
 export default function Home() {
-    const { menu } = useContext(MenuContext);
+    const {t} = useTranslation();
   
     return (
 	<div className="home">
+	 <Helmet>
+        <title>{t('Jumia')}</title>
+		<link rel="icon" href={mark} />
+     </Helmet>
     <Layout>
         <Main />
 	    <Pub />

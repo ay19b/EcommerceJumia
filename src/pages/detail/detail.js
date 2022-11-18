@@ -2,8 +2,8 @@ import React,{useState,useEffect} from 'react'
 import { useParams,useLocation } from 'react-router-dom';
 import {MdOutlineAddShoppingCart} from 'react-icons/md'
 import {HiOutlineBriefcase} from 'react-icons/hi'
-import {AiOutlineUser,AiTwotoneStar,AiOutlineTwitter} from "react-icons/ai";
-import {BsShieldFillCheck,BsTruck} from "react-icons/bs";
+import {AiTwotoneStar,AiOutlineTwitter} from "react-icons/ai";
+import {BsShieldFillCheck} from "react-icons/bs";
 import {SiHackthebox} from "react-icons/si";
 import {GrFacebookOption} from "react-icons/gr";
 import {TbTruckDelivery} from "react-icons/tb";
@@ -17,22 +17,18 @@ import black from "../../images/blackFri.png"
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
 import Category from '../../component/products/products'
-import Sidebar from '../../component/sidebar/sidebar'
-import {MenuContext} from '../../context/menuContext'
-import { useContext } from "react";
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux'
 import {SelectProduct} from '../../features/productSlice'
 import {add} from "../../features/productSlice"
-import {incrementProduct,decrementProduct} from "../../features/productSlice"
 import {useTranslation} from 'react-i18next'
+import {Helmet} from "react-helmet";
+import mark from '../../images/mark.png'
 
 
 export default function Detail() {
   const { id } = useParams();
-  const { menu } = useContext(MenuContext);
   const location = useLocation();
   const [age, setAge] = useState('');
   const [count, setCount] = useState(0);
@@ -41,7 +37,6 @@ export default function Detail() {
   const product =prod[id-1];
   const [state, setState] = useState(false);
   const { t, i18n } = useTranslation();
-
 
   
   const handleChange = (event) => {
@@ -76,6 +71,10 @@ export default function Detail() {
   
     return (
 	  <div className='detail'> 
+	        <Helmet>
+                <title>{product.product}</title>
+				<link rel="icon" href={mark} />
+            </Helmet>
         <Layout>
 		    <div className='linkPages'>
 	                  <span className='link'>
@@ -91,10 +90,10 @@ export default function Detail() {
 					<div className="contentProd">
                        <div className='detailCont'>
 					    <div className="imgProd">
-						  <img src={product.image} className='img'/>
+						  <img src={product.image} alt={product.desc} className='img' style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}}/>
 						 <div className='listImg'>
-						   <img src={product.image} />
-						   <img src={product.image} />
+						   <img src={product.image} alt={product.desc} />
+						   <img src={product.image} alt={product.desc} />
 						 </div>
 						 <div className="share">{t("Partagez ce produit")}</div>
 						 <div className='iconSocial'>
@@ -107,7 +106,7 @@ export default function Detail() {
                          <div className='infDtl' >
                                <h6 className="prod">{product.desc}</h6>
                                <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
-							   <img src={black} className="blackfrd"/>
+                               <img src={black} alt='blackFri' className="blackfrd"/>
 							   <Divider />
                                <h6 className="price">{product.price} {t("DA")}</h6>
 							   <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>

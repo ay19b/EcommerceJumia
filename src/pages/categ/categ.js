@@ -2,23 +2,21 @@ import React,{useEffect} from 'react'
 import { useParams,useLocation } from 'react-router-dom';
 import {Link} from 'react-router-dom'
 import Layout from '../../component/layout/layout'
-import { Typography , Container, Grid} from "@mui/material";
-import Data from '../../Library/stock'
 import './catg.scss'
-import Sidebar from '../../component/sidebar/sidebar'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
 import {SelectProduct} from '../../features/productSlice'
 import {useSelector } from 'react-redux'
 import {useTranslation} from 'react-i18next'
+import {Helmet} from "react-helmet";
+import mark from '../../images/mark.png'
 
 const Category=()=> {
   const { category } = useParams();
-  const { menu } = useContext(MenuContext);
   const { dispatch } = useContext(MenuContext);
   const products = useSelector(SelectProduct);
   const location = useLocation();
-  const { t, i18n } = useTranslation();
+  const {t} = useTranslation();
  
  useEffect(() => {
     window.scrollTo(0,0);
@@ -27,6 +25,10 @@ const Category=()=> {
   
     return (
 	<div className='categories'>
+	   <Helmet>
+           <title>{t(category)}</title>
+		   <link rel="icon" href={mark} />
+       </Helmet>
       <Layout>
 	     <div className='linkPages'>
 	                  <span className='link'>
@@ -47,7 +49,7 @@ const Category=()=> {
                     
                   <div className='product' key={product.id}>
                     <Link to={`/product/${product.id}`} key={product.id} onClick={() => dispatch({ type: "open" })} >
-                       <img src={product.image} className='img'/>
+                       <img src={product.image} alt={product.desc} className='img'/>
                        <h6 className='prodName'>{product.product}-{product.desc}</h6>
                        <h6 className='price'>{product.price} {t("DA")}</h6>
                     </Link>

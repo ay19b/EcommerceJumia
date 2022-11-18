@@ -2,7 +2,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import pub from "./data";
 import './pub.scss';
-import {Container} from '@mui/material'
 
 
 
@@ -39,7 +38,7 @@ function Pub(){
                const {id,img}=item;
                return(
                    
-                       <img src={img} className='listImg' />
+                       <img src={img} alt={id} className='listImg' />
 
                    
                )

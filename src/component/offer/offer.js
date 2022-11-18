@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography , Container,Grid} from "@mui/material";
+import {Typography} from "@mui/material";
 import skone from '../../images/skone.jpg'
 import sktwo from '../../images/sktwo.jpg'
 import skthree from '../../images/skthree.jpg'
@@ -9,7 +9,7 @@ import {useTranslation} from 'react-i18next'
 
 
 export default function Offer() {
-    const { t, i18n } = useTranslation();
+    const {t} = useTranslation();
   return (
     <div className="offer">
         

@@ -1,10 +1,8 @@
 import {RiArrowDropRightLine,RiArrowDropLeftLine} from "react-icons/ri"
 import {Link} from 'react-router-dom';
 import {useSelector } from 'react-redux'
-import { Typography , Container} from "@mui/material";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Data from '../../Library/stock'
 import './products.scss'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
@@ -33,7 +31,6 @@ const responsive = {
 
 export default function Category({cag,title}) {
     const { dispatch } = useContext(MenuContext);
-    const { menu } = useContext(MenuContext);
 	const products = useSelector(SelectProduct);
 	const { t, i18n } = useTranslation();
 	
@@ -45,7 +42,7 @@ export default function Category({cag,title}) {
                    <Link to={`/${cag}`}>
                     <div className='headProdRight'>
                        <h6>{t('Voir plus')}</h6>
-					  {i18n.language == 'ar'?<RiArrowDropLeftLine/>:<RiArrowDropRightLine/>}   
+					  {i18n.language === 'ar'?<RiArrowDropLeftLine/>:<RiArrowDropRightLine/>}   
 						   
                     </div>
                  </Link>
@@ -63,9 +60,9 @@ export default function Category({cag,title}) {
                         return(
                            <div key={product.id} className='product'>
                             <Link to={`/product/${product.id}`} key={product.id} onClick={() => dispatch({ type: "open" })}>
-                              <img src={product.image} className='img'/>
+                              <img src={product.image} alt={product.id} className='img'/>
                               <h6 className='prodName'>{product.product}-{product.desc}</h6>
-                              <h6  className={i18n.language == 'ar'?"price rtl":'price'}>{product.price} {t("DA")} </h6>
+                              <h6  className={i18n.language === 'ar'?"price rtl":'price'}>{product.price} {t("DA")} </h6>
                             </Link>
                            </div> 
                              )

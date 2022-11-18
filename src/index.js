@@ -12,16 +12,9 @@ import './i18n';
 
 let persistor = persistStore(store);
 
-
-
-  
-
-
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<Suspense fallback="loading">
+<Suspense fallback="">
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

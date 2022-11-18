@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 import MenuReducer from "./menuReducer";
-import { useContext } from "react";
 
 const INITIAL_STATE = {
   menu: false,

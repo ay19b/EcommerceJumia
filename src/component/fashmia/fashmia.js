@@ -1,11 +1,11 @@
 import React from 'react'
-import { Typography , Container,Grid} from "@mui/material";
+import { Typography} from "@mui/material";
 import one from '../../images/fashionJumia.jpg'
 import './fashmia.scss'
 import {useTranslation} from 'react-i18next'
 
 export default function Fashmia() {
-   const { t, i18n } = useTranslation();
+   const {t} = useTranslation();
    
   return (
     <div className="fashmia">

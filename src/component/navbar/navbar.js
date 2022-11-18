@@ -49,7 +49,7 @@ const Nav = () => {
        <div className='firstHeader'>
 		    <Container> 
 		      <div className='imgNav'>
-			    <img src={Top} />
+			    <img src={Top} alt="banner"/>
 			  </div>
 			 </Container>
 		  </div>
@@ -64,12 +64,12 @@ const Nav = () => {
 				</div>
 				<div className="contGrid">
 				  <div className='langs'>
-				    <div className={i18n.language == 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
-                        <img src={france} className="img"/>
+				    <div className={i18n.language === 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
+                        <img src={france} alt="france" className="img"/>
                         <h6>francais</h6>
                      </div>
-                     <div className={i18n.language == 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
-                        <img src={algeria} className="img"/>
+                     <div className={i18n.language === 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
+                        <img src={algeria} alt="algeria" className="img"/>
                         <h6>العربية</h6>
                      </div>
 				  </div>
@@ -79,14 +79,14 @@ const Nav = () => {
 		  </div>
 		  <div className={!navbar?'LastHeader':'LastHeader active'}>
 		    <Container> 
-			  <div  className={i18n.language == 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
+			  <div  className={i18n.language === 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
 	              <Sidebar />	
 	            </div>
 			  <div className='contLast'>
 			    
 			    <div className="logo">
 				 <HiMenu className="menu" onClick={() => dispatch({ type: "TOGGLE" })}/>
-				 <Link to="/" className="imglogo"><img src={jumia} className="img"/></Link>
+				 <Link to="/" className="imglogo"><img src={jumia} className="img" alt='logo'/></Link>
 				</div>
 				
 				<div className="fieldInput">
@@ -140,7 +140,6 @@ const Nav = () => {
                                       <HiSearch />
                                    </InputAdornment> 
                    }} 
-
                   />
 			  </div>
 			 </Container>

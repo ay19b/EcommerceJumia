@@ -4,13 +4,11 @@ import Detail from './pages/detail/detail';
 import Category from './pages/categ/categ';
 import Cart from './pages/basket/basket';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useParams,useLocation } from 'react-router-dom';
 import {useTranslation} from 'react-i18next'
 
 
 function App() {
-	const { category } = useParams();
-	const { t, i18n } = useTranslation();
+	const {t} = useTranslation();
 	
 	
   return (
@@ -33,9 +31,7 @@ function App() {
             <Route index element={<Cart />} />
         </Route>
 		 
-		 
-		
-        </Routes>
+	   </Routes>
       </BrowserRouter>
     </div>
   );

@@ -28,7 +28,7 @@ function Carousel(){
                const {id,img}=item;
                return(
                    <SwiperSlide key={id} className='listImg'>
-                       <img src={img} className='listImg' />
+                       <img src={img} alt={id} className='listImg' />
                    </SwiperSlide>
                    
                )

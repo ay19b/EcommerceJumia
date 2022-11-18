@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography , Container,Grid} from "@mui/material";
+import { Typography} from "@mui/material";
 import one from '../../images/codePr1.jpg'
 import two from '../../images/codePr2.jpg'
 import three from '../../images/codePr3.jpg'
@@ -8,7 +8,7 @@ import {useTranslation} from 'react-i18next'
 
 
 export default function Promo() {
-	const { t, i18n } = useTranslation();
+	const {t} = useTranslation();
 	
 	
   return (
