@@ -25,7 +25,7 @@ import {add} from "../../features/productSlice"
 import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'
-
+import titleLogo from '../../images/titleLogo.png'
 
 export default function Detail() {
   const { id } = useParams();
@@ -37,7 +37,10 @@ export default function Detail() {
   const product =prod[id-1];
   const [state, setState] = useState(false);
   const { t, i18n } = useTranslation();
-
+   function Error(e){
+		e.target.onerror = null
+        e.target.src = mark
+	} 
   
   const handleChange = (event) => {
     setAge(event.target.value);
@@ -72,13 +75,13 @@ export default function Detail() {
     return (
 	  <div className='detail'> 
 	        <Helmet>
-                <title>{product.product}</title>
-				<link rel="icon" href={mark} />
+                <title>{product.desc}</title>
+				<link rel="icon" href={titleLogo} />
             </Helmet>
         <Layout>
 		    <div className='linkPages'>
 	                  <span className='link'>
-                        <Link to="/">{t("Home")}</Link>
+                        <Link to="/">{t("Accueil")}</Link>
                       </span> 			
 			          <span className='link'>></span>
                       <span  className='link'>
@@ -90,10 +93,10 @@ export default function Detail() {
 					<div className="contentProd">
                        <div className='detailCont'>
 					    <div className="imgProd">
-						  <img src={product.image} alt={product.desc} className='img' style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}}/>
+						  <img src={product.image} onError={Error} alt={product.desc} className='img' style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}}/>
 						 <div className='listImg'>
-						   <img src={product.image} alt={product.desc} />
-						   <img src={product.image} alt={product.desc} />
+						   <img src={product.image} onError={Error} alt={product.desc} />
+						   <img src={product.image} onError={Error} alt={product.desc} />
 						 </div>
 						 <div className="share">{t("Partagez ce produit")}</div>
 						 <div className='iconSocial'>
@@ -105,7 +108,9 @@ export default function Detail() {
 						 
                          <div className='infDtl' >
                                <h6 className="prod">{product.desc}</h6>
-                               <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
+							   <div className="stars">
+                                 <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
+							   </div>
                                <img src={black} alt='blackFri' className="blackfrd"/>
 							   <Divider />
                                <h6 className="price">{product.price} {t("DA")}</h6>

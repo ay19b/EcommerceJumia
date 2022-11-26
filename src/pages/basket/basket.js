@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {Link} from 'react-router-dom'
+import React,{useState,useEffect} from 'react'
+import {Link,useLocation } from 'react-router-dom';
 import Layout from '../../component/layout/layout'
 import './basket.scss'
 import {FaTrash} from "react-icons/fa";
@@ -13,13 +13,19 @@ import {TiShoppingCart} from "react-icons/ti";
 import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'
+import titleLogo from '../../images/titleLogo.png'
 
 const Cart=()=> {
   const product = useSelector(SelectProduct);
   const cartProducts = product.filter((product) => product.added);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-   const {t} = useTranslation();
+  const location = useLocation();
+  const {t} = useTranslation();
+  function Error(e){
+		e.target.onerror = null
+        e.target.src = mark
+	} 
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,7 +36,9 @@ const Cart=()=> {
     setOpen(false);
   };
   
-  
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [location]);
   
   
   let sum = cartProducts
@@ -48,8 +56,8 @@ const Cart=()=> {
     return(
      <div className='cart'> 
 	   <Helmet>
-             <title>{t('Cart')}</title>
-			 <link rel="icon" href={mark} />
+             <title>{t("Panier")}</title>
+			 <link rel="icon" href={titleLogo} />
         </Helmet>
       <Layout>
       <div className='emptyBasket'>
@@ -67,8 +75,8 @@ const Cart=()=> {
     return (
 	<div className='cart'> 
 	      <Helmet>
-             <title>{t('Cart')}</title>
-			 <link rel="icon" href={mark} />
+             <title>{t("Panier")}</title>
+			 <link rel="icon" href={titleLogo} />
           </Helmet>
         <Layout>
            <div className='contentCart'>     
@@ -84,7 +92,7 @@ const Cart=()=> {
 				  <div className="prod">
 				  <div className='imgProd'>
 				    <Link to={`/product/${prod.id}`} key={product.id}>
-				      <img src={prod.image} alt={prod.id} className='img'/>
+				      <img src={prod.image} onError={Error} alt={prod.id} className='img'/>
 					</Link>
 				  </div>
 				  <div className='infProd'>

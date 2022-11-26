@@ -2,6 +2,46 @@
   .listImg{
 	  width: 70%;
 }
+.react-multi-carousel-list {
+  margin-top: 35px!important;
+  background-color: white!important;
+  padding: 17px!important;
+}
+.react-multi-carousel-item {
+  margin-right: -26px !important;
+}
+.react-multiple-carousel__arrow--right {
+  right: calc(0% + 1px)!important;
+}
+.react-multiple-carousel__arrow--left {
+  left: calc(0% + 1px)!important;
+}
 
 
+.react-multiple-carousel__arrow {
+  background: rgb(255, 255, 255)!important;
+  min-width: 36px!important;
+  min-height: 156px!important;
+  opacity: 1!important;
+  cursor: pointer!important;
+  margin-right: -2px!important;
+  z-index: 10!important;
+}
+.react-multiple-carousel__arrow--left {
+  margin-left: -1px!important;
+}
+.react-multiple-carousel__arrow::before {
+  border-radius: 48% !important;
+  width: 2rem !important;
+  height: 2rem!important;
+  background-color:#939253 !important;
+  text-align: center!important;
+  display: flex!important;
+  justify-content: center!important;
+  align-items: center!important;
+}
+.react-multiple-carousel__arrow:hover::before {
+
+  background-color: #939393!important;
+}
 }

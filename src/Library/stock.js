@@ -1,13 +1,13 @@
-import cocksoda from '../images/supermarket/cocksoda.jpg'
-import LatoMilk from '../images/supermarket/milk.jpg'
-import Soap from '../images/supermarket/omo.jpg'
-import pasta from '../images/supermarket/pasta.jpg'
-import sugar from '../images/supermarket/sugar.jpg'
-import Nutella from "../images/supermarket/nutella.jpg";
-import chat from "../images/supermarket/le chat.jpg";
-import choc from "../images/supermarket/choc.jpg";
-import ariel from "../images/supermarket/ariel.jpg";
-import shamp from "../images/supermarket/shamp.jpg";
+import cocksoda from '../images/Supermarché/cocksoda.jpg'
+import LatoMilk from '../images/Supermarché/milk.jpg'
+import Soap from '../images/Supermarché/omo.jpg'
+import pasta from '../images/Supermarché/pasta.jpg'
+import sugar from '../images/Supermarché/sugar.jpg'
+import Nutella from "../images/Supermarché/nutella.jpg";
+import chat from "../images/Supermarché/le chat.jpg";
+import choc from "../images/Supermarché/choc.jpg";
+import ariel from "../images/Supermarché/ariel.jpg";
+import shamp from "../images/Supermarché/shamp.jpg";
 
 import clock from "../images/office/clock.jpg";
 import TVS from "../images/office/TVS.jpg";
@@ -21,10 +21,10 @@ import phyto from "../images/beauty/phyto.jpg";
 import Ceinture from "../images/beauty/Ceinture.jpg";
 import Fingertip from "../images/beauty/Fingertip.jpg";
 
-import Skmei from "../images/Fashion/Skmei.jpg";
-import Basket from "../images/Fashion/Baskets.jpg";
-import Collier from "../images/Fashion/Collier.jpg";
-import Decathlon  from "../images/Fashion/Decathlon.jpg";
+import Skmei from "../images/Mode/Skmei.jpg";
+import Basket from "../images/Mode/Baskets.jpg";
+import Collier from "../images/Mode/Collier.jpg";
+import Decathlon  from "../images/Mode/Decathlon.jpg";
 
 
 
@@ -34,34 +34,34 @@ import nokia from '../images/pnones_tablets/nokia.jpg'
 import techno from '../images/pnones_tablets/techno.jpg'
 import tablet from '../images/pnones_tablets/tablet.jpg'
 
-import speaker1 from '../images/appliance/speaker1.jpg'
-import speaker2 from '../images/appliance/speaker2.jpg'
-import armband from '../images/sports/armband.jpg'
-import ball from '../images/sports/ball.jpg'
-import ball2 from '../images/sports/ball2.jpg'
-import fitness from '../images/sports/fitness.jpg'
-import tv2 from '../images/appliance/tv2.jpg'
-import tv1 from '../images/appliance/tv1.jpg'
-import waisttraner from '../images/sports/waisttraner.jpg'
+import speaker1 from '../images/Électroménager/speaker1.jpg'
+import speaker2 from '../images/Électroménager/speaker2.jpg'
+import armband from '../images/sport/armband.jpg'
+import ball from '../images/sport/ball.jpg'
+import ball2 from '../images/sport/ball2.jpg'
+import fitness from '../images/sport/fitness.jpg'
+import tv2 from '../images/Électroménager/tv2.jpg'
+import tv1 from '../images/Électroménager/tv1.jpg'
+import waisttraner from '../images/sport/waisttraner.jpg'
 
 
-import dell from '../images/computing/dell.jpg'
-import fd from '../images/computing/Fdisk.jpg'
-import HDD from '../images/computing/HDD.jpg'
-import mouse from '../images/computing/mouse.jpg'
-import printer from '../images/computing/printer.jpg'
+import dell from '../images/Informatique/dell.jpg'
+import fd from '../images/Informatique/Fdisk.jpg'
+import HDD from '../images/Informatique/HDD.jpg'
+import mouse from '../images/Informatique/mouse.jpg'
+import printer from '../images/Informatique/printer.jpg'
 
-import Blender from "../images/appliance/blender.jpg";
-import Shake from "../images/appliance/Shake.jpg";
-import Techwood from "../images/appliance/Techwood.jpg";
-import Refro from "../images/appliance/Refro.jpg";
-import Titanium from "../images/appliance/Titanium.jpg";
+import Blender from "../images/Électroménager/blender.jpg";
+import Shake from "../images/Électroménager/Shake.jpg";
+import Techwood from "../images/Électroménager/Techwood.jpg";
+import Refro from "../images/Électroménager/Refro.jpg";
+import Titanium from "../images/Électroménager/Titanium.jpg";
 
 
  const Data = [
   {
        "id": 1,
-        "category":"Supermarket",
+        "category":"Supermarché",
         "product": "cocksoda",
         "image": cocksoda,
         "desc": "Coca-cola Coca-cola - Soft Drink 1,5L / Pack 6",
@@ -72,7 +72,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
       },
       {
         "id": 2,
-        "category":"Supermarket",
+        "category":"Supermarché",
         "product": "Lato Milk",
         "image": LatoMilk,
         "desc": "Loya Lait En Poudre -Boite -500 G",
@@ -83,7 +83,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
       },
       {
         "id": 3,
-        "category":"Supermarket",
+        "category":"Supermarché",
         "product": "Soap",
         "image": Soap,
         "desc": "Omo Laundry Detergent For Hand Washing Marseille Soap Bag of 300G",
@@ -94,7 +94,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
       },
       {
         "id": 4,
-        "category":"Supermarket",
+        "category":"Supermarché",
         "product": "Pasta",
         "image": pasta,
         "desc": "Extra Long Whole Spaghetti Pasta 500G",
@@ -105,7 +105,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
       },
       {
         "id": 5,
-        "category":"Supermarket",
+        "category":"Supermarché",
         "product": "Sugar",
         "image": sugar,
         "desc": "Cevital Sugar Skor Doypack 1 Kg",
@@ -117,7 +117,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
 
 {
         "id": 6,
-         "category":"Supermarket",
+         "category":"Supermarché",
          "product": "Nutella",
          "image": Nutella,
          "desc": "Nutella Pâte à Tartiner à La Noisette & Au Cacao - 600G",
@@ -128,7 +128,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          "id": 7,
-         "category":"Supermarket",
+         "category":"Supermarché",
          "product": "le chat",
          "image": chat,
          "desc": "Le Chat Détergent Liquide Machine Regular Power Gel Promo Xl - 4L (2,5L + 1,5L Gratuit)",
@@ -139,7 +139,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          "id": 8,
-         "category":"Supermarket",
+         "category":"Supermarché",
          "product": "rocher",
          "image": choc,
          "desc": "Ferrero Rocher Bonbon au Chocolat Ferrero Rocher T16 200 Gr",
@@ -150,7 +150,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          "id": 9,
-         "category":"Supermarket",
+         "category":"Supermarché",
          "product": "Ariel",
          "image": ariel,
          "desc": "Ariel Lessive Poudre Pour Lavage En Machine -Ariel Downy- 4,5Kg",
@@ -161,7 +161,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          "id": 10,
-         "category":"Supermarket",
+         "category":"Supermarché",
          "product": "shampooing",
          "image": shamp,
          "desc": "Head & Shoulders Shampooing Classic Clean Pour Cheveux Normaux - 400 Ml",
@@ -286,7 +286,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
 	   
 	   {
         id: 21,
-         "category":"Fashion",
+         "category":"Mode",
          "product": "Skmei Montre ",
          "image": Skmei,
          "desc": "Skmei Montre Hommes Intelligente - Skmei 1251 - Chrono-Noir",
@@ -297,10 +297,10 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 22,
-         "category":"Fashion",
+         "category":"Mode",
          "product": "Baskets",
          "image": Basket,
-         "desc": "Fashion Baskets Respirante Home Fashion",
+         "desc": "Mode Baskets Respirante Home Mode",
          "price": "2900",
          "star": 4,
          "quantity": 0,
@@ -308,7 +308,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 23,
-         "category":"Fashion",
+         "category":"Mode",
          "product": "Collier",
          "image": Collier,
          "desc": "Collier - L'Attaque des Titans - Bleu & Silver",
@@ -319,7 +319,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 24,
-         "category":"Fashion",
+         "category":"Mode",
          "product": "Decathlon Sandales",
          "image": Decathlon,
          "desc": "Decathlon Sandales De Piscine Femme - Slap 500 Print - Sea Noir Rose",
@@ -330,7 +330,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 25,
-         "category":"Fashion",
+         "category":"Mode",
          "product": "polo shirt",
          "image": Decathlon,
          "desc": "Smith & Jones Polo Shirt Pour Homme- Bleu (Sj113391)",
@@ -401,7 +401,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
         id: 31,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "Speaker ",
          "image": speaker1,
          "desc": "Golden Tech 5.1Sub-woofer - Black",
@@ -412,7 +412,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 32,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "Speaker",
          "image": speaker2,
          "desc": "Generic GO 2 Speaker Wireless Portable Music Player IPX7",
@@ -423,7 +423,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 33,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "Hisense",
          "image": tv1,
          "desc": "Hisense 55'' Inch 4K Ultra HD Smart TV - Black",
@@ -434,7 +434,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 34,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "Samsung",
          "image": tv2,
          "desc": "Samsung 55'', Smart LED TV, Curve UHD TV4K - Black",
@@ -445,7 +445,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
         id: 35,
-        "category":"appliance",
+        "category":"Électroménager",
         "product": "Samsung",
         "image": tv2,
         "desc": "Samsung 55'', Smart LED TV, Curve UHD TV4K - Black",
@@ -459,7 +459,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
 
        {
         id: 36,
-         "category":"Sports",
+         "category":"Sport",
          "product": "Armband ",
          "image": armband,
          "desc": "Other Captain's - Black.",
@@ -470,7 +470,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 37,
-         "category":"Sports",
+         "category":"Sport",
          "product": "Generic Ball",
          "image": ball,
          "desc": "Generic Spectacular Size 5 Football /Soccer Ball - White/Blue",
@@ -481,7 +481,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 38,
-         "category":"Sports",
+         "category":"Sport",
          "product": "Ball",
          "image": ball2,
          "desc": "Spectacular Size 5 Football",
@@ -492,7 +492,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 39,
-         "category":"Sports",
+         "category":"Sport",
          "product": "Trainner",
          "image": fitness,
          "desc": "Generic Electric Muscle Training Abdominal Machine - Black",
@@ -503,7 +503,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
         id: 40,
-         "category":"Sports",
+         "category":"Sport",
          "product": "Waist traner",
          "image": waisttraner,
          "desc": "Generic Waist Trainer Belt Waist Cincher Trimmer - Sport Girdle Belt",
@@ -518,7 +518,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
 
        {
         id: 41,
-         "category":"computing",
+         "category":"Informatique",
          "product": "Dell ",
          "image": dell,
          "desc": "DELL DELL Refurbished  Core i5 4GB RAM 500GB ROM - Black",
@@ -529,7 +529,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 42,
-         "category":"computing",
+         "category":"Informatique",
          "product": "Scan Disk",
          "image": fd,
          "desc": "Sandisk 16GB Sandisk 2.0 Cruzerblade Flash Disk - Red,Black",
@@ -540,7 +540,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 43,
-         "category":"computing",
+         "category":"Informatique",
          "product": "Hard Disk",
          "image": HDD,
          "desc": "Transcend 1TB Transcend Portable USB 3.0 Hard Disk - Black, Green",
@@ -551,7 +551,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 44,
-         "category":"computing",
+         "category":"Informatique",
          "product": "Mouse",
          "image": mouse,
          "desc": "Generic 2.4 GHz Ultra Slim Wireless Mouse - Black",
@@ -562,7 +562,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          id: 45,
-         "category":"computing",
+         "category":"Informatique",
          "product": "Printer",
          "image": printer,
          "desc": "Hp Deskjet All-in-One Inkjet Printer- White",
@@ -573,7 +573,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
         "id": 46,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "Blender",
          "image": Blender,
          "desc": "Blender Portable Rechargeable - Violet",
@@ -584,7 +584,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          "id": 47,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "Shake N Take 3",
          "image": Shake,
          "desc": "Shake N Take 3 Blender Pour Smoothie Portable - Shake N Take 3",
@@ -595,7 +595,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          "id": 48,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "Techwood",
          "image": Techwood,
          "desc": "Techwood Blender Electrique - TBL-751 - Gris",
@@ -606,7 +606,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          "id": 49,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "Refroidisseur",
          "image": Refro,
          "desc": "Mini Refroidisseur D'Air Climatiseur Ventilateurs Portable Led",
@@ -617,7 +617,7 @@ import Titanium from "../images/appliance/Titanium.jpg";
        },
        {
          "id": 50,
-         "category":"appliance",
+         "category":"Électroménager",
          "product": "TITANIUM ",
          "image": Titanium,
          "desc": "TITANIUM Ventilateur 18",

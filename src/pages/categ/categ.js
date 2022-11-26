@@ -10,6 +10,8 @@ import {useSelector } from 'react-redux'
 import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'
+import titleLogo from '../../images/titleLogo.png'
+ 
 
 const Category=()=> {
   const { category } = useParams();
@@ -17,7 +19,10 @@ const Category=()=> {
   const products = useSelector(SelectProduct);
   const location = useLocation();
   const {t} = useTranslation();
- 
+  function Error(e){
+		e.target.onerror = null
+        e.target.src = mark
+	} 
  useEffect(() => {
     window.scrollTo(0,0);
   }, [location]);
@@ -27,12 +32,12 @@ const Category=()=> {
 	<div className='categories'>
 	   <Helmet>
            <title>{t(category)}</title>
-		   <link rel="icon" href={mark} />
+		   <link rel="icon" href={titleLogo} />
        </Helmet>
       <Layout>
 	     <div className='linkPages'>
 	                  <span className='link'>
-                        <Link to="/">{t("Home")}</Link>
+                        <Link to="/">{t("Accueil")}</Link>
                       </span> 			
 			          <span className='link'>></span>
 			          <span className='link active'>{t(category)}</span>
@@ -49,7 +54,7 @@ const Category=()=> {
                     
                   <div className='product' key={product.id}>
                     <Link to={`/product/${product.id}`} key={product.id} onClick={() => dispatch({ type: "open" })} >
-                       <img src={product.image} alt={product.desc} className='img'/>
+                       <img src={product.image} onError={Error} alt={product.desc} className='img'/>
                        <h6 className='prodName'>{product.product}-{product.desc}</h6>
                        <h6 className='price'>{product.price} {t("DA")}</h6>
                     </Link>

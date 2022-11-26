@@ -28,6 +28,12 @@
 	  .input{
 	    background-color: white!important;
       }
+	  .MuiTextField-root{
+	    background-color: white;
+      }
+      .MuiFormControl-root {
+         width: 16rem !important;
+       }
 	}
   }
   .lastGrid{
@@ -91,6 +97,41 @@
 	   }
 	  }
   }
+  .MuiInputAdornment-root {
+    font-size: 1.5rem !important;
+    color: rgba(111, 105, 105, 0.54);
+  }
+  .MuiButtonBase-root{
+	background-color: transparent !important;
+    letter-spacing: 0px !important;
+    font-size: 0.775rem !important;
+    padding: 8px 18px !important;
+    color: white!important ;
+    border: 0.7px solid white !important;
+  }
+  .MuiButtonBase-root{
+	background-color: transparent !important;
+    letter-spacing: 0px !important;
+    font-size: 0.775rem !important;
+    padding: 8px 18px !important;
+    color: white!important ;
+    border: 0.7px solid white !important;
+}
+.MuiButtonBase-root:hover{
+    border: 0.7px solid orange !important;
+	color: orange!important ;
+}
+.MuiFormControl-root{
+	width: 17rem!important;
+	background-color: white!important;
+	border-radius: 4px!important;
+}
+.MuiOutlinedInput-root{
+	height: 50px!important;
+}
+.MuiOutlinedInput-root:focus{
+	border: 1px solid red!important;
+}
 }
 
 

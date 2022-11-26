@@ -10,6 +10,7 @@ import './home.scss'
 import {Helmet} from "react-helmet";
 import {useTranslation} from 'react-i18next'
 import mark from '../../images/mark.png'
+import titleLogo from '../../images/titleLogo.png'
 
 export default function Home() {
     const {t} = useTranslation();
@@ -17,20 +18,20 @@ export default function Home() {
     return (
 	<div className="home">
 	 <Helmet>
-        <title>{t('Jumia')}</title>
-		<link rel="icon" href={mark} />
+        <title>{t('Jumia Algérie | Téléphones, TV, supermarché, santé et hygiène, etc.')}</title>
+		<link rel="icon" href={titleLogo} />
      </Helmet>
     <Layout>
         <Main />
 	    <Pub />
 	    <Promo />
-	    <Category cag={'Supermarket'} title={'Supermarché'}/>
-	    <Category cag={'Fashion'} title={'Mode'}/>
+	    <Category cag={'Supermarché'} title={'Supermarché'}/>
+	    <Category cag={'Mode'} title={'Mode'}/>
 	    <Offer />
 	    <Fashmia />
-	    <Category cag={'appliance'}title={'Électroménager, TV & Audio'} />
-	    <Category cag={'Sports'} title={'Articles de sport'}/>
-	    <Category cag={'computing'} title={'Informatique'}/>
+	    <Category cag={'Électroménager'}title={'Électroménager, TV & Audio'} />
+	    <Category cag={'Sport'} title={'Articles de sport'}/>
+	    <Category cag={'Informatique'} title={'Informatique'}/>
     </Layout>
 	</div>
     )

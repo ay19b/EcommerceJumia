@@ -8,7 +8,7 @@ import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
 import {SelectProduct} from '../../features/productSlice'
 import {useTranslation} from 'react-i18next'
-
+import mark from '../../images/mark.png'
 
 const responsive = {
   superLargeDesktop: {
@@ -33,7 +33,10 @@ export default function Category({cag,title}) {
     const { dispatch } = useContext(MenuContext);
 	const products = useSelector(SelectProduct);
 	const { t, i18n } = useTranslation();
-	
+	function Error(e){
+		e.target.onerror = null
+        e.target.src = mark
+	} 
     return(
           <div className='category'>
              
@@ -47,6 +50,7 @@ export default function Category({cag,title}) {
                     </div>
                  </Link>
               </div>
+			  
               <Carousel 
                 responsive={responsive}
                 autoPlay={false}
@@ -56,11 +60,11 @@ export default function Category({cag,title}) {
               {products
                     .filter((filter) => filter.category === cag)
                     .map((product)=>{
-                      
+                       
                         return(
                            <div key={product.id} className='product'>
                             <Link to={`/product/${product.id}`} key={product.id} onClick={() => dispatch({ type: "open" })}>
-                              <img src={product.image} alt={product.id} className='img'/>
+                              <img src={product.image} onError={Error} alt={product.id} className='img'/>
                               <h6 className='prodName'>{product.product}-{product.desc}</h6>
                               <h6  className={i18n.language === 'ar'?"price rtl":'price'}>{product.price} {t("DA")} </h6>
                             </Link>

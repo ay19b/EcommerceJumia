@@ -26,11 +26,12 @@ const Nav = () => {
     const cartProducts = product.filter((product) => product.added);
 	const { t, i18n } = useTranslation();
     const handleChangeLng = (lng) => {
+		window.location.reload();
 		i18n.changeLanguage(lng);
 		localStorage.setItem("lng", lng);
 	};
 	const fixedNav=()=>{
-      if(window.scrollY>=100){
+      if(window.scrollY>230){
         setNavbar(true)
       }else{
         setNavbar(false)
