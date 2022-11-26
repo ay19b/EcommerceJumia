@@ -22,6 +22,7 @@ const Cart=()=> {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const {t} = useTranslation();
+  
   function Error(e){
 		e.target.onerror = null
         e.target.src = mark
