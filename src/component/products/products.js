@@ -50,13 +50,13 @@ export default function Category({cag,title}) {
                     </div>
                  </Link>
               </div>
-			  
+			 
               <Carousel 
                 responsive={responsive}
                 autoPlay={false}
 			    className='swiper'
               >
-              
+             
               {products
                     .filter((filter) => filter.category === cag)
                     .map((product)=>{
@@ -73,7 +73,7 @@ export default function Category({cag,title}) {
                         })
                      }
                
-
+              
             </Carousel> 
             
             </div>

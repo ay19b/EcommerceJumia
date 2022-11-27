@@ -1,5 +1,5 @@
 import {Container,Badge,Button,InputAdornment,TextField} from '@mui/material'
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 import {Link} from 'react-router-dom';
 import {HiSearch,HiMenu,HiOutlineShoppingCart,HiOutlineChevronDown} from "react-icons/hi";
 import {AiOutlineUser,AiTwotoneStar} from "react-icons/ai";
@@ -25,13 +25,15 @@ const Nav = () => {
 	const product = useSelector(SelectProduct)
     const cartProducts = product.filter((product) => product.added);
 	const { t, i18n } = useTranslation();
+	const nav = useRef();
+	
     const handleChangeLng = (lng) => {
 		window.location.reload();
 		i18n.changeLanguage(lng);
 		localStorage.setItem("lng", lng);
 	};
 	const fixedNav=()=>{
-      if(window.scrollY>230){
+      if(window.pageYOffset>nav.current.clientHeight){
         setNavbar(true)
       }else{
         setNavbar(false)
@@ -43,7 +45,6 @@ const Nav = () => {
       window.addEventListener('scroll',fixedNav)  
     })
    
-	
 	
     return (
       <section className='header'>
@@ -78,7 +79,7 @@ const Nav = () => {
 			  </div>
 			 </Container>
 		  </div>
-		  <div className={!navbar?'LastHeader':'LastHeader active'}>
+		  <div className={!navbar?'LastHeader':'LastHeader active'} ref={nav}>
 		    <Container> 
 			  <div  className={i18n.language === 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
 	              <Sidebar />	

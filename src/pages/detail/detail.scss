@@ -25,6 +25,7 @@
 	  .img{
 	    width: 18rem;
 		height: 18rem;
+		cursor: zoom-in;
 	  }
 	  .listImg{
 	    img{
@@ -264,5 +265,15 @@
 	 
    }
  }
+ }
+ 
+ .title{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   &.arb{
+     direction: rtl;
+   }
  }
 }

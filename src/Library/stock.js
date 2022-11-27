@@ -42,7 +42,7 @@ import ball2 from '../images/sport/ball2.jpg'
 import fitness from '../images/sport/fitness.jpg'
 import tv2 from '../images/Électroménager/tv2.jpg'
 import tv1 from '../images/Électroménager/tv1.jpg'
-import waisttraner from '../images/sport/waisttraner.jpg'
+import deux from '../images/sport/deux.jpg'
 
 
 import dell from '../images/Informatique/dell.jpg'
@@ -504,11 +504,11 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
        {
         id: 40,
          "category":"Sport",
-         "product": "Waist traner",
-         "image": waisttraner,
-         "desc": "Generic Waist Trainer Belt Waist Cincher Trimmer - Sport Girdle Belt",
-         "price": 55426,
-         "star": 5,
+         "product": "Deux Haltères - 3 Kg - bleu",
+         "image": deux,
+         "desc": "Deux Haltères - 3 Kg - bleu",
+         "price": 3400,
+         "star": 4,
          "quantity": 0,
         "added": false,
        }, 

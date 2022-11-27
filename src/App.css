@@ -14,7 +14,19 @@
       border-top-right-radius: 4px;
 }
 
-
+.MuiDialog-container{
+   height: auto !important;
+ }
+.titleDial{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+ }
+ .arb{
+     direction: rtl;
+   }
+   
 
 @media (min-width: 1200px){
 .MuiContainer-root {

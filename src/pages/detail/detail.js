@@ -26,6 +26,7 @@ import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
+import DialogImg from './dialogeImg'
 
 export default function Detail() {
   const { id } = useParams();
@@ -36,6 +37,7 @@ export default function Detail() {
   const dispatch = useDispatch();
   const product =prod[id-1];
   const [state, setState] = useState(false);
+  const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
    function Error(e){
 		e.target.onerror = null
@@ -46,6 +48,12 @@ export default function Detail() {
     setAge(event.target.value);
   };
   
+  const ClickOpen = () => {
+    setOpen(true);
+  };
+  const ClickClose = () => {
+    setOpen(false);
+  };
   useEffect(() => {
     window.scrollTo(0,0);
   }, [location]);
@@ -93,11 +101,9 @@ export default function Detail() {
 					<div className="contentProd">
                        <div className='detailCont'>
 					    <div className="imgProd">
-						  <img src={product.image} onError={Error} alt={product.desc} className='img' style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}}/>
-						 <div className='listImg'>
-						   <img src={product.image} onError={Error} alt={product.desc} />
-						   <img src={product.image} onError={Error} alt={product.desc} />
-						 </div>
+						  <img src={product.image} onError={Error} alt={product.desc} 
+						    className='img' style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}} onClick={ClickOpen}/>
+						 
 						 <div className="share">{t("Partagez ce produit")}</div>
 						 <div className='iconSocial'>
 						  <GrFacebookOption className="icon"/>
@@ -198,6 +204,7 @@ export default function Detail() {
 						</div>
 					   </div>
 					   </div>
+					   <DialogImg  open={open} handleClose={ClickClose} image={product.image}/>
 					   <Category cag={product.category} title={'Autres produits de la boutique'}/>
                        <Snackbar
                             anchorOrigin={ { vertical: 'top', horizontal: 'center' } }
