@@ -31,7 +31,8 @@ import DialogImg from './dialogeImg'
 export default function Detail() {
   const { id } = useParams();
   const location = useLocation();
-  const [age, setAge] = useState('');
+  const [willaya, setWillaya] = useState('');
+  const [city, setCity] = useState('');
   const [count, setCount] = useState(0);
   const prod = useSelector(SelectProduct);
   const dispatch = useDispatch();
@@ -44,8 +45,11 @@ export default function Detail() {
         e.target.src = mark
 	} 
   
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const willayaChange = (event) => {
+    setWillaya(event.target.value);
+  };
+  const cityChange = (event) => {
+    setCity(event.target.value);
   };
   
   const ClickOpen = () => {
@@ -150,8 +154,8 @@ export default function Detail() {
 						<div className="address">{t("Choisissez un lieu de livraison")}</div>
 						<FormControl >
                           <Select
-                            value={age}
-                            onChange={handleChange}
+                            value={willaya}
+                            onChange={willayaChange}
                             displayEmpty
                             inputProps={{ 'aria-label': 'Without label' }}
                           >
@@ -165,8 +169,8 @@ export default function Detail() {
                         </FormControl>
 						<FormControl >
                           <Select
-                            value={age}
-                            onChange={handleChange}
+                            value={city}
+                            onChange={cityChange}
                             displayEmpty
                             inputProps={{ 'aria-label': 'Without label' }}
                           >

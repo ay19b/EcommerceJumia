@@ -15,7 +15,7 @@ export default function AlertDialog({open,handleClose}) {
   const { Id  } = useParams();
   const product =prod[Id-1];
   const [state, setState] = useState(false);
-  const {t} = useTranslation();
+  const {t,i18n} = useTranslation();
   
   const Remove= () => {
     dispatch(remove(product))
@@ -37,9 +37,11 @@ export default function AlertDialog({open,handleClose}) {
 	   overlayStyle={{backgroundColor: 'transparent!important'}}
 	   style={{backgroundColor: 'transparent!important'}}
      >
-     <DialogTitle id="responsive-dialog-title">
+     <DialogTitle id="responsive-dialog-title" className={i18n.language === 'fr'?null:{direction: 'rtl'}}>
+	   <div  className={i18n.language === 'fr'?"titleDial":"titleDial arb"}>
         {t("Retirer du panier")}
-     <MdClose onClick={handleClose}/>
+        <MdClose onClick={handleClose}/>
+	  </div>
      </DialogTitle>
      <DialogContent>
      <DialogContentText id="alert-dialog-description">

@@ -139,7 +139,7 @@ const Cart=()=> {
 				<Divider />
 				<div className="amount">
 				  <span>{t("Sous-total")}</span>
-				  <span>{sum}</span>
+				  <span>{sum}{t("DA")}</span>
 				</div>
 				<p>{t("Frais de livraison non inclus à ce stade.")}</p>
 				<Divider />

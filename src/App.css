@@ -14,9 +14,9 @@
       border-top-right-radius: 4px;
 }
 
-.MuiDialog-container{
-   height: auto !important;
- }
+.MuiDialogTitle-root + .MuiDialogContent-root {
+  overflow: hidden !important;
+}
 .titleDial{
    display: flex;
    align-items: center;

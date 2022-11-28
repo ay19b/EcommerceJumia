@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react';
 import Layout from '../../component/layout/layout';
 import Main from '../../component/main/main';
 import Pub from '../../component/pub/pub';
@@ -14,7 +14,13 @@ import titleLogo from '../../images/titleLogo.png'
 
 export default function Home() {
     const {t} = useTranslation();
-  
+
+     useEffect(() => {
+        const allWithClass =
+        document.getElementsByClassName('LastHeader active')
+       ;
+       console.log(allWithClass);
+     }, []);
     return (
 	<div className="home">
 	 <Helmet>

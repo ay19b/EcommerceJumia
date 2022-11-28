@@ -151,11 +151,14 @@
 	 }
   }
   
+  
+  .MuiBackdrop-root{
+   background-color: rgba(0,0,0,0.2)!important;
 }
-
-
-
-
+  
+  
+  
+}
 
 .btnRemove{
 		color:white!important;
@@ -174,9 +177,7 @@
     cursor:pointer!important;
    }
 }
-.MuiBackdrop-root{
-   background-color: rgba(0,0,0,0.2)!important;
-}
+
 
 .dialog{
   .MuiSnackbar-root{
