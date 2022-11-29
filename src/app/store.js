@@ -5,7 +5,15 @@ import thunk from 'redux-thunk'
 import storage from 'redux-persist/lib/storage'
 import productReducer from '../features/productSlice'
 import variablesReducer from '../features/variableSlice'
-
+import {
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
 
 const reducers = combineReducers({
@@ -14,14 +22,22 @@ const reducers = combineReducers({
  });
  
  const persistConfig = {
-     key: 'root',
-     storage
+     key: "root",
+     version: 1,
+     storage,
  };
  
  const persistedReducer = persistReducer(persistConfig, reducers);
 
-export default configureStore({
+
+export const store = configureStore({
   reducer: persistedReducer,
-  devTools: process.env.NODE_ENV !== 'production',
-  middleware: [thunk]
-})
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export let persistor = persistStore(store);

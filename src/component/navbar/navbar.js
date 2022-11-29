@@ -15,7 +15,7 @@ import Sidebar from '../sidebar/sidebar'
 import {SelectProduct} from '../../features/productSlice';
 import {useSelector} from "react-redux";
 import {useTranslation} from 'react-i18next'
-
+import { Dropdown, Menu } from 'semantic-ui-react'
 
 
 const Nav = () => {
@@ -97,6 +97,7 @@ const Nav = () => {
 				   className='input'
                    size="small"
                    variant="outlined"
+				   style={i18n.language === 'ar'?{marginLeft: "8px"}:{marginRight: "8px"}}
                    placeholder={t("Cherchez un produit, une marque ou une catégorie")}
                    InputProps={{
                    startAdornment: <InputAdornment position="start">
@@ -105,7 +106,9 @@ const Nav = () => {
                    }} 
 
                   />
-                  <Button variant="contained">{t("RECHARCHER")}</Button>
+                  <Button variant="contained">
+                    {t("RECHARCHER")}
+                 </Button>
 				</div>
 				<div className="contItem">
 				   <div className="item">

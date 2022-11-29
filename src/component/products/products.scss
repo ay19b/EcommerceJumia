@@ -71,11 +71,18 @@
    
    }
    }
-   .react-multiple-carousel__arrow--right {
-     right: calc(0% + 1px)!important;
+   
+   [dir="ltr"] .react-multiple-carousel__arrow--right {
+     right: calc(1% + 1px)!important;
     }
-	.react-multiple-carousel__arrow--left {
-      left: calc(0% + 1px)!important;
+	.rtl.react-multiple-carousel__arrow--right {
+      left: calc(1% + 1px)!important;
+    }
+	[dir="ltr"] .react-multiple-carousel__arrow--left {
+      left: calc(1% + 1px)!important;
+    }
+	.rtl.react-multiple-carousel__arrow--left {
+       right: calc(1% + 3px)!important;
     }
 	.react-multi-carousel-item{
 	 width:100%!important;

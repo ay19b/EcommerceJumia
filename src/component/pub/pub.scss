@@ -7,16 +7,19 @@
   background-color: white!important;
   padding: 17px!important;
 }
-.react-multi-carousel-item {
-  margin-right: -26px !important;
-}
-.react-multiple-carousel__arrow--right {
-  right: calc(0% + 1px)!important;
-}
-.react-multiple-carousel__arrow--left {
-  left: calc(0% + 1px)!important;
-}
 
+    [dir="ltr"] .react-multiple-carousel__arrow--right {
+     right: calc(0% + 1px)!important;
+    }
+	.rtl.react-multiple-carousel__arrow--right {
+      left: calc(0% + 0px)!important;
+    }
+	[dir="ltr"] .react-multiple-carousel__arrow--left {
+      left: calc(0% + 1px)!important;
+    }
+	.rtl.react-multiple-carousel__arrow--left {
+       right: calc(0% + 1px)!important;
+    }
 
 .react-multiple-carousel__arrow {
   background: rgb(255, 255, 255)!important;

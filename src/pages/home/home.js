@@ -15,12 +15,7 @@ import titleLogo from '../../images/titleLogo.png'
 export default function Home() {
     const {t} = useTranslation();
 
-     useEffect(() => {
-        const allWithClass =
-        document.getElementsByClassName('LastHeader active')
-       ;
-       console.log(allWithClass);
-     }, []);
+     
     return (
 	<div className="home">
 	 <Helmet>

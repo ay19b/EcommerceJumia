@@ -2,7 +2,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import pub from "./data";
 import './pub.scss';
-
+import {useTranslation} from 'react-i18next'
 
 
 const responsive = {
@@ -26,12 +26,13 @@ const responsive = {
 
 
 function Pub(){
-  
+    const { t, i18n } = useTranslation();
     return(
 	<div className='pub'>
 	    
             <Carousel 
               responsive={responsive}
+			  rtl={i18n.language === 'ar'?true:false}
               autoPlay={false}
             >
              {pub.map((item)=>{
