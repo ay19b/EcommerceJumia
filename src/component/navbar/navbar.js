@@ -30,6 +30,14 @@ const Nav = () => {
 	const { t, i18n } = useTranslation();
 	const nav = useRef();
 	
+	var htmlElement = document.documentElement;
+    var bodyElement = document.body;
+	var height = Math.max(  //  <---------------------------- entire document height
+        htmlElement.clientHeight, htmlElement.scrollHeight, htmlElement.offsetHeight,
+        bodyElement.scrollHeight, bodyElement.offsetHeight
+    );
+	
+	console.log('entire document height: ' + height + 'px');
 	
 	
     const handleChangeLng = (lng) => {
@@ -38,9 +46,10 @@ const Nav = () => {
 		localStorage.setItem("lng", lng);
 	};
 	const fixedNav=()=>{
-      if(window.pageYOffset>nav.current.clientHeight){
+      if(height>810 && window.pageYOffset>nav.current.clientHeight){
         setNavbar(true)
-      }else {setNavbar(false)}
+      }
+	  else {setNavbar(false)}
     }
 	
 	useEffect(() => {
@@ -120,19 +129,19 @@ const Nav = () => {
                      {!dropConnect?<HiOutlineChevronDown className="arrow"/> :<HiOutlineChevronUp className="arrow"/>}
 					 {dropConnect && 
 					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'}  onMouseLeave={()=> setDropConnect(false)}>
-	                   <Button variant="contained">Se connecter</Button>
+	                   <Button variant="contained">{t('Se connecter')}</Button>
 		               <Divider />
                        <div className="item">
                           <AiOutlineUser className="iconItem user"/>
-                          <h6>Mon compte</h6>
+                          <h6>{t('Mon compte')}</h6>
 		               </div>
 		               <div className="item">
                          <FiShoppingBag className="iconItem user"/>
-                         <h6>Mes commandes</h6>
+                         <h6>{t('Mes commandes')}</h6>
 		               </div>
 		               <div className="item">
                          <FiHeart className="iconItem user"/>
-                         <h6>Ma liste d'envies</h6>
+                         <h6>{t('Ma liste d\'envies')}</h6>
 		               </div>
                      </div>
 					 }
@@ -143,13 +152,13 @@ const Nav = () => {
                      {!dropHelp?<HiOutlineChevronDown className="arrow"/> :<HiOutlineChevronUp className="arrow"/>}
 					 {dropHelp && 
 					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'} onMouseLeave={()=> setDropHelp(false)}>
-                        <div className="item">Centre d'Assistance</div>
-		                <div className="item"><h6>Passer et suivre ma commande</h6></div>
-		                <div className="item"><h6>Annuler ma commande</h6></div>
-						<div className="item"><h6>Retour &amp; Remboursement</h6></div>
-		                <div className="item"><h6>Modes de paiement</h6></div>
+                        <div className="item">{t('Centre d\'Assistance')}</div>
+		                <div className="item"><h6>{t('Passer et suivre ma commande')}</h6></div>
+		                <div className="item"><h6>{t('Annuler ma commande')}</h6></div>
+						<div className="item"><h6>{t('Retour &amp; Remboursement')}</h6></div>
+		                <div className="item"><h6>{t('Modes de paiement')}</h6></div>
 						<Divider />
-						<Button variant="contained" startIcon={<BsChatLeftDots />}>Chat en direct</Button>
+						<Button variant="contained" startIcon={<BsChatLeftDots />}>{t('Chat en direct')}</Button>
                       </div>
 					 }
 				   </div>
