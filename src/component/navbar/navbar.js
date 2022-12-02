@@ -1,9 +1,11 @@
-import {Container,Badge,Button,InputAdornment,TextField} from '@mui/material'
+import {Container,Badge,Button,InputAdornment,TextField,Divider} from '@mui/material'
 import React,{useState,useEffect,useRef} from 'react';
 import {Link} from 'react-router-dom';
-import {HiSearch,HiMenu,HiOutlineShoppingCart,HiOutlineChevronDown} from "react-icons/hi";
+import {HiSearch,HiMenu,HiOutlineShoppingCart,HiOutlineChevronDown,HiOutlineChevronUp} from "react-icons/hi";
+import {FiHeart,FiShoppingBag} from "react-icons/fi";
 import {AiOutlineUser,AiTwotoneStar} from "react-icons/ai";
 import {IoMdHelpCircleOutline} from "react-icons/io";
+import {BsChatLeftDots} from "react-icons/bs"
 import algeria from "../../images/algeria.png";
 import france from "../../images/france.png";
 import jumia from "../../images/Jumia.png";
@@ -15,10 +17,11 @@ import Sidebar from '../sidebar/sidebar'
 import {SelectProduct} from '../../features/productSlice';
 import {useSelector} from "react-redux";
 import {useTranslation} from 'react-i18next'
-import { Dropdown, Menu } from 'semantic-ui-react'
 
 
 const Nav = () => {
+	const [dropConnect, setDropConnect] = useState(false);
+	const [dropHelp, setDropHelp] = useState(false);
     const { dispatch } = useContext(MenuContext);
     const { menu } = useContext(MenuContext);
     const [navbar, setNavbar] = useState(false);
@@ -26,6 +29,8 @@ const Nav = () => {
     const cartProducts = product.filter((product) => product.added);
 	const { t, i18n } = useTranslation();
 	const nav = useRef();
+	
+	
 	
     const handleChangeLng = (lng) => {
 		window.location.reload();
@@ -35,9 +40,7 @@ const Nav = () => {
 	const fixedNav=()=>{
       if(window.pageYOffset>nav.current.clientHeight){
         setNavbar(true)
-      }else{
-        setNavbar(false)
-      }
+      }else {setNavbar(false)}
     }
 	
 	useEffect(() => {
@@ -111,15 +114,44 @@ const Nav = () => {
                  </Button>
 				</div>
 				<div className="contItem">
-				   <div className="item">
+				   <div className="item" onMouseDown={()=> setDropConnect(!dropConnect)} onMouseOver={()=> setDropHelp(false)} >
 				     <AiOutlineUser className="iconItem user"/>
                       <h6>{t('Se connecter')}</h6>
-                     <HiOutlineChevronDown className="arrow"/>
+                     {!dropConnect?<HiOutlineChevronDown className="arrow"/> :<HiOutlineChevronUp className="arrow"/>}
+					 {dropConnect && 
+					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'}  onMouseLeave={()=> setDropConnect(false)}>
+	                   <Button variant="contained">Se connecter</Button>
+		               <Divider />
+                       <div className="item">
+                          <AiOutlineUser className="iconItem user"/>
+                          <h6>Mon compte</h6>
+		               </div>
+		               <div className="item">
+                         <FiShoppingBag className="iconItem user"/>
+                         <h6>Mes commandes</h6>
+		               </div>
+		               <div className="item">
+                         <FiHeart className="iconItem user"/>
+                         <h6>Ma liste d'envies</h6>
+		               </div>
+                     </div>
+					 }
 				   </div>
-				   <div className="item">
+				   <div className="item" onMouseDown={()=> setDropHelp(!dropHelp)} onMouseOver={()=> setDropConnect(false)} >
 				     <IoMdHelpCircleOutline className="iconItem"/>
                      <h6>{t('Aide')}</h6>
-                     <HiOutlineChevronDown className="arrow"/>
+                     {!dropHelp?<HiOutlineChevronDown className="arrow"/> :<HiOutlineChevronUp className="arrow"/>}
+					 {dropHelp && 
+					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'} onMouseLeave={()=> setDropHelp(false)}>
+                        <div className="item">Centre d'Assistance</div>
+		                <div className="item"><h6>Passer et suivre ma commande</h6></div>
+		                <div className="item"><h6>Annuler ma commande</h6></div>
+						<div className="item"><h6>Retour &amp; Remboursement</h6></div>
+		                <div className="item"><h6>Modes de paiement</h6></div>
+						<Divider />
+						<Button variant="contained" startIcon={<BsChatLeftDots />}>Chat en direct</Button>
+                      </div>
+					 }
 				   </div>
 				   <div className="item">
 				   <Link to={'/cart'} className="item">

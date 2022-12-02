@@ -27,6 +27,8 @@ import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
 import DialogImg from './dialogeImg'
+import Data from '../../Library/stock'
+
 
 export default function Detail() {
   const { id } = useParams();
@@ -36,7 +38,8 @@ export default function Detail() {
   const [count, setCount] = useState(0);
   const prod = useSelector(SelectProduct);
   const dispatch = useDispatch();
-  const product =prod[id-1];
+  const product =Data[id-1];
+  const productSlice= prod[id-1];
   const [state, setState] = useState(false);
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
@@ -64,7 +67,7 @@ export default function Detail() {
   
   const handleClick = () => {
     setState(true)
-    dispatch(add(product))
+    dispatch(add(prod[id-1]))
   };
 
   const handleClose = () => {
@@ -126,7 +129,7 @@ export default function Detail() {
                                <h6 className="price">{product.price} {t("DA")}</h6>
 							   <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
 							   <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
-                               <Button disabled={product.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
+                               <Button disabled={productSlice.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
                                  {t("J'achète")} 
                                </Button>
 							   <Divider />

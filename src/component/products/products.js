@@ -9,6 +9,8 @@ import { useContext } from "react";
 import {SelectProduct} from '../../features/productSlice'
 import {useTranslation} from 'react-i18next'
 import mark from '../../images/mark.png'
+import Data from '../../Library/stock'
+
 
 const responsive = {
   superLargeDesktop: {
@@ -58,7 +60,7 @@ export default function Category({cag,title}) {
 			    className='swiper'
               >
              
-              {products
+              {Data
                     .filter((filter) => filter.category === cag)
                     .map((product)=>{
                        

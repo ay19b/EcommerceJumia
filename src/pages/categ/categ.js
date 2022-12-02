@@ -11,7 +11,7 @@ import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
- 
+import Data from '../../Library/stock'
 
 const Category=()=> {
   const { category } = useParams();
@@ -45,7 +45,7 @@ const Category=()=> {
 		 
         <div className='listProduct'>
          
-           {products
+           {Data
               .filter((filterData) => filterData.category === category)
               .slice(0, 10)
               .map((product)=>{
