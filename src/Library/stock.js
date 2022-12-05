@@ -24,32 +24,32 @@ import Fingertip from "../images/beauty/Fingertip.jpg";
 import Skmei from "../images/Mode/Skmei.jpg";
 import Basket from "../images/Mode/Baskets.jpg";
 import Collier from "../images/Mode/Collier.jpg";
-import Decathlon  from "../images/Mode/Decathlon.jpg";
-
-
-
-import earphones from '../images/pnones_tablets/earphones.jpg'
-import iphone from '../images/pnones_tablets/iphone 12.jpg'
-import nokia from '../images/pnones_tablets/nokia.jpg'
-import techno from '../images/pnones_tablets/techno.jpg'
-import tablet from '../images/pnones_tablets/tablet.jpg'
+import coq  from "../images/Mode/coq.jpg";
+import puma from "../images/Mode/puma.jpg";
+import doudoune from "../images/Mode/doudoune.jpg";
+import watch  from "../images/Mode/watch.jpg";
+import lunettes from "../images/Mode/lunettes.jpg";
 
 import speaker1 from '../images/Électroménager/speaker1.jpg'
 import speaker2 from '../images/Électroménager/speaker2.jpg'
+import tv2 from '../images/Électroménager/tv2.jpg'
+import tv1 from '../images/Électroménager/tv1.jpg'
+
 import armband from '../images/sport/armband.jpg'
 import ball from '../images/sport/ball.jpg'
 import ball2 from '../images/sport/ball2.jpg'
 import fitness from '../images/sport/fitness.jpg'
-import tv2 from '../images/Électroménager/tv2.jpg'
-import tv1 from '../images/Électroménager/tv1.jpg'
 import deux from '../images/sport/deux.jpg'
-
+import tapis from '../images/sport/tapis.jpg'
+import kettle from '../images/sport/kettle.jpg'
 
 import dell from '../images/Informatique/dell.jpg'
 import fd from '../images/Informatique/Fdisk.jpg'
 import HDD from '../images/Informatique/HDD.jpg'
 import mouse from '../images/Informatique/mouse.jpg'
 import printer from '../images/Informatique/printer.jpg'
+import wireless from '../images/Informatique/wireless.jpg'
+import casque from '../images/Informatique/casque.jpg'
 
 import Blender from "../images/Électroménager/blender.jpg";
 import Shake from "../images/Électroménager/Shake.jpg";
@@ -320,87 +320,117 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
        {
          id: 24,
          "category":"Mode",
-         "product": "Decathlon Sandales",
-         "image": Decathlon,
-         "desc": "Decathlon Sandales De Piscine Femme - Slap 500 Print - Sea Noir Rose",
-         "price": "1900",
+         "product": "Le Coq Sportif Sneakers Alpha Dress bleu - Bleu Marine",
+         "image": coq,
+         "desc": "Le Coq Sportif Sneakers Alpha Dress bleu - Bleu Marine",
+         "price": "12400",
          "star": 4,
-		     "quantity": 0,
+		 "quantity": 0,
          "added": false,
        },
        {
          id: 25,
          "category":"Mode",
-         "product": "polo shirt",
-         "image": Decathlon,
-         "desc": "Smith & Jones Polo Shirt Pour Homme- Bleu (Sj113391)",
-         "price": "2800",
+         "product": "Lunettes De Soleil Aviator Verres Bleues, Monture Argent et Noire, Mixte",
+         "image": lunettes,
+         "desc": "Lunettes De Soleil Aviator Verres Bleues, Monture Argent et Noire, Mixte",
+         "price": "3000",
          "star": 5,
-	       "quantity": 0,
+	     "quantity": 0,
+         "added": false,
+       },
+	   {
+         id: 26,
+         "category":"Mode",
+         "product": "Sergio Tacchini Montre- Hommes - ST.1.10112-2 - Argent",
+         "image": watch,
+         "desc": "Sergio Tacchini Montre- Hommes - ST.1.10112-2 - Argent",
+         "price": "15200",
+         "star": 5,
+	      "quantity": 0,
+         "added": false,
+       },
+	   {
+         id: 27,
+         "category":"Mode",
+         "product": "Doudoune à Capuche 152-26 Bleu Marine",
+         "image": doudoune,
+         "desc": "Doudoune à Capuche 152-26 Bleu Marine",
+         "price": "6800",
+         "star": 5,
+	      "quantity": 0,
+         "added": false,
+       },
+	   {
+         id: 28,
+         "category":"Mode",
+         "product": "Puma Suite À Capuche Elevated Ess Tape Hoody Cotton Adulte Sport Fashion Street -Gris",
+         "image": puma,
+         "desc": "Puma Suite À Capuche Elevated Ess Tape Hoody Cotton Adulte Sport Fashion Street -Gris",
+         "price": "6950",
+         "star": 5,
+	      "quantity": 0,
          "added": false,
        },
 	   
 	   
-	   
-      {
-        id: 26,
-         "category":"telephone",
-         "product": "Earphones ",
-         "image": earphones,
-         "desc": "Generic Bluetooth Wireless Earphones With Charging Case",
-         "price": 2000,
-         "star": 1,
-         "quantity": 0,
-        "added": false,
-       },
-       {
-         id: 27,
-         "category":"telephone",
-         "product": "I phone 12",
-         "image": iphone,
-         "desc": "I phone 11 pro 2017 8gb ram 168 HD memory",
-         "price": 53000,
-         "star": 4,
-         "quantity": 0,
-        "added": false,
-       },
-
-
-       {
-         id: 28,
-         "category":"telephone",
-         "product": "Nokia",
-         "image": nokia,
-         "desc": "Nokia 105 DS'' Dual Sim, FM Radio, Black",
-         "price": 5900,
+	   {
+         id: 29,
+         "category":"Informatique",
+         "product": "Beexcellent Casque Gaming LED - GM-1 - Avec Micro Anti Bruit - Noir/Bleu",
+         "image": casque,
+         "desc": "Beexcellent Casque Gaming LED - GM-1 - Avec Micro Anti Bruit - Noir/Bleu",
+         "price": 34000,
          "star": 3,
          "quantity": 0,
-        "added": false,
+         "added": false,
        },
-       {
-         id: 29,
-         "category":"telephone",
-         "product": "Techno",
-         "image": techno,
-         "desc": "Tecno Pop 4 - 6.0 2GB RAM 5000mAh - Green",
-         "price": 33000,
-         "star": 4,
-         "quantity": 0,
-        "added": false,
-       },
-       {
+	   {
          id: 30,
-         "category":"telephone",
-         "product": "Tablet",
-         "image": tablet,
-         "desc": "Note 4 Plus 4G LTE Tablet 4GB RAM 64GB Dual Sim",
-         "price": 350000,
-         "star": 5,
+         "category":"Informatique",
+         "product": "Wireless Speaker Haut Parleur Bluetooth Q300 - Support Telephone - Wireless - Rouge",
+         "image": wireless,
+         "desc": "Wireless Speaker Haut Parleur Bluetooth Q300 - Support Telephone - Wireless - Rouge",
+         "price": 1850,
+         "star": 3,
          "quantity": 0,
-        "added": false,
+         "added": false,
        },
        {
         id: 31,
+         "category":"Électroménager",
+         "product": "Blender",
+         "image": Blender,
+         "desc": "Blender Portable Rechargeable - Violet",
+         "price": 1750,
+         "star": 3,
+         "quantity": 0,
+         "added": false,
+       },
+	   {
+         id: 32,
+         "category":"Électroménager",
+         "product": "Shake N Take 3",
+         "image": Shake,
+         "desc": "Shake N Take 3 Blender Pour Smoothie Portable - Shake N Take 3",
+         "price": 1900,
+         "star": 4,
+         "quantity": 0,
+         "added": false,
+       },
+	   {
+         id: 33,
+         "category":"Électroménager",
+         "product": "Techwood",
+         "image": Techwood,
+         "desc": "Techwood Blender Electrique - TBL-751 - Gris",
+         "price": 4550,
+         "star": 5,
+         "quantity": 0,
+         "added": false,
+       },
+       {
+        id: 34,
          "category":"Électroménager",
          "product": "Speaker ",
          "image": speaker1,
@@ -411,7 +441,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 32,
+         id: 35,
          "category":"Électroménager",
          "product": "Speaker",
          "image": speaker2,
@@ -422,7 +452,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 33,
+         id: 36,
          "category":"Électroménager",
          "product": "Hisense",
          "image": tv1,
@@ -433,7 +463,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
          "added": false,
        },
        {
-         id: 34,
+         id: 37,
          "category":"Électroménager",
          "product": "Samsung",
          "image": tv2,
@@ -444,7 +474,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-        id: 35,
+        id: 38,
         "category":"Électroménager",
         "product": "Samsung",
         "image": tv2,
@@ -458,7 +488,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
 
 
        {
-        id: 36,
+        id: 39,
          "category":"Sport",
          "product": "Armband ",
          "image": armband,
@@ -469,7 +499,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 37,
+         id: 40,
          "category":"Sport",
          "product": "Generic Ball",
          "image": ball,
@@ -480,7 +510,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 38,
+         id: 41,
          "category":"Sport",
          "product": "Ball",
          "image": ball2,
@@ -491,7 +521,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 39,
+         id: 42,
          "category":"Sport",
          "product": "Trainner",
          "image": fitness,
@@ -502,7 +532,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-        id: 40,
+        id: 43,
          "category":"Sport",
          "product": "Deux Haltères - 3 Kg - bleu",
          "image": deux,
@@ -512,12 +542,34 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
          "quantity": 0,
         "added": false,
        }, 
+	   {
+        id: 44,
+         "category":"Sport",
+         "product": "Tapis De Yoga Épais 15 Mm 183 X 61 Cm - Violet",
+         "image": tapis,
+         "desc": "Tapis De Yoga Épais 15 Mm 183 X 61 Cm - Violet",
+         "price": 3600,
+         "star": 4,
+         "quantity": 0,
+        "added": false,
+       }, 
+	   {
+        id: 45,
+         "category":"Sport",
+         "product": "Decathlon Kettlebell 8Kg Fonte Et Base Caoutchouc",
+         "image": kettle,
+         "desc": "Decathlon Kettlebell 8Kg Fonte Et Base Caoutchouc",
+         "price": 8600,
+         "star": 4,
+         "quantity": 0,
+         "added": false,
+       },
 
 
 
 
        {
-        id: 41,
+        id: 46,
          "category":"Informatique",
          "product": "Dell ",
          "image": dell,
@@ -528,7 +580,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 42,
+         id: 47,
          "category":"Informatique",
          "product": "Scan Disk",
          "image": fd,
@@ -539,7 +591,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 43,
+         id: 48,
          "category":"Informatique",
          "product": "Hard Disk",
          "image": HDD,
@@ -550,7 +602,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 44,
+         id: 49,
          "category":"Informatique",
          "product": "Mouse",
          "image": mouse,
@@ -561,7 +613,7 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
         "added": false,
        },
        {
-         id: 45,
+         id: 50,
          "category":"Informatique",
          "product": "Printer",
          "image": printer,
@@ -571,61 +623,9 @@ import Titanium from "../images/Électroménager/Titanium.jpg";
          "quantity": 0,
          "added": false,
        },
-       {
-        "id": 46,
-         "category":"Électroménager",
-         "product": "Blender",
-         "image": Blender,
-         "desc": "Blender Portable Rechargeable - Violet",
-         "price": 1750,
-         "star": 3,
-         "quantity": 0,
-         "added": false,
-       },
-       {
-         "id": 47,
-         "category":"Électroménager",
-         "product": "Shake N Take 3",
-         "image": Shake,
-         "desc": "Shake N Take 3 Blender Pour Smoothie Portable - Shake N Take 3",
-         "price": 1900,
-         "star": 4,
-         "quantity": 0,
-         "added": false,
-       },
-       {
-         "id": 48,
-         "category":"Électroménager",
-         "product": "Techwood",
-         "image": Techwood,
-         "desc": "Techwood Blender Electrique - TBL-751 - Gris",
-         "price": 4550,
-         "star": 5,
-         "quantity": 0,
-         "added": false,
-       },
-       {
-         "id": 49,
-         "category":"Électroménager",
-         "product": "Refroidisseur",
-         "image": Refro,
-         "desc": "Mini Refroidisseur D'Air Climatiseur Ventilateurs Portable Led",
-         "price": 3990,
-         "star": 3,
-         "quantity": 0,
-         "added": false,
-       },
-       {
-         "id": 50,
-         "category":"Électroménager",
-         "product": "TITANIUM ",
-         "image": Titanium,
-         "desc": "TITANIUM Ventilateur 18",
-         "price": 4990,
-         "star": 4,
-         "quantity": 0,
-         "added": false,
-       },
+	   
+	   
+       
 
 ]
 export default Data;

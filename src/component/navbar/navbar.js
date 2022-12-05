@@ -14,7 +14,7 @@ import Top from '../../images/TOP.gif'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
 import Sidebar from '../sidebar/sidebar'
-import {SelectProduct} from '../../features/productSlice';
+import {SelectProduct} from '../../redux/productSlice';
 import {useSelector} from "react-redux";
 import {useTranslation} from 'react-i18next'
 
@@ -37,9 +37,6 @@ const Nav = () => {
         bodyElement.scrollHeight, bodyElement.offsetHeight
     );
 	
-	console.log('entire document height: ' + height + 'px');
-	
-	
     const handleChangeLng = (lng) => {
 		window.location.reload();
 		i18n.changeLanguage(lng);
@@ -60,14 +57,7 @@ const Nav = () => {
 	
     return (
       <section className='header'>
-       <div className='firstHeader'>
-		    <Container> 
-		      <div className='imgNav'>
-			    <img src={Top} alt="banner"/>
-			  </div>
-			 </Container>
-		  </div>
-		  <div className='secondHeader'>
+        <div className='LangHeader'>
 		    <Container> 
 		      <div className='gridHeader'>
 			    <div className="contGrid">

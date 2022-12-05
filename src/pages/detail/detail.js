@@ -20,8 +20,8 @@ import MenuItem from '@mui/material/MenuItem';
 import Category from '../../component/products/products'
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux'
-import {SelectProduct} from '../../features/productSlice'
-import {add} from "../../features/productSlice"
+import {SelectProduct} from '../../redux/productSlice'
+import {add} from "../../redux/productSlice"
 import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'

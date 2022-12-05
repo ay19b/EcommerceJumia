@@ -6,7 +6,7 @@ import "react-multi-carousel/lib/styles.css";
 import './products.scss'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
-import {SelectProduct} from '../../features/productSlice'
+import {SelectProduct} from '../../redux/productSlice'
 import {useTranslation} from 'react-i18next'
 import mark from '../../images/mark.png'
 import Data from '../../Library/stock'

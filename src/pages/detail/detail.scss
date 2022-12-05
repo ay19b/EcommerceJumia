@@ -208,7 +208,14 @@
   }
 }
 
-
+@media only screen and (max-width: 1225px) {
+  .detail .contentProd .detailCont{
+    width: 70%;
+  }
+  .detail .contentProd .delivery{
+   width: 24%;
+  }
+}
 
 
 @media only screen and (max-width: 810px) {

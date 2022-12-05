@@ -1,50 +1,24 @@
 .pub{
+ .ListPub{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: white;
+  margin-top: 3rem;
+  padding: 12px 2px;
   .listImg{
-	  width: 70%;
-}
-.react-multi-carousel-list {
-  margin-top: 35px!important;
-  background-color: white!important;
-  padding: 17px!important;
+	  width: 11rem;
+	  margin-bottom:4px;
+   }
+ }
 }
 
-    [dir="ltr"] .react-multiple-carousel__arrow--right {
-     right: calc(0% + 1px)!important;
-    }
-	.rtl.react-multiple-carousel__arrow--right {
-      left: calc(0% + 0px)!important;
-    }
-	[dir="ltr"] .react-multiple-carousel__arrow--left {
-      left: calc(0% + 1px)!important;
-    }
-	.rtl.react-multiple-carousel__arrow--left {
-       right: calc(0% + 1px)!important;
-    }
 
-.react-multiple-carousel__arrow {
-  background: rgb(255, 255, 255)!important;
-  min-width: 36px!important;
-  min-height: 156px!important;
-  opacity: 1!important;
-  cursor: pointer!important;
-  margin-right: -2px!important;
-  z-index: 10!important;
+@media only screen and (max-width: 1000px) {
+.pub .ListPub .listImg {
+  width: 8rem;
 }
-.react-multiple-carousel__arrow--left {
-  margin-left: -1px!important;
 }
-.react-multiple-carousel__arrow::before {
-  border-radius: 48% !important;
-  width: 2rem !important;
-  height: 2rem!important;
-  background-color:#939253 !important;
-  text-align: center!important;
-  display: flex!important;
-  justify-content: center!important;
-  align-items: center!important;
-}
-.react-multiple-carousel__arrow:hover::before {
+@media only screen and (max-width: 410px) {
 
-  background-color: #939393!important;
-}
 }

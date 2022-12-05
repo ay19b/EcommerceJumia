@@ -3,8 +3,8 @@ import {combineReducers} from "redux";
 import { persistReducer } from 'redux-persist'
 import thunk from 'redux-thunk'
 import storage from 'redux-persist/lib/storage'
-import productReducer from '../features/productSlice'
-import variablesReducer from '../features/variableSlice'
+import productReducer from './productSlice'
+import variablesReducer from './variableSlice'
 import {
   persistStore,
   FLUSH,

@@ -6,8 +6,8 @@ import {FaTrash} from "react-icons/fa";
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import { useSelector,useDispatch } from "react-redux";
-import {incrementProduct,decrementProduct} from "../../features/productSlice"
-import {SelectProduct} from '../../features/productSlice'
+import {incrementProduct,decrementProduct} from "../../redux/productSlice"
+import {SelectProduct} from '../../redux/productSlice'
 import AlertDialog from './dialoge'
 import {TiShoppingCart} from "react-icons/ti";
 import {useTranslation} from 'react-i18next'
@@ -21,7 +21,7 @@ const Cart=()=> {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const {t} = useTranslation();
+  const {t,i18n} = useTranslation();
   
   function Error(e){
 		e.target.onerror = null

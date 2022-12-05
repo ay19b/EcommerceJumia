@@ -3,9 +3,9 @@ import {Dialog,DialogContentText,DialogTitle,DialogActions,DialogContent,Button,
 import {MdClose} from "react-icons/md";
 import {FaTrash} from "react-icons/fa";
 import { useParams} from 'react-router-dom';
-import {SelectProduct} from '../../features/productSlice'
+import {SelectProduct} from '../../redux/productSlice'
 import { useSelector,useDispatch } from "react-redux";
-import {remove} from "../../features/productSlice"
+import {remove} from "../../redux/productSlice"
 import './basket.scss'
 import {useTranslation} from 'react-i18next'
 

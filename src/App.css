@@ -27,7 +27,12 @@
      direction: rtl;
    }
    
-
+.MuiButton-startIcon{
+	margin-left: 4px!important;
+}
+[dir="ltr"].MuiButton-startIcon{
+	font-size:1.1rem!important;
+}
 @media (min-width: 1200px){
 .MuiContainer-root {
   max-width: 1235px!important;

@@ -196,7 +196,14 @@
 }
 
 
-
+@media only screen and (max-width: 1225px) {
+  .cart .contentCart .CartProd {
+    width: 70%;
+  }
+  .cart .contentCart .resume {
+   width: 24%;
+  }
+}
 
 @media only screen and (max-width: 810px) {
  .cart{

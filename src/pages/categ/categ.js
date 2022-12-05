@@ -5,7 +5,7 @@ import Layout from '../../component/layout/layout'
 import './catg.scss'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
-import {SelectProduct} from '../../features/productSlice'
+import {SelectProduct} from '../../redux/productSlice'
 import {useSelector } from 'react-redux'
 import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
