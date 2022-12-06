@@ -105,3 +105,11 @@
 
 }
 
+@media only screen and (max-width: 410px) {
+  .main{
+   height: 20rem;
+   .banner {
+     height: 20rem;
+  }
+  }
+}
