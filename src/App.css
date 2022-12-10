@@ -33,6 +33,7 @@
 [dir="ltr"].MuiButton-startIcon{
 	font-size:1.1rem!important;
 }
+
 @media (min-width: 1200px){
 .MuiContainer-root {
   max-width: 1235px!important;

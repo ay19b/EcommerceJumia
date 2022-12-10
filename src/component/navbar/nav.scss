@@ -1,4 +1,9 @@
 .header{
+     position: sticky;
+     display: flex;
+	 flex-direction: column;
+     z-index: 100;
+     top: 0;
   .firstHeader{
       background-color:#ff7f00;
   .imgNav{
@@ -11,6 +16,9 @@
   }
 .LangHeader{
    background-color:whitesmoke;
+   &.hidden{
+     display:none;
+   }
    .gridHeader{
      height: 2rem;
 	 display: flex;
@@ -78,6 +86,9 @@
   }
 .LastHeader{
    background-color: white;
+   position: sticky;
+   display: flex;
+   top: 0;
    &.active{
      position: fixed;
      z-index: 100;
@@ -245,6 +256,13 @@
   }
 }
 @media only screen and (max-width: 1000px) {
+  .header{
+     position: sticky;
+     display: flex;
+	 flex-direction: column;
+     z-index: 100;
+     top: 0;
+  }
   .header .MuiFormControl-root {
     width: 70% !important;
     margin-right: 1rem !important;
@@ -262,6 +280,7 @@
 
 @media only screen and (max-width: 810px) {
   .header{
+     
    .firstHeader{
      .MuiContainer-root{
 	   padding-left: 0px !important;
@@ -276,6 +295,7 @@
 	}
 	.LastHeader{
 	 padding-bottom: 1px;
+	 width: 100%;
 	  .logo{
 	    .menu {
           display: block!important;

@@ -38,8 +38,8 @@ export default function Detail() {
   const [count, setCount] = useState(0);
   const prod = useSelector(SelectProduct);
   const dispatch = useDispatch();
-  const product =Data[id-1];
-  const productSlice= prod[id-1];
+  const product =prod[id-1];
+  const productSlice= Data[id-1];
   const [state, setState] = useState(false);
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
@@ -67,7 +67,7 @@ export default function Detail() {
   
   const handleClick = () => {
     setState(true)
-    dispatch(add(prod[id-1]))
+    dispatch(add(Data[id-1]))
   };
 
   const handleClose = () => {
@@ -106,7 +106,7 @@ export default function Detail() {
 			          <span className='link active'>{product.desc}</span>
 			        </div>   
 					<div className="contentProd">
-                       <div className='detailCont'>
+              <div className='detailCont'>
 					    <div className="imgProd">
 						  <img src={product.image} onError={Error} alt={product.desc} 
 						    className='img' style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}} onClick={ClickOpen}/>
@@ -121,15 +121,15 @@ export default function Detail() {
 						 
                          <div className='infDtl' >
                                <h6 className="prod">{product.desc}</h6>
-							   <div className="stars">
+							                <div className="stars">
                                  <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
-							   </div>
+							                 </div>
                                <img src={black} alt='blackFri' className="blackfrd"/>
-							   <Divider />
+							                 <Divider />
                                <h6 className="price">{product.price} {t("DA")}</h6>
-							   <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
-							   <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
-                               <Button disabled={productSlice.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
+							                 <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
+							                 <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
+                               <Button disabled={product.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
                                  {t("J'achète")} 
                                </Button>
 							   <Divider />

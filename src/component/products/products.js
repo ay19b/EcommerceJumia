@@ -55,9 +55,9 @@ export default function Category({cag,title}) {
 			 
               <Carousel 
                 responsive={responsive}
-				rtl={i18n.language === 'ar'?true:false}
+				        rtl={i18n.language === 'ar'?true:false}
                 autoPlay={false}
-			    className='swiper'
+			          className='swiper'
               >
              
               {Data

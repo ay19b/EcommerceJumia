@@ -17,6 +17,7 @@ import Sidebar from '../sidebar/sidebar'
 import {SelectProduct} from '../../redux/productSlice';
 import {useSelector} from "react-redux";
 import {useTranslation} from 'react-i18next'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 
 const Nav = () => {
@@ -29,6 +30,7 @@ const Nav = () => {
     const cartProducts = product.filter((product) => product.added);
 	const { t, i18n } = useTranslation();
 	const nav = useRef();
+	const matches = useMediaQuery('(max-width:1000px)');
 	
 	var htmlElement = document.documentElement;
     var bodyElement = document.body;
@@ -43,7 +45,7 @@ const Nav = () => {
 		localStorage.setItem("lng", lng);
 	};
 	const fixedNav=()=>{
-      if(height>810 && window.pageYOffset>nav.current.clientHeight){
+      if(window.pageYOffset>=35){
         setNavbar(true)
       }
 	  else {setNavbar(false)}
@@ -81,7 +83,7 @@ const Nav = () => {
 			  </div>
 			 </Container>
 		  </div>
-		  <div className={!navbar?'LastHeader':'LastHeader active'} ref={nav}>
+		  <div  ref={nav} className={matches?'LastHeader':!navbar?'LastHeader':'LastHeader'}> 
 		    <Container> 
 			  <div  className={i18n.language === 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
 	              <Sidebar />	
