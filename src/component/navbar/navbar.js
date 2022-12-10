@@ -32,34 +32,28 @@ const Nav = () => {
 	const nav = useRef();
 	const matches = useMediaQuery('(max-width:1000px)');
 	
-	var htmlElement = document.documentElement;
-    var bodyElement = document.body;
-	var height = Math.max(  //  <---------------------------- entire document height
-        htmlElement.clientHeight, htmlElement.scrollHeight, htmlElement.offsetHeight,
-        bodyElement.scrollHeight, bodyElement.offsetHeight
-    );
 	
     const handleChangeLng = (lng) => {
 		window.location.reload();
 		i18n.changeLanguage(lng);
 		localStorage.setItem("lng", lng);
 	};
-	const fixedNav=()=>{
-      if(window.pageYOffset>=35){
+
+	const handleScroll = () => {
+    if(window.pageYOffset < 5){
+        setNavbar(false)
+    }else{
         setNavbar(true)
-      }
-	  else {setNavbar(false)}
     }
-	
+}
 	useEffect(() => {
-      fixedNav()
-      window.addEventListener('scroll',fixedNav)  
+      window.addEventListener('scroll',handleScroll)  
     })
    
 	
     return (
       <section className='header'>
-        <div className='LangHeader'>
+        <div className={!navbar?'LangHeader':'LangHeader hidden'}>
 		    <Container> 
 		      <div className='gridHeader'>
 			    <div className="contGrid">
