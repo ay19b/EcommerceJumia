@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Home from './pages/home/home';
 import Detail from './pages/detail/detail';
 import Category from './pages/categ/categ';

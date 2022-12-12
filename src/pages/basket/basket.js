@@ -92,12 +92,12 @@ const Cart=()=> {
              <div className="Cart" key={prod.id}>
 				  <div className="prod">
 				  <div className='imgProd'>
-				    <Link to={`/product/${prod.id}`} key={product.id}>
+				    <Link to={`/product/${prod.id}`} key={prod.id}>
 				      <img src={prod.image} onError={Error} alt={prod.id} className='img'/>
 					</Link>
 				  </div>
 				  <div className='infProd'>
-				    <Link to={`/product/${prod.id}`} key={product.id}>
+				    <Link to={`/product/${prod.id}`} key={prod.id}>
 					  <h6 className='nameProd'>{prod.product}</h6>
 					</Link> 
 					<span className='seller'>{t("Vendeur")}:</span>
@@ -109,7 +109,7 @@ const Cart=()=> {
 				<div className='Btns'>
                    <div className='dlt'>
                    <Link to={`/cart/${prod.id}`} key={prod.id}>
-                    <Button variant="text" color='primary' startIcon={<FaTrash/>} onClick={handleClickOpen}>
+                    <Button variant="text" color='primary' startIcon={<FaTrash/>} onClick={handleClickOpen} >
                      {t("supprimer")}
                     </Button>
                    </Link>

@@ -7,64 +7,31 @@ import Data from '../Library/stock'
 
 export const productSlice = createSlice({
   name: 'product',
-  initialState:Data,
+  initialState: {
+    prod: [],
+  },
   
   reducers: {
-    
     add: (state, action) => {
-      return state.map((item) => {
-        if (item.id !== action.payload.id) {
-          return item;
-        }
-        return {
-          ...item,
-          added: true,
-          quantity: item.quantity + 1,
-        };
-      });
+      const itemInCart = state.prod.find((item) => item.id === action.payload.id);
+      if (!itemInCart) {
+        state.prod.push({ ...action.payload, quantity: 1,added: true});
+      } 
     },
-    remove: (state, action) => {
-      return state.map((item) => {
-        if (item.id !== action.payload.id) {
-          return item;
-        }
-        return {
-          ...item,
-          added: false,
-          quantity: item.quantity * 0,
-        };
-      });
+    remove: (state, action) => {  
+      state.prod= state.prod.filter((el) => el.id != action.payload);
     },
-    emptyCart: (state, action) => {
-      return state.map((item) => {
-        return {
-          ...item,
-          added: false,
-          quantity: item.quantity * 0,
-        };
-      });
-    },
-    incrementProduct: (state, action) => {
-      return state.map((item) => {
-        if (item.id !== action.payload.id) {
-          return item;
-        }
-        return {
-          ...item,
-          quantity: item.quantity + 1,
-        };
-      });
+     incrementProduct: (state, action) => {
+      const itemInCart = state.prod.find((item) => item.id === action.payload.id);
+      if (itemInCart) {
+        itemInCart.quantity++;
+      } 
     },
     decrementProduct: (state, action) => {
-      return state.map((item) => {
-        if (item.id !== action.payload.id) {
-          return item;
-        }
-        return {
-          ...item,
-          quantity: item.quantity - 1,
-        };
-      });
+       const itemInCart = state.prod.find((item) => item.id === action.payload.id);
+      if (itemInCart) {
+        itemInCart.quantity--;
+      } 
     },
   },
 })
@@ -74,6 +41,6 @@ export const productSlice = createSlice({
    
 export const {add,remove,emptyCart,incrementProduct,decrementProduct,} = productSlice.actions;
 
-export const SelectProduct = state => state.product;
+export const SelectProduct = state => state.product.prod;
 
 export default productSlice.reducer;

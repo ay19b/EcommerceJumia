@@ -38,8 +38,8 @@ export default function Detail() {
   const [count, setCount] = useState(0);
   const prod = useSelector(SelectProduct);
   const dispatch = useDispatch();
-  const product =prod[id-1];
-  const productSlice= Data[id-1];
+  const product =Data[id-1];
+  const productSlice=prod.find(e=>e.id == id);
   const [state, setState] = useState(false);
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
@@ -67,7 +67,7 @@ export default function Detail() {
   
   const handleClick = () => {
     setState(true)
-    dispatch(add(Data[id-1]))
+    dispatch(add(product))
   };
 
   const handleClose = () => {
@@ -85,8 +85,7 @@ export default function Detail() {
   useEffect(() => {
     window.localStorage.setItem('count', count);
   }, [count]);
-  
-  
+
     return (
 	  <div className='detail'> 
 	        <Helmet>
@@ -129,7 +128,7 @@ export default function Detail() {
                                <h6 className="price">{product.price} {t("DA")}</h6>
 							                 <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
 							                 <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
-                               <Button disabled={product.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
+                               <Button disabled={productSlice?productSlice.added:product.added} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
                                  {t("J'achète")} 
                                </Button>
 							   <Divider />

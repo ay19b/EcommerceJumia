@@ -8,24 +8,26 @@ import { useSelector,useDispatch } from "react-redux";
 import {remove} from "../../redux/productSlice"
 import './basket.scss'
 import {useTranslation} from 'react-i18next'
+import Data from '../../Library/stock'
+
 
 export default function AlertDialog({open,handleClose}) {
   const prod = useSelector(SelectProduct);
   const dispatch = useDispatch();
   const { Id  } = useParams();
-  const product =prod[Id-1];
+  const product = prod.find(e=>e.id == Id)
   const [state, setState] = useState(false);
   const {t,i18n} = useTranslation();
   
   const Remove= () => {
-    dispatch(remove(product))
+    dispatch(remove(product.id))
     handleClose()
 	setState(true)
   }
   const handleOff = () => {
     setState(false);
   };
-
+  console.log(product)
   return (
     
     <div className='dialog'> 

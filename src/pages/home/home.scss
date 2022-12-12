@@ -11,15 +11,12 @@
    }
   .sidebar{
     position: fixed;
-    margin-top: -19px;
     box-shadow: 0px 0px 9px 0px #ccc !important;
     height: 23rem;
 	z-index: 1000;
    }
   }
 }
-
-
 
 @media only screen and (max-width: 1110px) {
  .home .header .LastHeader .logo .menu {
@@ -28,15 +25,7 @@
 }
 
 
-@media only screen and (max-width: 810px) {
- .home{
- .Sidebar{
-  .sidebar{
-    margin-top: -80px;
-   }
-  }
-}
-}
+
 
 
 

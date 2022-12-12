@@ -40,14 +40,16 @@ const Nav = () => {
 	};
 
 	const handleScroll = () => {
-    if(window.pageYOffset < 5){
-        setNavbar(false)
-    }else{
-        setNavbar(true)
+      if(window.pageYOffset <= 12){
+         setNavbar(false)
+      }else{
+         setNavbar(true)
+      }
     }
-}
+	
 	useEffect(() => {
       window.addEventListener('scroll',handleScroll)  
+	  return () => window.removeEventListener('scroll', handleScroll)
     })
    
 	
@@ -79,7 +81,7 @@ const Nav = () => {
 		  </div>
 		  <div  ref={nav} className={matches?'LastHeader':!navbar?'LastHeader':'LastHeader'}> 
 		    <Container> 
-			  <div  className={i18n.language === 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
+			    <div  className={i18n.language === 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
 	              <Sidebar />	
 	            </div>
 			  <div className='contLast'>

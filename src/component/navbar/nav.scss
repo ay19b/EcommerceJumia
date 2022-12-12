@@ -16,6 +16,7 @@
   }
 .LangHeader{
    background-color:whitesmoke;
+   transition: 0.9s;
    &.hidden{
      display:none;
    }
@@ -107,7 +108,7 @@
             opacity: 1;
             transform: translateY(0);
           };
-      };
+    };
    .contLast{
      display: flex;
      height: 5rem;
@@ -207,8 +208,8 @@
 	 transform: translate(100%);
    }
   .sidebar{
-    position: fixed;
-    margin-top: 55px;
+    position: absolute;
+    top: 65px;
     box-shadow: 0px 0px 9px 0px #ccc !important;
     height: 23rem;
 	z-index: 1000;
@@ -296,6 +297,11 @@
 	.LastHeader{
 	 padding-bottom: 1px;
 	 width: 100%;
+	 .Sidebar{ 
+	 .sidebar{
+	    top:55px;
+	 }
+	 }
 	  .logo{
 	    .menu {
           display: block!important;
