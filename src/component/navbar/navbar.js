@@ -153,7 +153,7 @@ const Nav = () => {
 				   <div className="item">
 				   <Link to={'/cart'} className="item">
 				     
-					 <Badge badgeContent={cartProducts.length} color="primary" className='iconNav'>
+					 <Badge badgeContent={cartProducts?cartProducts.length:null} color="primary" className='iconNav'>
                        <HiOutlineShoppingCart className="iconItem"/>
                      </Badge>
                      <h6>{t('Panier')}</h6>
