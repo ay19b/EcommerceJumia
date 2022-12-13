@@ -17,7 +17,7 @@ import titleLogo from '../../images/titleLogo.png'
 
 const Cart=()=> {
   const product = useSelector(SelectProduct);
-  const cartProducts = product.filter((product) => product.added);
+  const cartProducts =product? product.filter((product) => product.added):null;
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -42,7 +42,7 @@ const Cart=()=> {
   }, [location]);
   
   
-  let sum = cartProducts
+  let sum = cartProducts?cartProducts
   .map((product) => {
     let price = product.price;
     let quantity = product.quantity;
@@ -51,8 +51,8 @@ const Cart=()=> {
   })
   .reduce((acc, curr) => {
     return acc + curr;
-  }, 0);
-  
+  }, 0):null;
+if(cartProducts){
   if(cartProducts.length===0){
     return(
      <div className='cart'> 
@@ -72,7 +72,7 @@ const Cart=()=> {
       </Layout>
      </div> 
     )
-  }
+  }}
     return (
 	<div className='cart'> 
 	      <Helmet>
@@ -82,10 +82,10 @@ const Cart=()=> {
         <Layout>
            <div className='contentCart'>     
 			<div className="CartProd">
-				<span className='title'>{t("Panier")} ({cartProducts.length})</span>
+				<span className='title'>{t("Panier")} ({cartProducts?cartProducts.length:null})</span>
 				<Divider/>
 				
-		{cartProducts
+		{cartProducts?cartProducts
             .map((prod)=>{
               
             return(
@@ -127,7 +127,7 @@ const Cart=()=> {
 				</div>
           ) 
          })
-        }
+        :null}
 				 
 			   </div>
                          
