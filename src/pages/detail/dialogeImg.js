@@ -14,7 +14,7 @@ export default function DialogImg({open,handleClose,image}) {
   const prod = useSelector(SelectProduct);
   const dispatch = useDispatch();
   const { Id  } = useParams();
-  const product =prod[Id-1];
+  const product =prod?prod[Id-1]:null;
   const [state, setState] = useState(false);
   const {t,i18n} = useTranslation();
   
