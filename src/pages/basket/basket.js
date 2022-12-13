@@ -52,40 +52,25 @@ const Cart=()=> {
   .reduce((acc, curr) => {
     return acc + curr;
   }, 0):null;
-if(cartProducts){
-  if(cartProducts.length===0){
-    return(
-     <div className='cart'> 
-	   <Helmet>
-             <title>{t("Panier")}</title>
-			 <link rel="icon" href={titleLogo} />
-        </Helmet>
-      <Layout>
-      <div className='emptyBasket'>
-        <TiShoppingCart className='iconEmpty'/>
-        <h5 className='empty'>{t("Votre panier est vide")} !</h5>
-        <h6 className='emptyCatg'>{t("Parcourez nos catégories et découvrez nos meilleures offres")}!</h6>
-        <Link to="/">
-		  <Button color='primary' variant="contained" className='emptyBtn'>{t("COMMENCEZ VOS ACHATS")}</Button>
-		</Link>
-      </div>
-      </Layout>
-     </div> 
-    )
-  }}
+
+  
     return (
+	
+	
+	
 	<div className='cart'> 
 	      <Helmet>
              <title>{t("Panier")}</title>
 			 <link rel="icon" href={titleLogo} />
           </Helmet>
         <Layout>
+		{cartProducts && cartProducts.length>=1?
            <div className='contentCart'>     
 			<div className="CartProd">
 				<span className='title'>{t("Panier")} ({cartProducts?cartProducts.length:null})</span>
 				<Divider/>
 				
-		{cartProducts?cartProducts
+	     {cartProducts
             .map((prod)=>{
               
             return(
@@ -127,7 +112,7 @@ if(cartProducts){
 				</div>
           ) 
          })
-        :null}
+        }
 				 
 			   </div>
                          
@@ -153,7 +138,16 @@ if(cartProducts){
                      
 					 
                       
-               
+		:
+		 <div className='emptyBasket'>
+           <TiShoppingCart className='iconEmpty'/>
+           <h5 className='empty'>{t("Votre panier est vide")} !</h5>
+           <h6 className='emptyCatg'>{t("Parcourez nos catégories et découvrez nos meilleures offres")}!</h6>
+           <Link to="/">
+		    <Button color='primary' variant="contained" className='emptyBtn'>{t("COMMENCEZ VOS ACHATS")}</Button>
+		   </Link>
+          </div>
+		}  
           </Layout>  
 		</div> 
             
