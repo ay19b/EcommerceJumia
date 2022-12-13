@@ -27,7 +27,7 @@ const Nav = () => {
     const { menu } = useContext(MenuContext);
     const [navbar, setNavbar] = useState(false);
 	const product = useSelector(SelectProduct)
-    const cartProducts = product.filter((product) => product.added);
+    const cartProducts = product?product.filter((product) => product.added):null;
 	const { t, i18n } = useTranslation();
 	const nav = useRef();
 	const matches = useMediaQuery('(max-width:1000px)');
