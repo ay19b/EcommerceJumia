@@ -7,28 +7,26 @@ import Data from '../Library/stock'
 
 export const productSlice = createSlice({
   name: 'product',
-  initialState: {
-    prod: [],
-  },
+  initialState:[],
   
   reducers: {
     add: (state, action) => {
-      const itemInCart = state.prod.find((item) => item.id === action.payload.id);
+      const itemInCart = state.find((item) => item.id === action.payload.id);
       if (!itemInCart) {
-        state.prod.push({ ...action.payload, quantity: 1,added: true});
+        state.push({ ...action.payload, quantity: 1,added: true});
       } 
     },
     remove: (state, action) => {  
-      state.prod= state.prod.filter((el) => el.id != action.payload);
+      state.splice(state.findIndex((item) => item.id === action.payload),1)
     },
      incrementProduct: (state, action) => {
-      const itemInCart = state.prod.find((item) => item.id === action.payload.id);
+      const itemInCart = state.find((item) => item.id === action.payload.id);
       if (itemInCart) {
         itemInCart.quantity++;
       } 
     },
     decrementProduct: (state, action) => {
-       const itemInCart = state.prod.find((item) => item.id === action.payload.id);
+       const itemInCart = state.find((item) => item.id === action.payload.id);
       if (itemInCart) {
         itemInCart.quantity--;
       } 
@@ -41,6 +39,6 @@ export const productSlice = createSlice({
    
 export const {add,remove,emptyCart,incrementProduct,decrementProduct,} = productSlice.actions;
 
-export const SelectProduct = state => state.product.prod;
+export const SelectProduct = state => state.product;
 
 export default productSlice.reducer;

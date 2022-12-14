@@ -20,7 +20,7 @@ export default function AlertDialog({open,handleClose}) {
   const {t,i18n} = useTranslation();
   
   const Remove= () => {
-    dispatch(remove(product.id))
+    dispatch(remove(product))
     handleClose()
 	setState(true)
   }
