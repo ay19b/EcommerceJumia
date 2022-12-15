@@ -128,8 +128,8 @@ export default function Detail() {
                                <h6 className="price">{product.price} {t("DA")}</h6>
 							                 <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
 							                 <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
-                               <Button disabled={productSlice?productSlice.added:null} variant="contained"  startIcon={<MdOutlineAddShoppingCart/>} className='btnAdd'  onClick={handleClick}>
-                                 {t("J'achète")} 
+                               <Button disabled={productSlice?productSlice.added:null} variant="contained"  startIcon={<MdOutlineAddShoppingCart />} className='btnAdd'  onClick={handleClick}>
+                                 <h4 style={{margin:"auto"}}>{t("J'achète")}</h4> 
                                </Button>
 							   <Divider />
 							   <div className="listOffer">{t("Offres")}</div>

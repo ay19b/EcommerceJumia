@@ -17,6 +17,7 @@
 .LangHeader{
    background-color:whitesmoke;
    transition: 0.9s;
+   position: sticky;
    &.hidden{
      display:none;
    }

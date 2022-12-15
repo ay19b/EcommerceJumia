@@ -13,7 +13,8 @@ export const productSlice = createSlice({
       } 
     },
     remove: (state, action) => {  
-      state.splice(state.findIndex((item) => item.id === action.payload),1)
+      state.splice(state.findIndex((item) => item.id === action.payload.id),1)
+	  console.log(state.findIndex((item) => item.id === action.payload.id))
     },
      incrementProduct: (state, action) => {
       const itemInCart = state.find((item) => item.id === action.payload.id);

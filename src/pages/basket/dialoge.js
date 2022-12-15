@@ -27,7 +27,6 @@ export default function AlertDialog({open,handleClose}) {
   const handleOff = () => {
     setState(false);
   };
-  console.log(product)
   return (
     
     <div className='dialog'> 
