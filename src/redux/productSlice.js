@@ -7,9 +7,9 @@ export const productSlice = createSlice({
   
   reducers: {
     add: (state, action) => {
-      const itemInCart = state.find((item) => item.id === action.payload.id);
-      if (!itemInCart) {
-        state.push({ ...action.payload, quantity: 1,added: true});
+      const itemInCart = state.find((item) => item.id !== action.payload.id);
+      if (itemInCart) {
+        state.push({...action.payload, quantity: 1,added: true});
       } 
     },
     remove: (state, action) => {  
