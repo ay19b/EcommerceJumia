@@ -7,14 +7,10 @@ export const productSlice = createSlice({
   
   reducers: {
     add: (state, action) => {
-      const itemInCart = state.find((item) => item.id === action.payload.id);
-      if (!itemInCart) {
         state.push({...action.payload, quantity: 1,added: true});
-      } 
     },
     remove: (state, action) => {  
       state.splice(state.findIndex((item) => item.id === action.payload.id),1)
-	  console.log(state.findIndex((item) => item.id === action.payload.id))
     },
      incrementProduct: (state, action) => {
       const itemInCart = state.find((item) => item.id === action.payload.id);
