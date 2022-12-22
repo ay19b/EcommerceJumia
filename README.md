@@ -4,7 +4,7 @@ EcommerceJumia Application
 
 front-end: Reactjs, Redux toolkit, i18next, Sass
 
-Live Demo  https://ecommerce-jumia.vercel.app/
+[Live Demo](https://ecommerce-jumia.vercel.app/)
 
 Future Features
 
