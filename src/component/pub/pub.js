@@ -17,7 +17,7 @@ function Pub(){
                const {id,img}=item;
                return(
                    
-                       <img src={img} alt={id} className='listImg' />
+                       <img src={img} className='listImg' key={id}/>
 
                    
                )
