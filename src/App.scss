@@ -7,13 +7,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-	  color:white;
-	  padding: 8px;
-      font-size: 20px;
+	    color:white;
+	    padding: 4px;
+      
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
 }
-
+.headProd h6{
+  font-size: 19px !important;
+}
 .MuiDialogTitle-root + .MuiDialogContent-root {
   overflow: hidden !important;
 }

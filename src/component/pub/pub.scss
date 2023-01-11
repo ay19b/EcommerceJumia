@@ -19,6 +19,14 @@
   width: 8rem;
 }
 }
+@media only screen and (max-width: 810px) {
+  .pub .ListPub{
+    margin-top: 0;
+  }
+  .pub .ListPub .listImg {
+    width: 21%;
+  }
+}
 @media only screen and (max-width: 410px) {
   .pub{
     display:none;

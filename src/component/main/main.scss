@@ -92,7 +92,7 @@
 	}
 	.banner {
      width: 100%;
-	 height: 25rem;
+	 height: 22rem;
 	  .listImg{
 	     width: 100%;
 		 height: 100%;
@@ -104,12 +104,19 @@
   }
 
 }
-
+@media only screen and (max-width: 610px) {
+	.main{
+		height: 21rem;
+		.banner{
+			height: 20rem;
+		}
+	}
+}
 @media only screen and (max-width: 410px) {
   .main{
-   height: 20rem;
+   height: 17rem;
    .banner {
-     height: 20rem;
+     height: 17rem;
   }
   }
 }
