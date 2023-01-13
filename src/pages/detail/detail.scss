@@ -195,7 +195,6 @@
   }
   .MuiSnackbar-root{
     top: 0px!important;
-	left: 0 !important;
 	width: 100vw!important;
 	text-align:center!important;
   }
@@ -272,6 +271,12 @@
 	 
    }
  }
+ .MuiSnackbar-root {
+	left: 0 !important;
+	text-align: center !important;
+	top: 0 !important;
+	width: 100% !important;
+  }
  }
  
  

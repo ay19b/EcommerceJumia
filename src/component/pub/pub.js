@@ -11,15 +11,11 @@ function Pub(){
     const { t, i18n } = useTranslation();
     return(
 	<div className='pub'>
-	    
-            <div className="ListPub">
+	      <div className="ListPub">
              {pub.map((item)=>{
                const {id,img}=item;
                return(
-                   
-                       <img src={img} alt={id} className='listImg' />
-
-                   
+                   <img src={img} className='listImg' />
                )
            })}
            </div>   

@@ -1,9 +1,9 @@
 .header{
      position: sticky;
      display: flex;
-	 flex-direction: column;
+	   flex-direction: column;
      z-index: 100;
-     top: 0;
+     top: -30px;
   .firstHeader{
       background-color:#ff7f00;
   .imgNav{
@@ -17,7 +17,6 @@
 .LangHeader{
    background-color:whitesmoke;
    transition: 0.9s;
-   position: sticky;
    &.hidden{
      display:none;
    }
@@ -88,15 +87,13 @@
   }
 .LastHeader{
    background-color: white;
-   position: sticky;
    display: flex;
-   top: 0;
    &.active{
      position: fixed;
      z-index: 100;
      width: 100%;
      top: 0%;
-	 boxShadow: 0px 8px 6px -5px rgba(0,0,0,0.65);
+	   box-shadow: 0px 8px 6px -5px rgba(0,0,0,0.65);
      animation-name: scrollNav;
      animation-duration: .5s;
    }

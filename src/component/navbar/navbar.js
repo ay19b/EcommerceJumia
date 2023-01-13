@@ -26,7 +26,6 @@ const Nav = () => {
     const { dispatch } = useContext(MenuContext);
     const { menu } = useContext(MenuContext);
     const [navbar, setNavbar] = useState(false);
-	const [scroll, setScroll] = useState('');
 	const product = useSelector(SelectProduct)
     const cartProducts = product?product.filter((product) => product.added):null;
 	const { t, i18n } = useTranslation();
@@ -38,33 +37,11 @@ const Nav = () => {
 		window.location.reload();
 		i18n.changeLanguage(lng);
 		localStorage.setItem("lng", lng);
-	};
-
-	const handleScroll = () => {
-      if(window.pageYOffset <= 12){
-         setNavbar(false)
-      }else{
-         setNavbar(true)
-      }
-    }
-	const Scroll = () => {
-      if(window.pageYOffset > 0){
-         setScroll(-window.pageYOffset)
-      }else if(window.pageYOffset < 33){
-         setScroll(0)
-      }
-    }
-	
-	useEffect(() => {
-      window.addEventListener('scroll',handleScroll)  
-	  window.addEventListener('scroll',Scroll)  
-	  return () => window.removeEventListener('scroll', handleScroll)
-    })
-   
+	};   
 	
     return (
       <section className='header'>
-        <div className='LangHeader' style={{marginTop:scroll}}>
+        <div className='LangHeader'>
 		    <Container> 
 		      <div className='gridHeader'>
 			    <div className="contGrid">
