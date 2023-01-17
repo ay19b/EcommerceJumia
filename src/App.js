@@ -17,21 +17,20 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<Home />} />
-		 </Route>
-		 <Route path={'/product/:id'}>
+		      </Route>
+		      <Route path={'/product/:id'}>
             <Route index element={<Detail />} />
-		 </Route>
-		  <Route path={'/:category'}>
+		      </Route>
+		      <Route path={'/:category'}>
             <Route index element={<Category />} />
-		 </Route>
-		 <Route path={'cart'}>
+		      </Route>
+		      <Route path={'cart'}>
             <Route index element={<Cart />} />
-		</Route>
-		<Route path={'/cart/:Id'}>
+		      </Route>
+		      <Route path={'/cart/:Id'}>
             <Route index element={<Cart />} />
-        </Route>
-		 
-	   </Routes>
+          </Route>
+	      </Routes>
       </BrowserRouter>
     </div>
   );
