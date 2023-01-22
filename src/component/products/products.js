@@ -5,12 +5,11 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import './products.scss'
 import {MenuContext} from '../../context/menuContext'
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import {SelectProduct} from '../../redux/productSlice'
 import {useTranslation} from 'react-i18next'
 import mark from '../../images/mark.png'
 import Data from '../../Library/stock'
-
 
 const responsive = {
   superLargeDesktop: {
@@ -32,13 +31,11 @@ const responsive = {
 };
 
 export default function Category({cag,title}) {
-    const { dispatch } = useContext(MenuContext);
+  const { dispatch } = useContext(MenuContext);
 	const products = useSelector(SelectProduct);
 	const { t, i18n } = useTranslation();
-	function Error(e){
-		e.target.onerror = null
-        e.target.src = mark
-	} 
+	
+
     return(
           <div className='category'>
              
@@ -47,19 +44,16 @@ export default function Category({cag,title}) {
                    <Link to={`/${cag}`}>
                     <div className='headProdRight'>
                        <h6>{t('Voir plus')}</h6>
-					  {i18n.language === 'ar'?<RiArrowDropLeftLine/>:<RiArrowDropRightLine/>}   
-						   
+					            {i18n.language === 'ar'?<RiArrowDropLeftLine/>:<RiArrowDropRightLine/>}   
                     </div>
                  </Link>
               </div>
-			 
               <Carousel 
                 responsive={responsive}
 				        rtl={i18n.language === 'ar'?true:false}
                 autoPlay={false}
 			          className='swiper'
               >
-             
               {Data
                     .filter((filter) => filter.category === cag)
                     .map((product)=>{
