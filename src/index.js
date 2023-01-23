@@ -14,7 +14,7 @@ import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-<Suspense fallback={<div class="spinner"></div>}>
+<Suspense fallback=''>
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>

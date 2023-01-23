@@ -1,3 +1,4 @@
+import React, { useState,useEffect } from 'react';
 import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Banner from "./data";
@@ -5,13 +6,24 @@ import './banner.scss';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 function Carousel(){
-    
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(()=>{
+      setData(Banner)
+      setTimeout(()=>{
+        setLoading(true)
+      },1200)
+    })
+
+
     return(
 	<div className='banner'>
+     {loading?
       <Swiper
         modules={[Autoplay, Pagination]}
         pagination={{clickable: true}}
@@ -24,7 +36,7 @@ function Carousel(){
         loop
         className='swiper-container'
       >
-       {Banner.map((item)=>{
+       {data.map((item)=>{
                const {id,img}=item;
                return(
                    <SwiperSlide key={id} className='listImg'>
@@ -33,7 +45,7 @@ function Carousel(){
                    
                )
            })}
-     </Swiper>
+     </Swiper>:(<CircularProgress className='spinner'/>)}
 	 </div>
     )
 }

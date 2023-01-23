@@ -1,5 +1,14 @@
 .banner{
   width: 45rem;
+  position: relative;
+  .spinner{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color:#ff7f00;
+  }
 }
 
 

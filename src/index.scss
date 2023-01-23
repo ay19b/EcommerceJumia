@@ -19,22 +19,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.spinner {
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 9px solid;
-  border-color: #dbdcef;
-  border-right-color: #f77f00;
-  animation: spinner 1s infinite linear;
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%);
-}
-
-@keyframes spinner {
-  to {
-     transform:translate(-50%) rotate(1turn);
-  }
-}
