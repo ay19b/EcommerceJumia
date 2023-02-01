@@ -5,7 +5,9 @@ import {HiSearch,HiMenu,HiOutlineShoppingCart,HiOutlineChevronDown,HiOutlineChev
 import {FiHeart,FiShoppingBag} from "react-icons/fi";
 import {AiOutlineUser,AiTwotoneStar} from "react-icons/ai";
 import {IoMdHelpCircleOutline} from "react-icons/io";
-import {BsChatLeftDots} from "react-icons/bs"
+import {BsChatLeftDots,BsEnvelope} from "react-icons/bs"
+import {GrUserExpert} from "react-icons/gr"
+import {TiShoppingBag} from 'react-icons/ti'
 import algeria from "../../images/algeria.png";
 import france from "../../images/france.png";
 import jumia from "../../images/Jumia.png";
@@ -18,6 +20,9 @@ import {SelectProduct} from '../../redux/productSlice';
 import {useSelector} from "react-redux";
 import {useTranslation} from 'react-i18next'
 import useMediaQuery from '@mui/material/useMediaQuery'
+import { AuthContext } from "../../context/AuthContext";
+import { auth } from "../../firebase";
+import {signOut } from "firebase/auth";
 
 
 const Nav = () => {
@@ -29,6 +34,7 @@ const Nav = () => {
 	const product = useSelector(SelectProduct)
     const cartProducts = product?product.filter((product) => product.added):null;
 	const { t, i18n } = useTranslation();
+	const { currentUser } = useContext(AuthContext);
 	const nav = useRef();
 	const matches = useMediaQuery('(max-width:1000px)');
 	
@@ -38,6 +44,16 @@ const Nav = () => {
 		i18n.changeLanguage(lng);
 		localStorage.setItem("lng", lng);
 	};   
+	const handleLogout = () => {
+		signOut(auth)
+		  .then(() => {
+			console.log("Sign-out successful");
+		  })
+		  .catch(error => {
+			console.error("Sign-out error: ", error);
+		  });
+	  };
+
 	
     return (
       <section className='header'>
@@ -76,7 +92,6 @@ const Nav = () => {
 				 <HiMenu className="menu" onClick={() => dispatch({ type: "TOGGLE" })}/>
 				 <Link to="/" className="imglogo"><img src={jumia} className="img" alt='logo'/></Link>
 				</div>
-				
 				<div className="fieldInput">
 				  <TextField
                    id="outlined-hidden-label-small"
@@ -97,35 +112,69 @@ const Nav = () => {
                  </Button>
 				</div>
 				<div className="contItem">
-				   <div className="item" onMouseDown={()=> setDropConnect(!dropConnect)} onMouseOver={()=> setDropHelp(false)} >
-				     <AiOutlineUser className="iconItem user"/>
-                      <h6>{t('Se connecter')}</h6>
+				   <div className="item" onClick={()=> setDropConnect(!dropConnect)}>
+					{currentUser? 
+					 (<><GrUserExpert className="iconItem user"/>
+					 <h6>{t("Bonjour")} {currentUser.displayName}</h6></>):(
+					 <><AiOutlineUser className="iconItem user"/>
+					 <h6>{t('Se connecter')}</h6></>)}
+				     
                      {!dropConnect?<HiOutlineChevronDown className="arrow"/> :<HiOutlineChevronUp className="arrow"/>}
-					 {dropConnect && 
-					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'}  onMouseLeave={()=> setDropConnect(false)}>
-	                   <Button variant="contained">{t('Se connecter')}</Button>
-		               <Divider />
-                       <div className="item">
-                          <AiOutlineUser className="iconItem user"/>
-                          <h6>{t('Mon compte')}</h6>
-		               </div>
-		               <div className="item">
-                         <FiShoppingBag className="iconItem user"/>
-                         <h6>{t('Mes commandes')}</h6>
-		               </div>
-		               <div className="item">
-                         <FiHeart className="iconItem user"/>
-                         <h6>{t('Ma liste d\'envies')}</h6>
-		               </div>
-                     </div>
+					 {dropConnect?
+					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'}>
+		               {!currentUser?
+					   <>
+						<Link to={'/sign-in'}>
+						    <Button variant="contained">{t('Se connecter')}</Button>	
+					      </Link>
+					     <Divider />
+					     <div className="item">
+						    <AiOutlineUser className="iconItem user"/>
+						    <h6>{t('Mon compte')}</h6> 
+					     </div>
+					     <div className="item">
+					       <FiShoppingBag className="iconItem user"/>
+					       <h6>{t('Mes commandes')}</h6>
+					     </div>
+					     <div className="item">
+					       <FiHeart className="iconItem user"/>
+					       <h6>{t('Ma liste d\'envies')}</h6>
+					     </div>
+						 </>:
+						 <>
+						 <div className="item">
+                             <AiOutlineUser className="iconItem user"/>
+						     <h6>{t('Mon compte')}</h6> 
+		                  </div>
+		                  <div className="item">
+                            <FiShoppingBag className="iconItem user"/>
+                            <h6>{t('Mes commandes')}</h6>
+		                  </div>
+					      <div className="item">
+                            <FiHeart className="iconItem user"/>
+                            <h6>{t('Ma liste d\'envies')}</h6>
+		                  </div>
+		                  <div className="item">
+                            <BsEnvelope className="iconItem user"/>
+                            <h6>{t('Boite de reception')}</h6>
+		                  </div>
+					      <div className="item">
+                            <TiShoppingBag className="iconItem user"/>
+                            <h6>{t(`Bons d'achat`)}</h6>
+		                  </div>
+						  <Divider />
+						  <Button variant="text" onClick={handleLogout}>{t('DÉCONNEXION')}</Button>	
+						  </>
+                          }
+					      </div>:null
 					 }
 				   </div>
-				   <div className="item" onMouseDown={()=> setDropHelp(!dropHelp)} onMouseOver={()=> setDropConnect(false)} >
+				   <div className="item" onClick={()=> setDropHelp(!dropHelp)}>
 				     <IoMdHelpCircleOutline className="iconItem"/>
                      <h6>{t('Aide')}</h6>
                      {!dropHelp?<HiOutlineChevronDown className="arrow"/> :<HiOutlineChevronUp className="arrow"/>}
 					 {dropHelp && 
-					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'} onMouseLeave={()=> setDropHelp(false)}>
+					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'}>
                         <div className="item">{t('Centre d\'Assistance')}</div>
 		                <div className="item"><h6>{t('Passer et suivre ma commande')}</h6></div>
 		                <div className="item"><h6>{t('Annuler ma commande')}</h6></div>

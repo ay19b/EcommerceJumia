@@ -35,14 +35,16 @@
 [dir="ltr"].MuiButton-startIcon{
 	font-size:1.1rem!important;
 }
-
+.MuiInputBase-root{
+  direction: initial;
+}
 @media (min-width: 1200px){
 .MuiContainer-root {
   max-width: 1235px!important;
 }
 }
 
- 
+
  
 @media only screen and (max-width: 810px) {
 	 .MuiContainer-root{

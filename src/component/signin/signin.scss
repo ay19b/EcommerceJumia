@@ -1,0 +1,61 @@
+.signIn{
+    display: flex;
+    flex-direction: column;
+    width: 28rem;
+    margin: auto;
+    padding: 32px;
+    align-items: center;
+    text-align: center;
+    img{
+        width: 4rem;
+        margin: auto;
+    }
+    h2{
+        margin-bottom: 5px;
+    }
+    .instr{
+        margin-bottom: 32px;
+    }
+    .MuiFormControl-root{
+        width: 100%;
+        margin-bottom: 32px;
+    }
+    .n-tlf{
+        color: #f6952b;
+        margin-bottom: 50px;
+        cursor: pointer;
+    }
+    .btn-continue{
+        width: 100%;      
+        border: none;
+        padding: 15px;
+        margin-bottom: 18px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #f6952b;
+        border-radius: 5px;
+    }
+    .btn-continue:hover{
+        background-color: #e7933a;
+    }
+    .btn-facebook{
+        background-color: #1877f2;
+        margin-bottom: 32px;
+        padding: 10px;
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;  
+        width: 100%;
+    }
+    .btn-facebook:hover{
+        background-color: #297ce9;
+    }
+    .haveAccount{
+        margin-bottom: 16px;
+        color: #f6952b;
+        font-size: 16px;
+        font-weight: bolder;
+    }
+}

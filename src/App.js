@@ -5,6 +5,8 @@ import Category from './pages/categ/categ';
 import Cart from './pages/basket/basket';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {useTranslation} from 'react-i18next'
+import Signin from './component/signin/signin';
+import Login from './component/login/login';
 
 
 function App() {
@@ -13,10 +15,17 @@ function App() {
 	
   return (
     <div className="App" style={{direction:t('ltr')}}>
+      
      <BrowserRouter>
         <Routes>
           <Route path="/">
             <Route index element={<Home />} />
+		      </Route>
+          <Route path='/sign-in'>
+            <Route index element={<Signin />} />
+		      </Route>
+          <Route path='/login'>
+            <Route index element={<Login />} />
 		      </Route>
 		      <Route path={'/product/:id'}>
             <Route index element={<Detail />} />
