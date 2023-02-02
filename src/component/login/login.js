@@ -72,7 +72,7 @@ export default function Login() {
               helperText={emailError}
             />
             <FormControl  variant="outlined">
-              <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+              <InputLabel htmlFor="outlined-adornment-password">{t("Password")}</InputLabel>
               <OutlinedInput
                 id="outlined-adornment-password"
                 type={showPassword ? 'text' : 'password'}
