@@ -14,6 +14,8 @@ import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Cart=()=> {
   const product = useSelector(SelectProduct);
@@ -22,7 +24,7 @@ const Cart=()=> {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const {t,i18n} = useTranslation();
-  
+  const { currentUser } = useContext(AuthContext);
   function Error(e){
 		e.target.onerror = null
         e.target.src = mark
@@ -131,7 +133,14 @@ const Cart=()=> {
 				<div className='freeDvl'>{t("Livraison gratuite")}</div>
 				<p className='prg'>{t("Les articles Jumia Express sont éligibles à la livraison gratuite en point de retrait sur Alger")}</p>
 				<Divider />
-				<Button color='primary'variant="contained"className='btn'>{t("Commander")} ({sum}){t("DA")}</Button>
+        {currentUser?
+        <Button color='primary'variant="contained"className='btn'>{t("Commander")} ({sum}){t("DA")}</Button>
+        :<Link to={"/login"}>
+          <Button color='primary'variant="contained"className='btn'>{t("Commander")} ({sum}){t("DA")}</Button>
+         </Link>
+      }
+        
+				
 			</div> 			
 						
 			</div>		   

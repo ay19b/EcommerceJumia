@@ -56,8 +56,7 @@ export default function Category({cag,title}) {
               >
               {Data
                     .filter((filter) => filter.category === cag)
-                    .map((product)=>{
-                       
+                    .map((product)=>{                     
                         return(
                            <div key={product.id} className='product'>
                             <Link to={`/product/${product.id}`} key={product.id} onClick={() => dispatch({ type: "open" })}>
@@ -68,11 +67,8 @@ export default function Category({cag,title}) {
                            </div> 
                              )
                         })
-                     }
-               
-              
-            </Carousel> 
-            
+                     } 
+            </Carousel>             
             </div>
    )
     

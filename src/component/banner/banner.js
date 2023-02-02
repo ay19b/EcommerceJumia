@@ -41,8 +41,7 @@ function Carousel(){
                return(
                    <SwiperSlide key={id} className='listImg'>
                        <img src={img} alt={id} className='listImg' />
-                   </SwiperSlide>
-                   
+                   </SwiperSlide>                  
                )
            })}
      </Swiper>:(<CircularProgress className='spinner'/>)}

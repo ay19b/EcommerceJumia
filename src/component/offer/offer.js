@@ -11,27 +11,16 @@ import {useTranslation} from 'react-i18next'
 export default function Offer() {
     const {t} = useTranslation();
   return (
-    <div className="offer">
-        
-              <div className='headProd'>
-                  <Typography variant='h6'>{t('Offres incontournables')}</Typography>
-              </div>
-              <div className='offerbanner'>
-                
-                  <img src={skone} alt='a' className='img'/>
-                
-               
-                  <img src={sktwo} alt='a' className='img'/>
-                
-               
-                  <img src={skthree} alt='a' className='img'/>
-                
-                
-                  <img src={skfour} alt='a' className='img'/>
-                
-
-              </div>
-        
+    <div className="offer">        
+      <div className='headProd'>
+          <Typography variant='h6'>{t('Offres incontournables')}</Typography>
+      </div>
+       <div className='offerbanner'>               
+          <img src={skone} alt='a' className='img'/>
+          <img src={sktwo} alt='a' className='img'/>
+          <img src={skthree} alt='a' className='img'/>
+          <img src={skfour} alt='a' className='img'/>
+      </div>     
     </div>
   )
 }

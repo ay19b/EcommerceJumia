@@ -10,7 +10,6 @@ function Sidebar() {
     const { dispatch } = useContext(MenuContext);
 	const {t} = useTranslation();
 	
-	
     return(
       <div className="sidebar" onMouseLeave={() => dispatch({ type: "open" })} > 
           {Side.map((item)=>{
