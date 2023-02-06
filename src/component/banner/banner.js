@@ -10,14 +10,13 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 function Carousel(){
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(Banner);
     const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
-      setData(Banner)
       setTimeout(()=>{
         setLoading(true)
-      },1200)
+      },1000)
     })
 
 
