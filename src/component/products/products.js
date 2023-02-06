@@ -30,11 +30,11 @@ const responsive = {
   }
 };
 
-export default function Category({cag,title}) {
+export default function Category({cag,title,prod}) {
   const { dispatch } = useContext(MenuContext);
 	const products = useSelector(SelectProduct);
 	const { t, i18n } = useTranslation();
-	
+
 
     return(
           <div className='category'>
@@ -55,7 +55,7 @@ export default function Category({cag,title}) {
 			          className='swiper'
               >
               {Data
-                    .filter((filter) => filter.category === cag)
+                    .filter((filter) => filter.category === cag & filter.id !== prod)
                     .map((product)=>{                     
                         return(
                            <div key={product.id} className='product'>

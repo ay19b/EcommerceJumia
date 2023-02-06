@@ -35,8 +35,8 @@ export default function DialogImg({open,handleClose,image}) {
        onClose={handleClose}
        aria-labelledby="alert-dialog-title"
        aria-describedby="alert-dialog-description" 
-	   overlayStyle={{backgroundColor: 'transparent!important'}}
-	   style={{backgroundColor: 'transparent!important'}}
+	     overlayStyle={{backgroundColor: 'transparent!important'}}
+	     style={{backgroundColor: 'transparent!important'}}
      >
      <DialogTitle id="responsive-dialog-title" className={i18n.language === 'fr'?null:{direction: 'rtl'}}>
 	  <div  className={i18n.language === 'fr'?"titleDial":"titleDial arb"}>

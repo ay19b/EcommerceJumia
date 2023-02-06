@@ -13,7 +13,6 @@ export default function Promo() {
 	
   return (
     <div className="promo">
-        
               <div className='headProd'>
                   <Typography variant='h6'>{t('CODES PROMOS TVs')}</Typography>
               </div>

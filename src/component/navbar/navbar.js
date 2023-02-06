@@ -113,12 +113,11 @@ const Nav = () => {
 				</div>
 				<div className="contItem">
 				   <div className="item" onClick={()=> setDropConnect(!dropConnect)}>
-					{currentUser? 
-					 (<><GrUserExpert className="iconItem user"/>
-					 <h6>{t("Bonjour")} {currentUser.displayName}</h6></>):(
-					 <><AiOutlineUser className="iconItem user"/>
-					 <h6>{t('Se connecter')}</h6></>)}
-				     
+					{!currentUser?
+                      (<><AiOutlineUser className="iconItem user"/>
+	                   <h6>{t('Se connecter')}</h6></>):
+					   (<><GrUserExpert className="iconItem user"/>
+					   <h6>{t("Bonjour")} {currentUser.displayName}</h6></>)}  
                      {!dropConnect?<HiOutlineChevronDown className="arrow"/> :<HiOutlineChevronUp className="arrow"/>}
 					 {dropConnect?
 					  <div className={!navbar?'dropdown-menu':'dropdown-menu Navactive'}>

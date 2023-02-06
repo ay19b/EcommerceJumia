@@ -56,27 +56,22 @@ const Cart=()=> {
   }, 0):null;
 
   
-    return (
-	
-	
-	
+  return (
 	<div className='cart'> 
-	      <Helmet>
-             <title>{t("Panier")}</title>
-			 <link rel="icon" href={titleLogo} />
-          </Helmet>
-        <Layout>
+	    <Helmet>
+          <title>{t("Panier")}</title>
+			    <link rel="icon" href={titleLogo} />
+      </Helmet>
+    <Layout>
 		{cartProducts && cartProducts.length>=1?
            <div className='contentCart'>     
 			<div className="CartProd">
 				<span className='title'>{t("Panier")} ({cartProducts?cartProducts.length:null})</span>
 				<Divider/>
 				
-	     {cartProducts
-            .map((prod)=>{
-              
+	     {cartProducts.map((prod)=>{ 
             return(
-             <div className="Cart" key={prod.id}>
+       <div className="Cart" key={prod.id}>
 				  <div className="prod">
 				  <div className='imgProd'>
 				    <Link to={`/product/${prod.id}`} key={prod.id}>
@@ -94,68 +89,55 @@ const Cart=()=> {
 				  <div className='price'>{prod.price}{t("DA")}</div>
 				</div>
 				<div className='Btns'>
-                   <div className='dlt'>
-                   <Link to={`/cart/${prod.id}`} key={prod.id}>
-                    <Button variant="text" color='primary' startIcon={<FaTrash/>} onClick={handleClickOpen} >
-                     {t("supprimer")}
-                    </Button>
-                   </Link>
-                    <AlertDialog  open={open} handleClose={handleClose} />
-                    </div>  
-                   
-                     <div className='quantity'>
-                      <Button color='primary'  variant="contained" disabled={prod.quantity===1} onClick={() => dispatch(decrementProduct(prod))} >-</Button>
-                        <h6 className='itemQuant'>{prod.quantity}</h6>
-                      <Button color='primary'  variant="contained" disabled={prod.quantity===10} onClick={() => dispatch(incrementProduct(prod))}>+</Button>
-                     </div>
-                   
-                  </div>
+          <div className='dlt'>
+          <Link to={`/cart/${prod.id}`} key={prod.id}>
+           <Button variant="text" color='primary' startIcon={<FaTrash/>} onClick={handleClickOpen} >
+            {t("supprimer")}
+           </Button>
+          </Link>
+           <AlertDialog  open={open} handleClose={handleClose} />
+           </div>  
+            <div className='quantity'>
+             <Button color='primary'  variant="contained" disabled={prod.quantity===1} onClick={() => dispatch(decrementProduct(prod))} >-</Button>
+               <h6 className='itemQuant'>{prod.quantity}</h6>
+             <Button color='primary'  variant="contained" disabled={prod.quantity===10} onClick={() => dispatch(incrementProduct(prod))}>+</Button>
+            </div>                
+          </div>
 				  <Divider/>
 				</div>
           ) 
          })
         }
-				 
 			   </div>
-                         
-			
-
-			
-           <div className='resume'>  
-                <div className="title">{t("RÉSUMÉ DU PANIER")}</div>
-				<Divider />
-				<div className="amount">
-				  <span>{t("Sous-total")}</span>
-				  <span>{sum}{t("DA")}</span>
-				</div>
-				<p>{t("Frais de livraison non inclus à ce stade.")}</p>
-				<Divider />
-				<div className='freeDvl'>{t("Livraison gratuite")}</div>
-				<p className='prg'>{t("Les articles Jumia Express sont éligibles à la livraison gratuite en point de retrait sur Alger")}</p>
-				<Divider />
-        {currentUser?
-        <Button color='primary'variant="contained"className='btn'>{t("Commander")} ({sum}){t("DA")}</Button>
-        :<Link to={"/login"}>
-          <Button color='primary'variant="contained"className='btn'>{t("Commander")} ({sum}){t("DA")}</Button>
-         </Link>
-      }
-        
-				
+        <div className='resume'>  
+            <div className="title">{t("RÉSUMÉ DU PANIER")}</div>
+				    <Divider />
+				    <div className="amount">
+				      <span>{t("Sous-total")}</span>
+				      <span>{sum}{t("DA")}</span>
+				    </div>
+				    <p>{t("Frais de livraison non inclus à ce stade.")}</p>
+				    <Divider />
+				    <div className='freeDvl'>{t("Livraison gratuite")}</div>
+				    <p className='prg'>{t("Les articles Jumia Express sont éligibles à la livraison gratuite en point de retrait sur Alger")}</p>
+				    <Divider />
+            {currentUser?
+            <Button color='primary'variant="contained"className='btn'>{t("Commander")} ({sum}){t("DA")}</Button>
+            :<Link to={"/login"}>
+              <Button color='primary'variant="contained"className='btn'>{t("Commander")} ({sum}){t("DA")}</Button>
+             </Link>
+          }
 			</div> 			
-						
-			</div>		   
-                     
-					 
-                      
+			</div>		               
 		:
 		 <div className='emptyBasket'>
-           <TiShoppingCart className='iconEmpty'/>
-           <h5 className='empty'>{t("Votre panier est vide")} !</h5>
-           <h6 className='emptyCatg'>{t("Parcourez nos catégories et découvrez nos meilleures offres")}!</h6>
-           <Link to="/">
+       <TiShoppingCart className='iconEmpty'/>
+       <h5 className='empty'>{t("Votre panier est vide")} !</h5>
+       <h6 className='emptyCatg'>{t("Parcourez nos catégories et découvrez nos meilleures offres")}!</h6>
+       <Link to="/">
 		    <Button color='primary' variant="contained" className='emptyBtn'>{t("COMMENCEZ VOS ACHATS")}</Button>
 		   </Link>
-          </div>
+     </div>
 		}  
           </Layout>  
 		</div> 

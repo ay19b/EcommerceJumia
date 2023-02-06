@@ -22,7 +22,7 @@ export default function AlertDialog({open,handleClose}) {
   const Remove= () => {
     dispatch(remove(product))
     handleClose()
-	setState(true)
+	  setState(true)
   }
   const handleOff = () => {
     setState(false);
@@ -35,14 +35,15 @@ export default function AlertDialog({open,handleClose}) {
        onClose={handleClose}
        aria-labelledby="alert-dialog-title"
        aria-describedby="alert-dialog-description" 
-	   overlayStyle={{backgroundColor: 'transparent!important'}}
-	   style={{backgroundColor: 'transparent!important'}}
+	     overlayStyle={{backgroundColor: 'transparent!important'}}
+	     style={{backgroundColor: 'transparent!important'}}
+       BackdropProps={{ style: { backgroundColor: "rgba(0, 0, 0, 0.35)" } }}
      >
      <DialogTitle id="responsive-dialog-title" className={i18n.language === 'fr'?null:{direction: 'rtl'}}>
 	   <div  className={i18n.language === 'fr'?"titleDial":"titleDial arb"}>
         {t("Retirer du panier")}
         <MdClose onClick={handleClose}/>
-	  </div>
+	   </div>
      </DialogTitle>
      <DialogContent>
      <DialogContentText id="alert-dialog-description">
@@ -57,7 +58,7 @@ export default function AlertDialog({open,handleClose}) {
      </DialogActions>
     </Dialog>
 	
-	<Snackbar
+	  <Snackbar
         anchorOrigin={ { vertical: 'top', horizontal: 'center' } }
         autoHideDuration={10500}
         open={state}

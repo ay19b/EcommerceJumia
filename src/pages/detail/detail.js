@@ -88,22 +88,22 @@ export default function Detail() {
 
     return (
 	  <div className='detail'> 
-	        <Helmet>
-                <title>{product.desc}</title>
-				<link rel="icon" href={titleLogo} />
-            </Helmet>
+	      <Helmet>
+          <title>{product.desc}</title>
+				  <link rel="icon" href={titleLogo} />
+        </Helmet>
         <Layout>
 		    <div className='linkPages'>
-	                  <span className='link'>
-                        <Link to="/">{t("Accueil")}</Link>
-                      </span> 			
-			          <span className='link'>></span>
-                      <span  className='link'>
-                         <Link to={`/${product.category}`}>{t(product.category)}</Link>
-                      </span> 			
-			          <span className='link'>></span>
-			          <span className='link active'>{product.desc}</span>
-			        </div>   
+	          <span className='link'>
+                <Link to="/">{t("Accueil")}</Link>
+            </span> 			
+			       <span className='link'>></span>
+            <span  className='link'>
+                <Link to={`/${product.category}`}>{t(product.category)}</Link>
+             </span> 			
+			       <span className='link'>></span>
+			      <span className='link active'>{product.desc}</span>
+			    </div>   
 					<div className="contentProd">
               <div className='detailCont'>
 					    <div className="imgProd">
@@ -118,72 +118,70 @@ export default function Detail() {
 						</div>
                          
 						 
-                         <div className='infDtl' >
-                               <h6 className="prod">{product.desc}</h6>
-							                <div className="stars">
-                                 <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
-							                 </div>
-                               <img src={black} alt='blackFri' className="blackfrd"/>
-							                 <Divider />
-                               <h6 className="price">{product.price} {t("DA")}</h6>
-							                 <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
-							                 <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
-                               <Button disabled={productSlice?productSlice.added:null} variant="contained"  startIcon={<MdOutlineAddShoppingCart />} className='btnAdd'  onClick={handleClick}>
-                                 <h4 style={{margin:"auto"}}>{t("J'achète")}</h4> 
-                               </Button>
+           <div className='infDtl' >
+                 <h6 className="prod">{product.desc}</h6>
+					      <div className="stars">
+                   <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
+					       </div>
+                 <img src={black} alt='blackFri' className="blackfrd"/>
+					       <Divider />
+                 <h6 className="price">{product.price} {t("DA")}</h6>
+					       <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
+					       <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
+                 <Button disabled={productSlice?productSlice.added:null} variant="contained"  startIcon={<MdOutlineAddShoppingCart />} className='btnAdd'  onClick={handleClick}>
+                   <h4 style={{margin:"auto"}}>{t("J'achète")}</h4> 
+                 </Button>
 							   <Divider />
 							   <div className="listOffer">{t("Offres")}</div>
 							   
 							   <div className='inf'>
 							    <div className="icon">
-				                 <AiTwotoneStar className='iconStar'/>
-				                </div>
+				            <AiTwotoneStar className='iconStar'/>
+				          </div>
 							    <h6>{t("Ce produit n'est pas éligible à un retour, consultez les conditions ici.")}</h6>
 							   </div>
 							   <div className='inf'>
 							    <div className="iconShield">
-				                 <BsShieldFillCheck className='shield'/>
-				                </div>
+				             <BsShieldFillCheck className='shield'/>
+				           </div>
 							    <h6>{t("Payez en ligne avec votre carte CIB/EDAHABIA en toute sécurité.")}</h6>
-							   </div>
-							  
-                         </div>   
-                            
-                       </div>
+							   </div>	  
+          </div>   
+          </div>
 					   <div className="delivery">
 					    <div className="title">{t("Livraison & Retours")}</div>
 						<Divider />
 						<div className="address">{t("Choisissez un lieu de livraison")}</div>
 						<FormControl >
-                          <Select
-                            value={willaya}
-                            onChange={willayaChange}
-                            displayEmpty
-                            inputProps={{ 'aria-label': 'Without label' }}
-                          >
-                            <MenuItem value="">
-                              <em>{t("Alger")}</em>
-                            </MenuItem>
-                            <MenuItem value={10}>{t("Setif")}</MenuItem>
-                            <MenuItem value={20}>{t("Oran")}</MenuItem>
-                            <MenuItem value={30}>{t("Bejaia")}</MenuItem>
-                          </Select>
-                        </FormControl>
+              <Select
+                value={willaya}
+                onChange={willayaChange}
+                displayEmpty
+                inputProps={{ 'aria-label': 'Without label' }}
+              >
+                <MenuItem value="">
+                  <em>{t("Alger")}</em>
+                 </MenuItem>
+                <MenuItem value={10}>{t("Setif")}</MenuItem>
+                <MenuItem value={20}>{t("Oran")}</MenuItem>
+                <MenuItem value={30}>{t("Bejaia")}</MenuItem>
+              </Select>
+            </FormControl>
 						<FormControl >
-                          <Select
-                            value={city}
-                            onChange={cityChange}
-                            displayEmpty
-                            inputProps={{ 'aria-label': 'Without label' }}
-                          >
-                            <MenuItem value="">
-                              <em>{t("Alger")}</em>
-                            </MenuItem>
-                            <MenuItem value={10}>{t("Setif")}</MenuItem>
-                            <MenuItem value={20}>{t("Oran")}</MenuItem>
-                            <MenuItem value={30}>{t("Bejaia")}</MenuItem>
-                          </Select>
-                        </FormControl>
+              <Select
+                value={city}
+                onChange={cityChange}
+                displayEmpty
+                inputProps={{ 'aria-label': 'Without label' }}
+              >
+                <MenuItem value="">
+                  <em>{t("Alger")}</em>
+                </MenuItem>
+                <MenuItem value={10}>{t("Setif")}</MenuItem>
+                <MenuItem value={20}>{t("Oran")}</MenuItem>
+                <MenuItem value={30}>{t("Bejaia")}</MenuItem>
+              </Select>
+            </FormControl>
 						<div className="DetailDelivery">
 						 <TbTruckDelivery className="icon"/>
 						 <div className="centerDeatil">
@@ -210,17 +208,15 @@ export default function Detail() {
 						</div>
 					   </div>
 					   </div>
-					   <DialogImg  open={open} handleClose={ClickClose} image={product.image}/>
-					   <Category cag={product.category} title={'Autres produits de la boutique'}/>
-                       <Snackbar
-                            anchorOrigin={ { vertical: 'top', horizontal: 'center' } }
-                            autoHideDuration={1500}
-                            open={state}
-                            onClose={handleClose}
-                            message={t("Produit ajouté au panier")}
-                        /> 
-                      
-               
+					   <DialogImg  open={open} handleClose={ClickClose} image={product.image} />
+					   <Category cag={product.category} title={'Autres produits de la boutique'} prod={product.id}/>
+              <Snackbar
+                   anchorOrigin={ { vertical: 'top', horizontal: 'center' } }
+                   autoHideDuration={1500}
+                   open={state}
+                   onClose={handleClose}
+                   message={t("Produit ajouté au panier")}
+              /> 
           </Layout>  
 		</div> 
     )
