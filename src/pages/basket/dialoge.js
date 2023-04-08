@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {Dialog,DialogContentText,DialogTitle,DialogActions,DialogContent,Button,Snackbar} from '@mui/material'
 import {MdClose} from "react-icons/md";
 import {FaTrash} from "react-icons/fa";
@@ -8,17 +8,17 @@ import { useSelector,useDispatch } from "react-redux";
 import {remove} from "../../redux/productSlice"
 import './basket.scss'
 import {useTranslation} from 'react-i18next'
-import Data from '../../Library/stock'
 
 
 export default function AlertDialog({open,handleClose}) {
   const prod = useSelector(SelectProduct);
   const dispatch = useDispatch();
   const { Id  } = useParams();
-  const product = prod.find(e=>e.id == Id)
+  const product = prod.find(e=>e._id === Id)
   const [state, setState] = useState(false);
   const {t,i18n} = useTranslation();
-  
+
+
   const Remove= () => {
     dispatch(remove(product))
     handleClose()
@@ -27,6 +27,9 @@ export default function AlertDialog({open,handleClose}) {
   const handleOff = () => {
     setState(false);
   };
+
+
+console.log(product);
   return (
     
     <div className='dialog'> 
@@ -35,7 +38,7 @@ export default function AlertDialog({open,handleClose}) {
        onClose={handleClose}
        aria-labelledby="alert-dialog-title"
        aria-describedby="alert-dialog-description" 
-	     overlayStyle={{backgroundColor: 'transparent!important'}}
+	     overlaystyle={{backgroundColor: 'transparent!important'}}
 	     style={{backgroundColor: 'transparent!important'}}
        BackdropProps={{ style: { backgroundColor: "rgba(0, 0, 0, 0.35)" } }}
      >

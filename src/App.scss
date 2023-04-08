@@ -39,6 +39,19 @@
   direction: initial;
 }
 
+.listSkelton{
+	display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+    .productSkelton{
+	  width: 11.595rem;
+      height: 14rem;
+      border: 3px solid transparent;
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
+}
+
 @media (min-width: 1200px){
 .MuiContainer-root {
   max-width: 1235px!important;

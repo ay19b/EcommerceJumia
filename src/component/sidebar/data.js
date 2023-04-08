@@ -27,7 +27,7 @@ export const Side= [
         id:3,
         name:"Électroménager, TV & Audio",
         icon:<FaBaby />,
-        path:'/Électroménager',
+        path:'/Électroménager, TV & Audio',
     },
     {
         id:4,
@@ -39,7 +39,7 @@ export const Side= [
         id:5,
         name:"Articles de sport",
         icon:<GiMuscleUp />,
-        path:'/Sport',
+        path:'/Articles de sport',
     },
     {
         id:6,

@@ -12,8 +12,10 @@ import {useTranslation} from 'react-i18next'
 import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
 
+
 export default function Home() {
     const {t} = useTranslation();
+
 
      
     return (
@@ -31,8 +33,8 @@ export default function Home() {
 	    <Category cag={'Mode'} title={'Mode'}/>
 	    <Offer />
 	    <Fashmia />
-	    <Category cag={'Électroménager'}title={'Électroménager, TV & Audio'} />
-	    <Category cag={'Sport'} title={'Articles de sport'}/>
+	    <Category cag={'Électroménager, TV & Audio'}title={'Électroménager, TV & Audio'} />
+	    <Category cag={'Articles de sport'} title={'Articles de sport'}/>
 	    <Category cag={'Informatique'} title={'Informatique'}/>
      </Layout>
 	</div>

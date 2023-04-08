@@ -21,8 +21,8 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'fr',
-	lng: localStorage.getItem("lng") || "en",
-    debug: true,
+	  lng: localStorage.getItem("lng") || "en",
+    debug: false,
     whitelist:availableLanguages,
     detection:option,
     interpolation: {

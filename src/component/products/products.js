@@ -9,7 +9,9 @@ import { useContext, useEffect, useState } from "react";
 import {SelectProduct} from '../../redux/productSlice'
 import {useTranslation} from 'react-i18next'
 import mark from '../../images/mark.png'
-import Data from '../../Library/stock'
+import axios from "axios"
+import Skeleton from '@mui/material/Skeleton';
+
 
 const responsive = {
   superLargeDesktop: {
@@ -34,11 +36,37 @@ export default function Category({cag,title,prod}) {
   const { dispatch } = useContext(MenuContext);
 	const products = useSelector(SelectProduct);
 	const { t, i18n } = useTranslation();
+  const [product, setProd] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const api = "https://control-panel-backend-ayouben.vercel.app";
+  const skeletonProducts = [];
+
+  for (let i = 0; i < 6; i++) {
+    skeletonProducts.push(
+      <div key={i} className='productSkelton'>
+        <Skeleton variant="rectangular" height={200} />
+        <Skeleton animation="wave" />
+        <Skeleton animation={false} />
+      </div>
+    );
+  }
+
+
+  useEffect(() => {
+    axios.get(`${api}/products`)
+      .then(res => {
+        setProd(res.data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.log(err);
+        setLoading(false);
+      });
+  }, [prod]);
 
 
     return(
-          <div className='category'>
-             
+          <div className='category'>            
               <div className='headProd' style={{backgroundColor: '#17A8D6'}}>
                   <h6 className='categoryName'>{t(title)}</h6>
                    <Link to={`/${cag}`}>
@@ -48,27 +76,30 @@ export default function Category({cag,title,prod}) {
                     </div>
                  </Link>
               </div>
+              {!loading?
               <Carousel 
                 responsive={responsive}
 				        rtl={i18n.language === 'ar'?true:false}
                 autoPlay={false}
 			          className='swiper'
               >
-              {Data
-                    .filter((filter) => filter.category === cag & filter.id !== prod)
+              {product
+                    .filter((filter) => filter.category === cag & filter._id !== prod)
                     .map((product)=>{                     
                         return(
-                           <div key={product.id} className='product'>
-                            <Link to={`/product/${product.id}`} key={product.id} onClick={() => dispatch({ type: "open" })}>
-                              <img src={product.image} onError={Error} alt={product.id} className='img'/>
-                              <h6 className='prodName'>{product.product}-{product.desc}</h6>
+                           <div key={product._id} className='product'>
+                            <Link to={`/product/${product._id}`} key={product._id} onClick={() => dispatch({ type: "open" })}>
+                              <img src={product.images[0].url} onError={Error} alt={product._id} className='img'/>
+                              <h6 className='prodName'>{product.name}-{product.desc}</h6>
                               <h6  className={i18n.language === 'ar'?"price rtl":'price'}>{product.price} {t("DA")} </h6>
                             </Link>
                            </div> 
                              )
                         })
                      } 
-            </Carousel>             
+            </Carousel>:
+              <div className="listSkelton">{skeletonProducts}</div>
+             }          
             </div>
    )
     

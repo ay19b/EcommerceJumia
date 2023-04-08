@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import {Dialog,DialogContentText,DialogTitle,DialogActions,DialogContent,Button,Snackbar} from '@mui/material'
 import {MdClose} from "react-icons/md";
 import {FaTrash} from "react-icons/fa";
@@ -8,24 +8,45 @@ import { useSelector,useDispatch } from "react-redux";
 import {remove} from "../../redux/productSlice"
 import {useTranslation} from 'react-i18next'
 import './detail.scss'
+import axios from "axios"
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
-export default function DialogImg({open,handleClose,image}) {
+export default function DialogImg({open,handleClose}) {
   const prod = useSelector(SelectProduct);
+  const [product, setProd] = useState([]);
   const dispatch = useDispatch();
-  const { Id  } = useParams();
-  const product =prod?prod[Id-1]:null;
+  const { id  } = useParams();
   const [state, setState] = useState(false);
   const {t,i18n} = useTranslation();
+  const api = "https://control-panel-backend-ayouben.vercel.app";
+  const [loading, setLoading] = useState(true);
+  const firstImageUrl = product?.images?.[0]?.url;
   
+
+
   const Remove= () => {
     dispatch(remove(product))
     handleClose()
-	setState(true)
+	  setState(true)
   }
   const handleOff = () => {
     setState(false);
   };
+
+  useEffect(() => {
+    axios.put(`${api}/products/${id}`)
+    .then(res => {
+      setProd(res.data)
+      setLoading(false);
+    })
+    .catch(err => {
+      console.log(err);
+      setLoading(false);
+    });
+  }, [id]);
+
 
   return (
     
@@ -46,7 +67,14 @@ export default function DialogImg({open,handleClose,image}) {
      </DialogTitle>
      <DialogContent>
      <DialogContentText id="alert-dialog-description">
-       <img src={image}  className='img'/>
+       <Carousel showThumbs={product?.images?.length>1? true:false}>
+       {product.images?.map((img,index)=>{
+                  return (
+                     <img src={img.url} className='img' alt={img.alt}/>
+                  )
+        })}
+         {/* <img src={firstImageUrl}  className='img'/> */}
+       </Carousel>  
       </DialogContentText>
      </DialogContent>
      <DialogActions>

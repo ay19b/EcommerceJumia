@@ -27,12 +27,11 @@ const Cart=()=> {
   const { currentUser } = useContext(AuthContext);
   function Error(e){
 		e.target.onerror = null
-        e.target.src = mark
+    e.target.src = mark
 	} 
   
   const handleClickOpen = () => {
     setOpen(true);
-	
   };
 
   const handleClose = () => {
@@ -71,16 +70,16 @@ const Cart=()=> {
 				
 	     {cartProducts.map((prod)=>{ 
             return(
-       <div className="Cart" key={prod.id}>
+       <div className="Cart" key={prod._id}>
 				  <div className="prod">
 				  <div className='imgProd'>
-				    <Link to={`/product/${prod.id}`} key={prod.id}>
-				      <img src={prod.image} onError={Error} alt={prod.id} className='img'/>
+				    <Link to={`/product/${prod._id}`} key={prod._id}>
+				       <img src={prod.images[0].url} onError={Error} alt={prod._id} className='img'/>
 					</Link>
 				  </div>
 				  <div className='infProd'>
-				    <Link to={`/product/${prod.id}`} key={prod.id}>
-					  <h6 className='nameProd'>{prod.product}</h6>
+				    <Link to={`/product/${prod._id}`} key={prod._id}>
+					  <h6 className='nameProd'>{prod.name}</h6>
 					</Link> 
 					<span className='seller'>{t("Vendeur")}:</span>
 					<span className='remaining'>{t("Quelques articles restants")}</span>
@@ -90,12 +89,12 @@ const Cart=()=> {
 				</div>
 				<div className='Btns'>
           <div className='dlt'>
-          <Link to={`/cart/${prod.id}`} key={prod.id}>
+          <Link to={`/cart/${prod._id}`} key={prod._id}>
            <Button variant="text" color='primary' startIcon={<FaTrash/>} onClick={handleClickOpen} >
             {t("supprimer")}
            </Button>
           </Link>
-           <AlertDialog  open={open} handleClose={handleClose} />
+           <AlertDialog  open={open} handleClose={handleClose}/>
            </div>  
             <div className='quantity'>
              <Button color='primary'  variant="contained" disabled={prod.quantity===1} onClick={() => dispatch(decrementProduct(prod))} >-</Button>

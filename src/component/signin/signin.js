@@ -15,6 +15,8 @@ import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import axios from "axios"
+
 
 export default function Signin() {
     const [name, setName] = useState("");
@@ -26,6 +28,7 @@ export default function Signin() {
     const navitage = useNavigate();
     const { t, i18n } = useTranslation();
     const [showPassword, setShowPassword] = React.useState(false);
+    const api = "http://localhost:3001"
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -34,31 +37,32 @@ export default function Signin() {
     };
 
     const signIn = (e) => {
-        e.preventDefault();
-        createUserWithEmailAndPassword(auth,email,password)
-          .then(async(userCredential) => {
-            console.log(userCredential);
-            const user = userCredential.user;
-            await updateProfile(user, {
-              displayName:name,
-            });
-            navitage("/")
-          })
-          .catch((error) => {
-            if(!name){
-              setNameError("Username should be 3-16 characters and shouldn't include any special character!");
-            }
-            else if (error.code === 'auth/invalid-email') {
-              setEmailError('It should be a valid email address!');
-            } else if (error.code === 'auth/wrong-password') {
-              setPasswordError('Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!');
-            }else {
-              setEmailError('It should be a valid email address!');
-              setPasswordError('Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!');
-            }
+      e.preventDefault();
+      createUserWithEmailAndPassword(auth,email,password)
+        .then(async(userCredential) => {
+          console.log(userCredential);
+          const user = userCredential.user;
+          await updateProfile(user, {
+            displayName:name,
           });
+          navitage("/")
+        })
+        .catch((error) => {
+          if(!name){
+            setNameError("Username should be 3-16 characters and shouldn't include any special character!");
+          }
+          else if (error.code === 'auth/invalid-email') {
+            setEmailError('It should be a valid email address!');
+          } else if (error.code === 'auth/wrong-password') {
+            setPasswordError('Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!');
+          }else {
+            setEmailError('It should be a valid email address!');
+            setPasswordError('Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!');
+          }
+        });
 
-      };
+    };
+
 
      
   return (

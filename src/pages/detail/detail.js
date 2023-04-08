@@ -27,26 +27,39 @@ import {Helmet} from "react-helmet";
 import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
 import DialogImg from './dialogeImg'
-import Data from '../../Library/stock'
+import axios from "axios"
+import Skeleton from '@mui/material/Skeleton';
+
 
 
 export default function Detail() {
   const { id } = useParams();
   const location = useLocation();
+  const api = "https://control-panel-backend-ayouben.vercel.app";
+  const [loading, setLoading] = useState(true);
+  const [product, setProd] = useState([]);
   const [willaya, setWillaya] = useState('');
   const [city, setCity] = useState('');
   const [count, setCount] = useState(0);
   const prod = useSelector(SelectProduct);
+  const firstImageUrl = product?.images?.[0]?.url;
+  const images = product?.images;
   const dispatch = useDispatch();
-  const product =Data[id-1];
-  const productSlice=prod?prod.find(e=>e.id == id):null;
+  /*const product =Data[id-1];*/
+  const productSlice=prod?prod.find(e=>e._id == id):null;
   const [state, setState] = useState(false);
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
-   function Error(e){
+  const [sellect, setSellect] = useState();
+
+  function Error(e){
 		e.target.onerror = null
-        e.target.src = mark
+    e.target.src = mark
 	} 
+
+  const select =(e)=>{
+    setSellect(e)
+  }
   
   const willayaChange = (event) => {
     setWillaya(event.target.value);
@@ -86,6 +99,47 @@ export default function Detail() {
     window.localStorage.setItem('count', count);
   }, [count]);
 
+
+
+
+  // useEffect(() => {
+  //   axios.get(`${api}/products/${id}`)
+  //   .then(res => {
+  //     setProd(res.data)
+  //     setLoading(false);
+  //   })
+  //   .catch(err => {
+  //     console.log(err);
+  //     setLoading(false);
+  //   });
+  // }, [id]);
+
+
+  useEffect(() => {
+    setLoading(true);
+    let timeoutId = null;
+    timeoutId = setTimeout(() => {
+      axios.put(`${api}/products/${id}`)
+        .then(res => {
+          setProd(res.data);
+          setLoading(false);
+        })
+        .catch(err => {
+          console.log(err);
+          setLoading(false);
+        });
+    }, 500);
+
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [id]);
+
+  
+
+ 
     return (
 	  <div className='detail'> 
 	      <Helmet>
@@ -102,35 +156,69 @@ export default function Detail() {
                 <Link to={`/${product.category}`}>{t(product.category)}</Link>
              </span> 			
 			       <span className='link'>></span>
-			      <span className='link active'>{product.desc}</span>
+			      <span className='link active'>{product.name}</span>
 			    </div>   
 					<div className="contentProd">
-              <div className='detailCont'>
+            <div className='detailCont'>
 					    <div className="imgProd">
-						  <img src={product.image} onError={Error} alt={product.desc} 
-						    className='img' style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}} onClick={ClickOpen}/>
-						 
-						 <div className="share">{t("Partagez ce produit")}</div>
+              {!loading?<>
+						  <img 
+                src={sellect?sellect:firstImageUrl}
+                onError={Error} 
+                alt={product.desc} 
+						    className='selectImg'
+                style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}}
+                onClick={ClickOpen}
+              />
+              <div className='listImage'>
+                {images?.map((img,index)=>{
+                  return (
+                    <div className='itemImg' key={index} onClick={() => select(img.url)}>
+                     <img src={img.url} className='img' alt={img.alt}/>
+                    </div>
+                  )
+                })}
+              </div></>:<Skeleton variant="rectangular" className='selectImg' />}
+              
+             <div className="share">{t("Partagez ce produit")}</div>
 						 <div className='iconSocial'>
 						  <GrFacebookOption className="icon"/>
 						  <AiOutlineTwitter className="icon"/>
 						 </div>
 						</div>
-                         
-						 
-           <div className='infDtl' >
-                 <h6 className="prod">{product.desc}</h6>
+           <div className='infDtl'>
+                 {!loading?
+                 <h6 className="prod">{product.name}</h6>:
+                 <Skeleton animation="wave" className="prod"/>
+                 }
+                 {!loading?
 					      <div className="stars">
                    <Rating name="half-rating-read" defaultValue={3.5} precision={0.5} readOnly />
-					       </div>
-                 <img src={black} alt='blackFri' className="blackfrd"/>
+					       </div>:
+                 <Skeleton animation="wave" className="stars"/>
+                 }
+                 {!loading?
+                 <img src={black} alt='blackFri' className="blackfrd"/>:
+                 <Skeleton animation="wave" className="blackfrd"/>
+                 }
 					       <Divider />
-                 <h6 className="price">{product.price} {t("DA")}</h6>
+                  {!loading?
+                   <h6 className="price">{product.price} {t("DA")}</h6>:
+                   <Skeleton animation="wave" className="price"/>
+                   }
 					       <h6 className='inf'>{t("Quelques variantes avec peu de stock")}</h6>
 					       <h6 className='inf'>{t("+ livraison à partir de 180 DA (gratuite en point de retrait si supérieur à 1,500 DA) vers Kouba")}</h6>
-                 <Button disabled={productSlice?productSlice.added:null} variant="contained"  startIcon={<MdOutlineAddShoppingCart />} className='btnAdd'  onClick={handleClick}>
-                   <h4 style={{margin:"auto"}}>{t("J'achète")}</h4> 
-                 </Button>
+                 {!loading?
+                 <Button 
+                   disabled={productSlice?productSlice.added:null}
+                   variant="contained"
+                   startIcon={<MdOutlineAddShoppingCart />}
+                   className='btnAdd' 
+                   onClick={handleClick}>
+                      <h4 style={{margin:"auto"}}>{t("J'achète")}</h4> 
+                 </Button>:
+                 <Skeleton animation="wave"  />
+                 }
 							   <Divider />
 							   <div className="listOffer">{t("Offres")}</div>
 							   
@@ -145,8 +233,10 @@ export default function Detail() {
 				             <BsShieldFillCheck className='shield'/>
 				           </div>
 							    <h6>{t("Payez en ligne avec votre carte CIB/EDAHABIA en toute sécurité.")}</h6>
-							   </div>	  
-          </div>   
+                 
+							   </div>
+                 
+             </div>
           </div>
 					   <div className="delivery">
 					    <div className="title">{t("Livraison & Retours")}</div>
@@ -209,7 +299,7 @@ export default function Detail() {
 					   </div>
 					   </div>
 					   <DialogImg  open={open} handleClose={ClickClose} image={product.image} />
-					   <Category cag={product.category} title={'Autres produits de la boutique'} prod={product.id}/>
+					   <Category cag={product.category} title={'Autres produits de la boutique'} prod={product._id} />
               <Snackbar
                    anchorOrigin={ { vertical: 'top', horizontal: 'center' } }
                    autoHideDuration={1500}
