@@ -20,7 +20,7 @@ export default function DialogImg({open,handleClose}) {
   const { id  } = useParams();
   const [state, setState] = useState(false);
   const {t,i18n} = useTranslation();
-  const api = "https://control-panel-backend-ayouben.vercel.app";
+  const api = "https://dashboard-api-v8p2.onrender.com";
   const [loading, setLoading] = useState(true);
   const firstImageUrl = product?.images?.[0]?.url;
   

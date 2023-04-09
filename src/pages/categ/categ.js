@@ -22,7 +22,7 @@ const Category=()=> {
   const {t} = useTranslation();
   const [prod, setProd] = useState([]);
   const [loading, setLoading] = useState(true);
-  const api = "https://control-panel-backend-ayouben.vercel.app";
+  const api = "https://dashboard-api-v8p2.onrender.com";
   const skeletonProducts = [];
 
   for (let i = 0; i < 6; i++) {

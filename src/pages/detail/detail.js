@@ -35,7 +35,7 @@ import Skeleton from '@mui/material/Skeleton';
 export default function Detail() {
   const { id } = useParams();
   const location = useLocation();
-  const api = "https://control-panel-backend-ayouben.vercel.app";
+  const api = "https://dashboard-api-v8p2.onrender.com";
   const [loading, setLoading] = useState(true);
   const [product, setProd] = useState([]);
   const [willaya, setWillaya] = useState('');
