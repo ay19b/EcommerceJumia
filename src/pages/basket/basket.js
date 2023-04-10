@@ -30,19 +30,22 @@ const Cart=()=> {
     e.target.src = mark
 	} 
   
+  // open AlertDialog 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
+  // close AlertDialog 
   const handleClose = () => {
     setOpen(false);
   };
   
+  // scroll page to top 
   useEffect(() => {
     window.scrollTo(0,0);
   }, [location]);
   
-  
+  // get sum of  products price
   let sum = cartProducts?cartProducts
   .map((product) => {
     let price = product.price;
@@ -138,7 +141,7 @@ const Cart=()=> {
 		   </Link>
      </div>
 		}  
-          </Layout>  
+    </Layout>  
 		</div> 
             
     )

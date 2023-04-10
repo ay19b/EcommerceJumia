@@ -10,13 +10,14 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 
 function Carousel(){
-    const [data, setData] = useState(Banner);
+    const [data, setData] = useState();
     const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
       setTimeout(()=>{
         setLoading(true)
-      },1000)
+        setData(Banner)
+      },1500)
     })
 
 
@@ -43,7 +44,7 @@ function Carousel(){
                    </SwiperSlide>                  
                )
            })}
-     </Swiper>:(<CircularProgress className='spinner'/>)}
+      </Swiper>:(<CircularProgress className='spinner'/>)}
 	 </div>
     )
 }

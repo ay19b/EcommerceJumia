@@ -13,15 +13,14 @@ export default function Promo() {
 	
   return (
     <div className="promo">
-              <div className='headProd'>
-                  <Typography variant='h6'>{t('CODES PROMOS TVs')}</Typography>
-              </div>
-              <div className='bannerPub'>
-                <img src={one} alt='a' className='img'/>
-                <img src={two} alt='a' className='img'/>
-                <img src={three} alt='a' className='img'/>     
-              </div>
-        
+       <div className='headProd'>
+           <Typography variant='h6'>{t('CODES PROMOS TVs')}</Typography>
+       </div>
+       <div className='bannerPub'>
+         <img src={one} alt='a' className='img'/>
+         <img src={two} alt='a' className='img'/>
+         <img src={three} alt='a' className='img'/>     
+       </div>       
     </div>
   )
 }

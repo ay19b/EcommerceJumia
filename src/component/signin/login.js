@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import star from "../../images/top-logo.png"
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import {AiFillFacebook} from 'react-icons/ai'
-import "../signin/signin.scss"
+import "./signin.scss"
 import {Link} from 'react-router-dom';
-import { signInWithEmailAndPassword , updateProfile} from "firebase/auth";
+import { signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../../firebase";
 import {useTranslation} from 'react-i18next'
 import FormControl from '@mui/material/FormControl';
@@ -19,7 +17,6 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 export default function Login() {
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navitage = useNavigate();

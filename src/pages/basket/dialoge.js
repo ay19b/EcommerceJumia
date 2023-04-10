@@ -19,17 +19,18 @@ export default function AlertDialog({open,handleClose}) {
   const {t,i18n} = useTranslation();
 
 
+  // remove product from basket and show the alert
   const Remove= () => {
     dispatch(remove(product))
     handleClose()
 	  setState(true)
   }
-  const handleOff = () => {
+
+  // close alert 
+  const handleAlertClose = () => {
     setState(false);
   };
 
-
-console.log(product);
   return (
     
     <div className='dialog'> 
@@ -65,7 +66,7 @@ console.log(product);
         anchorOrigin={ { vertical: 'top', horizontal: 'center' } }
         autoHideDuration={10500}
         open={state}
-        onClose={handleOff}
+        onClose={handleAlertClose}
         message={t("Le produit a été retiré du panier")} 
     /> 
     </div>

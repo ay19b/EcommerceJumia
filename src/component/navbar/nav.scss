@@ -88,6 +88,7 @@
 .LastHeader{
    background-color: white;
    display: flex;
+   border-bottom: 2px solid #e3e3e3;
    &.active{
      position: fixed;
      z-index: 100;

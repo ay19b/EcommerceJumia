@@ -32,8 +32,8 @@
 		flex-wrap: wrap;
 		width: 100%;
 		.itemImg{
-			width: 4rem;
-			height: 4rem;
+			width: 3.2rem;
+			height: 3.2rem;
 			border: 1px solid #c9c2c2;
 			margin-right: 6px;
 			cursor: pointer;
@@ -248,10 +248,7 @@
     width: 2.5rem !important;
     border-radius: 50% !important;
 }
-.carousel .control-next.control-arrow {
-    right: 0;
-    padding: 0 12px !important;
-}
+
 .carousel .control-prev.control-arrow::before {
 	margin-right: 8px !important;
 	margin-bottom: 2px !important;

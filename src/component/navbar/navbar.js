@@ -12,7 +12,6 @@ import algeria from "../../images/algeria.png";
 import france from "../../images/france.png";
 import jumia from "../../images/Jumia.png";
 import './nav.scss';
-import Top from '../../images/TOP.gif'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
 import Sidebar from '../sidebar/sidebar'
@@ -39,11 +38,14 @@ const Nav = () => {
 	const matches = useMediaQuery('(max-width:1000px)');
 	
 
+	// change the language and save it in localstorage
     const handleChangeLng = (lng) => {
 		window.location.reload();
 		i18n.changeLanguage(lng);
 		localStorage.setItem("lng", lng);
 	};   
+
+	//if logout the user
 	const handleLogout = () => {
 		signOut(auth)
 		  .then(() => {

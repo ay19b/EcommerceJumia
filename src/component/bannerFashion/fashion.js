@@ -1,14 +1,14 @@
 import React from 'react'
 import { Typography} from "@mui/material";
 import one from '../../images/fashionJumia.jpg'
-import './fashmia.scss'
+import './fashion.scss'
 import {useTranslation} from 'react-i18next'
 
-export default function Fashmia() {
+export default function Fashion() {
    const {t} = useTranslation();
    
   return (
-    <div className="fashmia">
+    <div className="fashion">
         <div className='headProd'>
             <Typography variant='h6'>{t('La mode par Jumia')}</Typography>
         </div>

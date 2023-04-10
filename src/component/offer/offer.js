@@ -9,7 +9,8 @@ import {useTranslation} from 'react-i18next'
 
 
 export default function Offer() {
-    const {t} = useTranslation();
+  const {t} = useTranslation();
+  
   return (
     <div className="offer">        
       <div className='headProd'>

@@ -29,9 +29,6 @@ export const productSlice = createSlice({
     },
   },
 })
-
-
-
    
 export const {add,remove,incrementProduct,decrementProduct} = productSlice.actions;
 

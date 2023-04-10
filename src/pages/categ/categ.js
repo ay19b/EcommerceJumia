@@ -5,11 +5,8 @@ import Layout from '../../component/layout/layout'
 import './catg.scss'
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
-import {SelectProduct} from '../../redux/productSlice'
-import {useSelector } from 'react-redux'
 import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
-import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
 import axios from "axios"
 import Skeleton from '@mui/material/Skeleton';
@@ -17,7 +14,6 @@ import Skeleton from '@mui/material/Skeleton';
 const Category=()=> {
   const { category } = useParams();
   const { dispatch } = useContext(MenuContext);
-  const products = useSelector(SelectProduct);
   const location = useLocation();
   const {t} = useTranslation();
   const [prod, setProd] = useState([]);
@@ -25,6 +21,8 @@ const Category=()=> {
   const api = "https://dashboard-api-v8p2.onrender.com";
   const skeletonProducts = [];
 
+
+// skelton loading before get a products from api 
   for (let i = 0; i < 6; i++) {
     skeletonProducts.push(
       <div key={i} className='productSkelton'>
@@ -34,14 +32,13 @@ const Category=()=> {
       </div>
     );
   }
-  function Error(e){
-		e.target.onerror = null
-        e.target.src = mark
-	} 
+
+  // scroll page to top 
   useEffect(() => {
     window.scrollTo(0,0);
   }, [location]);
   
+   // get products from api 
   useEffect(() => {
     axios.get(`${api}/products`)
       .then(res => {
@@ -75,28 +72,19 @@ return (
            prod
               .filter((filterData) => filterData.category === category)
               .slice(0, 10)
-              .map((product)=>{
-                
-                  return(
-                    
+              .map((product)=>{               
+                  return( 
                   <div className='product' key={product._id}>
                     <Link to={`/product/${product._id}`} key={product._id} onClick={() => dispatch({ type: "open" })} >
-                       <img src={product.images[0].url} onError={Error} alt={product.desc} className='img'/>
+                       <img src={product.images[0].url}  alt={product.desc} className='img'/>
                        <h6 className='prodName'>{product.name}-{product.desc}</h6>
                        <h6 className='price'>{product.price} {t("DA")}</h6>
                     </Link>
                   </div>
-                     
-                     
                   )
               })
-          :
-          <div className="listSkelton">{skeletonProducts}</div>
-         }  
-
+          : <div className="listSkelton">{skeletonProducts}</div> }  
          </div>
-        
-     
    </Layout> 
    </div>
             

@@ -1,24 +1,32 @@
 import React, { useState,useEffect } from 'react';
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import pub from "./data";
 import './pub.scss';
-import {useTranslation} from 'react-i18next'
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Pub(){
-    const { t, i18n } = useTranslation();
-    const [data, setData] = useState(pub);
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+        setTimeout(() => {
+          setData(pub);
+          setLoading(false);
+        }, 1000);
+      }, [pub]);
 
     return(
 	 <div className='pub'>         
-	      <div className="ListPub">
-        {data.map((item)=>{
-               const {id,img}=item;
-               return(
-                <img src={img} className='listImg' />  
-               )
-              })}
+	    <div className="ListPub">
+        {!loading?
+         data.map((item)=>{
+          const {id,img}=item;
+          return(
+           <img src={img} className='listImg' />  
+          )
+        })
+        :(<CircularProgress className='spinner'/>) }
         </div>
 	 </div>
     )

@@ -6,7 +6,7 @@ import Cart from './pages/basket/basket';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {useTranslation} from 'react-i18next'
 import Signin from './component/signin/signin';
-import Login from './component/login/login';
+import Login from './component/signin/login';
 
 
 function App() {

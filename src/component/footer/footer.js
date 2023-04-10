@@ -14,9 +14,9 @@ import {useTranslation} from 'react-i18next'
 const Footer=()=> {
     const { t, i18n } = useTranslation();
     const handleChangeLng = (lng) => {
-		i18n.changeLanguage(lng);
-		localStorage.setItem("lng", lng);
-	};
+	  	i18n.changeLanguage(lng);
+	  	localStorage.setItem("lng", lng);
+  	};
 	
   return (
     <div className='footer'>

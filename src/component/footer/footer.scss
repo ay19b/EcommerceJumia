@@ -14,13 +14,13 @@
   }
   .secondGrid{
     flex: 0.65;
-    .InscText{
+  .InscText{
 	  color: #bdb6b6;
 	  margin-top: -3rem;
-      margin-bottom: 10px;
+    margin-bottom: 10px;
 	  h5{
 	    color: white;
-        margin-bottom: 8px;
+      margin-bottom: 8px;
 	  }
 	}
 	.inputFooter{
@@ -47,10 +47,10 @@
      width: 3rem;
      }
     .pocheText{
-	 margin-left: 10px;
+	   margin-left: 10px;
      display: flex;
      flex-direction: column;
-	 color: #bdb6b6;
+  	 color: #bdb6b6;
 	 .text{
 	   margin-bottom: 12px;
 	   color: white;
@@ -73,26 +73,26 @@
 		
 	  .lang{
 	    display: flex;
-        justify-content: center;
-        align-items: center;
-		font-size: 1.2rem;
-		color: #424141;
-		cursor:pointer;
-		flex: 0.5;
-		border: 1px solid #ccc;
+      justify-content: center;
+      align-items: center;
+		  font-size: 1.2rem;
+		  color: #424141;
+		    cursor:pointer;
+		    flex: 0.5;
+		    border: 1px solid #ccc;
         padding: 8px;
-		&.active{
-		  cursor: auto;
+		    &.active{
+		    cursor: auto;
           opacity: 0.5;
-		  .img{
-		    cursor: text;
-		  }
+		    .img{
+		      cursor: text;
+		    }
 		}
 		.img{
 	       width: 18px;
-           border-radius: 50%;
-           height: 18px;
-		   margin-right: 5px;
+         border-radius: 50%;
+         height: 18px;
+		     margin-right: 5px;
 	    }
 	   }
 	  }
@@ -118,7 +118,7 @@
     border: 0.7px solid white !important;
 }
 .MuiButtonBase-root:hover{
-    border: 0.7px solid orange !important;
+  border: 0.7px solid orange !important;
 	color: orange!important ;
 }
 .MuiFormControl-root{
@@ -138,7 +138,7 @@
 
 
 @media only screen and (max-width: 1000px) {
-  .footer{
+.footer{
   direction: ltr;
   .ContFooter{
      flex-direction: column;

@@ -17,7 +17,7 @@ import black from "../../images/blackFri.png"
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import Category from '../../component/products/products'
+import Category from '../../component/sliderCategory/sliderCategory'
 import {useSelector} from 'react-redux';
 import {useDispatch} from 'react-redux'
 import {SelectProduct} from '../../redux/productSlice'
@@ -40,7 +40,6 @@ export default function Detail() {
   const [product, setProd] = useState([]);
   const [willaya, setWillaya] = useState('');
   const [city, setCity] = useState('');
-  const [count, setCount] = useState(0);
   const prod = useSelector(SelectProduct);
   const firstImageUrl = product?.images?.[0]?.url;
   const images = product?.images;
@@ -52,69 +51,48 @@ export default function Detail() {
   const { t, i18n } = useTranslation();
   const [sellect, setSellect] = useState();
 
-  function Error(e){
-		e.target.onerror = null
-    e.target.src = mark
-	} 
 
+
+  //select image to show it 
   const select =(e)=>{
     setSellect(e)
   }
   
+  // choose the willaya
   const willayaChange = (event) => {
     setWillaya(event.target.value);
   };
+  // choose the city
   const cityChange = (event) => {
     setCity(event.target.value);
   };
   
+  // show slider image product
   const ClickOpen = () => {
     setOpen(true);
   };
+  // close slider image product
   const ClickClose = () => {
     setOpen(false);
   };
-  useEffect(() => {
-    window.scrollTo(0,0);
-  }, [location]);
-  
+
+  // add product to basket
   const handleClick = () => {
     setState(true)
     dispatch(add(product))
   };
 
+  // close the alert
   const handleClose = () => {
     setState(false);
   };
 
+  // scroll page to top 
   useEffect(() => {
     window.scrollTo(0,0);
   }, [location]);
 
-  useEffect(() => {
-    setCount(JSON.parse(window.localStorage.getItem('count')));
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem('count', count);
-  }, [count]);
-
-
-
-
-  // useEffect(() => {
-  //   axios.get(`${api}/products/${id}`)
-  //   .then(res => {
-  //     setProd(res.data)
-  //     setLoading(false);
-  //   })
-  //   .catch(err => {
-  //     console.log(err);
-  //     setLoading(false);
-  //   });
-  // }, [id]);
-
-
+  // get product from api with id
   useEffect(() => {
     setLoading(true);
     let timeoutId = null;
@@ -137,9 +115,6 @@ export default function Detail() {
     };
   }, [id]);
 
-  
-
- 
     return (
 	  <div className='detail'> 
 	      <Helmet>
@@ -164,7 +139,6 @@ export default function Detail() {
               {!loading?<>
 						  <img 
                 src={sellect?sellect:firstImageUrl}
-                onError={Error} 
                 alt={product.desc} 
 						    className='selectImg'
                 style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}}

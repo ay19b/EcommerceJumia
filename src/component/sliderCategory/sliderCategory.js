@@ -1,18 +1,16 @@
 import {RiArrowDropRightLine,RiArrowDropLeftLine} from "react-icons/ri"
 import {Link} from 'react-router-dom';
-import {useSelector } from 'react-redux'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import './products.scss'
+import './sliderCategory.scss'
 import {MenuContext} from '../../context/menuContext'
 import { useContext, useEffect, useState } from "react";
-import {SelectProduct} from '../../redux/productSlice'
 import {useTranslation} from 'react-i18next'
-import mark from '../../images/mark.png'
 import axios from "axios"
 import Skeleton from '@mui/material/Skeleton';
 
 
+// responsive react-multi-carousel
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 1000 },
@@ -32,15 +30,16 @@ const responsive = {
   }
 };
 
-export default function Category({cag,title,prod}) {
+export default function SliderCategory({cag,title,prod}) {
   const { dispatch } = useContext(MenuContext);
-	const products = useSelector(SelectProduct);
 	const { t, i18n } = useTranslation();
   const [product, setProd] = useState([]);
   const [loading, setLoading] = useState(true);
   const api = "https://dashboard-api-v8p2.onrender.com";
   const skeletonProducts = [];
 
+
+  // skelton loading before get a products from api 
   for (let i = 0; i < 6; i++) {
     skeletonProducts.push(
       <div key={i} className='productSkelton'>
@@ -52,6 +51,7 @@ export default function Category({cag,title,prod}) {
   }
 
 
+  // get products from api 
   useEffect(() => {
     axios.get(`${api}/products`)
       .then(res => {

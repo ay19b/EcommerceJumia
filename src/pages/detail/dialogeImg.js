@@ -1,11 +1,7 @@
 import React, {useState,useEffect} from 'react'
-import {Dialog,DialogContentText,DialogTitle,DialogActions,DialogContent,Button,Snackbar} from '@mui/material'
+import {Dialog,DialogContentText,DialogTitle,DialogActions,DialogContent} from '@mui/material'
 import {MdClose} from "react-icons/md";
-import {FaTrash} from "react-icons/fa";
 import { useParams} from 'react-router-dom';
-import {SelectProduct} from '../../redux/productSlice'
-import { useSelector,useDispatch } from "react-redux";
-import {remove} from "../../redux/productSlice"
 import {useTranslation} from 'react-i18next'
 import './detail.scss'
 import axios from "axios"
@@ -14,27 +10,14 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 
 export default function DialogImg({open,handleClose}) {
-  const prod = useSelector(SelectProduct);
   const [product, setProd] = useState([]);
-  const dispatch = useDispatch();
   const { id  } = useParams();
-  const [state, setState] = useState(false);
   const {t,i18n} = useTranslation();
   const api = "https://dashboard-api-v8p2.onrender.com";
   const [loading, setLoading] = useState(true);
-  const firstImageUrl = product?.images?.[0]?.url;
   
 
-
-  const Remove= () => {
-    dispatch(remove(product))
-    handleClose()
-	  setState(true)
-  }
-  const handleOff = () => {
-    setState(false);
-  };
-
+  // get product from api with id
   useEffect(() => {
     axios.put(`${api}/products/${id}`)
     .then(res => {
@@ -73,23 +56,12 @@ export default function DialogImg({open,handleClose}) {
                      <img src={img.url} className='img' alt={img.alt}/>
                   )
         })}
-         {/* <img src={firstImageUrl}  className='img'/> */}
        </Carousel>  
       </DialogContentText>
      </DialogContent>
      <DialogActions>
-     
-     
      </DialogActions>
     </Dialog>
-	
-	<Snackbar
-        anchorOrigin={ { vertical: 'top', horizontal: 'center' } }
-        autoHideDuration={10500}
-        open={state}
-        onClose={handleOff}
-        message={t("Le produit a été retiré du panier")} 
-    /> 
     </div>
      );
    }
