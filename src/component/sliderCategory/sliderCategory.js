@@ -1,8 +1,5 @@
 import {RiArrowDropRightLine,RiArrowDropLeftLine} from "react-icons/ri"
 import {Link} from 'react-router-dom';
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import './sliderCategory.scss'
 import {MenuContext} from '../../context/menuContext'
 import { useContext, useEffect, useState } from "react";
 import {useTranslation} from 'react-i18next'
