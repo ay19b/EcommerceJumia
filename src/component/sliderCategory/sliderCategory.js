@@ -8,27 +8,10 @@ import { useContext, useEffect, useState } from "react";
 import {useTranslation} from 'react-i18next'
 import axios from "axios"
 import Skeleton from '@mui/material/Skeleton';
+import { SwiperSlide, Swiper } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y, Controller } from "swiper";
+import 'swiper/css';
 
-
-// responsive react-multi-carousel
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 1000 },
-    items: 6,
-  },
-  desktop: {
-    breakpoint: { max: 1000, min: 800 },
-    items: 5
-  },
-  tablet: {
-    breakpoint: { max: 800, min: 600 },
-    items: 3
-  },
-  mobile: {
-    breakpoint: { max: 600, min: 0 },
-    items: 2
-  }
-};
 
 export default function SliderCategory({cag,title,prod}) {
   const { dispatch } = useContext(MenuContext);
@@ -76,30 +59,29 @@ export default function SliderCategory({cag,title,prod}) {
                     </div>
                  </Link>
               </div>
-              {!loading?
-              <Carousel 
-                responsive={responsive}
-				        rtl={i18n.language === 'ar'?true:false}
-                autoPlay={false}
-			          className='swiper'
-              >
+            {!loading?
+             <Swiper
+                grabCursor={true}
+                spaceBetween={10}
+                slidesPerView={'auto'}
+                modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
+            >
               {product
                     .filter((filter) => filter.category === cag & filter._id !== prod)
                     .map((product)=>{                     
                         return(
-                           <div key={product._id} className='product'>
+                           <SwiperSlide key={product._id} className='product'>
                             <Link to={`/product/${product._id}`} key={product._id} onClick={() => dispatch({ type: "open" })}>
                               <img src={product.images[0].url} onError={Error} alt={product._id} className='img'/>
                               <h6 className='prodName'>{product.name}-{product.desc}</h6>
                               <h6  className={i18n.language === 'ar'?"price rtl":'price'}>{product.price} {t("DA")} </h6>
                             </Link>
-                           </div> 
+                           </SwiperSlide> 
                              )
                         })
-                     } 
-            </Carousel>:
-              <div className="listSkelton">{skeletonProducts}</div>
-             }          
+             }  
+            </Swiper>:<div className="listSkelton">{skeletonProducts}</div>}
+                      
             </div>
    )
     

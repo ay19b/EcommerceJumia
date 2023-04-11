@@ -5,7 +5,7 @@ import Pub from '../../component/pub/pub';
 import Promo from '../../component/promo/promo';
 import Category from '../../component/sliderCategory/sliderCategory';
 import Offer from '../../component/offer/offer';
-import Fashion from '../../component/bannerFashion/fashion';
+import Fashion from '../../component/adverFashion/fashion';
 import './home.scss'
 import {Helmet} from "react-helmet";
 import {useTranslation} from 'react-i18next'

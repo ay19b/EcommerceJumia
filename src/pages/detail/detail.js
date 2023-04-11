@@ -115,6 +115,8 @@ export default function Detail() {
     };
   }, [id]);
 
+  
+
     return (
 	  <div className='detail'> 
 	      <Helmet>
