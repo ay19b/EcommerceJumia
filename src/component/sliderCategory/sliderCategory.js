@@ -8,7 +8,7 @@ import Skeleton from '@mui/material/Skeleton';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Controller } from "swiper";
 import 'swiper/css';
-
+import './sliderCategory.scss'
 
 export default function SliderCategory({cag,title,prod}) {
   const { dispatch } = useContext(MenuContext);
