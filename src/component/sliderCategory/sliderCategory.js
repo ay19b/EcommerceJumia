@@ -5,10 +5,12 @@ import { useContext, useEffect, useState } from "react";
 import {useTranslation} from 'react-i18next'
 import axios from "axios"
 import Skeleton from '@mui/material/Skeleton';
-import { SwiperSlide, Swiper } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, Controller } from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { EffectFlip, Navigation, Pagination } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import './sliderCategory.scss'
+
 
 export default function SliderCategory({cag,title,prod}) {
   const { dispatch } = useContext(MenuContext);
@@ -17,7 +19,7 @@ export default function SliderCategory({cag,title,prod}) {
   const [loading, setLoading] = useState(true);
   const api = "https://dashboard-api-v8p2.onrender.com";
   const skeletonProducts = [];
-
+  SwiperCore.use([EffectFlip, Navigation, Pagination]);
 
   // skelton loading before get a products from api 
   for (let i = 0; i < 6; i++) {
@@ -61,7 +63,7 @@ export default function SliderCategory({cag,title,prod}) {
                 grabCursor={true}
                 spaceBetween={10}
                 slidesPerView={'auto'}
-                modules={[Navigation, Pagination, Scrollbar, A11y, Controller]}
+                navigation
             >
               {product
                     .filter((filter) => filter.category === cag & filter._id !== prod)

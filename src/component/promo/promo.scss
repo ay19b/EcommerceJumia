@@ -1,6 +1,7 @@
 .promo{
   margin-top: 22px;
   direction: ltr;
+  overflow: hidden;
   .headProd{
     background-color: #ff7f00;
     justify-content: center;
@@ -20,16 +21,30 @@
 	}
   }
 }
-
-
 @media only screen and (max-width: 810px) {
   .promo{
     .bannerPub{
-      flex-direction: column;
+      width: 100vw;
+      overflow-x: scroll;
+      overflow-y: hidden;
 	  .img{
-	    width: 100%;
+        width: 100vw;
         height: 20rem;
         margin-bottom: 6px;
+	  }
+   }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .promo{
+    .bannerPub{
+      width: 100vw;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      flex-direction: row;
+	  .img{
+	    object-fit: contain;
+      height: auto;
 	  }
    }
   }

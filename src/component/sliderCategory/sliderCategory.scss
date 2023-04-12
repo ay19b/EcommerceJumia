@@ -90,6 +90,43 @@
 	}
 }
 
+.swiper-button-next{
+  display: none;
+  background-color: #75757a;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  color: white;
+}
+.swiper-button-prev{
+  display: none;
+  background-color: #75757a;
+  border-radius: 50%;
+  width: 2.8rem;
+  height: 2.8rem;
+  text-align: center;
+  color: white;
+}
+.swiper:hover .swiper-button-next{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper:hover .swiper-button-prev{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper-button-next:after,{
+  font-size: 23px;
+  margin-right:-4px;
+}
+.swiper-button-prev:after{
+  font-size: 23px;
+  margin-left:-5px;
+}
+
 
 @media only screen and (max-width: 400px) {
   .category .headProd{

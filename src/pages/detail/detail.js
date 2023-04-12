@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useRef} from 'react'
 import { useParams,useLocation } from 'react-router-dom';
 import {MdOutlineAddShoppingCart} from 'react-icons/md'
 import {HiOutlineBriefcase} from 'react-icons/hi'
@@ -50,12 +50,18 @@ export default function Detail() {
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const [sellect, setSellect] = useState();
-
-
+  const imgListRef = useRef();
 
   //select image to show it 
-  const select =(e)=>{
-    setSellect(e)
+  const select =(e,id)=>{
+     const prevSelected = imgListRef.current.querySelector('.active');
+     if (prevSelected) {
+       prevSelected.classList.remove('active');
+     }
+     // Add the active class to the newly selected item
+     const newSelected = imgListRef.current.childNodes[id];
+     newSelected.classList.add('active');
+     setSellect(e)
   }
   
   // choose the willaya
@@ -92,6 +98,10 @@ export default function Detail() {
     window.scrollTo(0,0);
   }, [location]);
 
+
+  
+
+
   // get product from api with id
   useEffect(() => {
     setLoading(true);
@@ -113,9 +123,10 @@ export default function Detail() {
         clearTimeout(timeoutId);
       }
     };
+
   }, [id]);
 
-  
+
 
     return (
 	  <div className='detail'> 
@@ -146,10 +157,10 @@ export default function Detail() {
                 style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}}
                 onClick={ClickOpen}
               />
-              <div className='listImage'>
+              <div className='listImage' ref={imgListRef}>
                 {images?.map((img,index)=>{
                   return (
-                    <div className='itemImg' key={index} onClick={() => select(img.url)}>
+                    <div className='itemImg' key={index} onClick={() => select(img.url, index)}>
                      <img src={img.url} className='img' alt={img.alt}/>
                     </div>
                   )
