@@ -2,8 +2,9 @@
    margin-top: 20px;
    margin-bottom: 20px;
    direction: ltr;
+   overflow: hidden;
   .headProd{
-	background-color: #ff7f00;
+	  background-color: #ff7f00;
     justify-content: center;
   }
   .offerbanner{
@@ -30,10 +31,25 @@
 @media only screen and (max-width: 810px) {
   .offer{
     .offerbanner{
+      width: 100vw;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      flex-wrap: inherit;
+      justify-content: flex-start;
      .img {
-       width: 98%;
+       width: 100vw;
        height: 15rem;
      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .offer{
+    .headProd{
+      h6{
+        font-size: 17px !important;
+        font-family: initial;
+      }
     }
   }
 }

@@ -37,6 +37,12 @@
 }
 @media only screen and (max-width: 500px) {
   .promo{
+    .headProd{
+      h6{
+        font-size: 17px !important;
+        font-family: initial;
+      }
+    }
     .bannerPub{
       width: 100vw;
       overflow-x: scroll;

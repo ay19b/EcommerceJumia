@@ -24,7 +24,6 @@ import {SelectProduct} from '../../redux/productSlice'
 import {add} from "../../redux/productSlice"
 import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
-import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
 import DialogImg from './dialogeImg'
 import axios from "axios"
@@ -40,6 +39,7 @@ export default function Detail() {
   const [product, setProd] = useState([]);
   const [willaya, setWillaya] = useState('');
   const [city, setCity] = useState('');
+  const [key, setKey] = useState(0);
   const prod = useSelector(SelectProduct);
   const firstImageUrl = product?.images?.[0]?.url;
   const images = product?.images;
@@ -50,20 +50,15 @@ export default function Detail() {
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
   const [sellect, setSellect] = useState();
-  const imgListRef = useRef();
+  const imgListRef = useRef(null);
+
 
   //select image to show it 
   const select =(e,id)=>{
-     const prevSelected = imgListRef.current.querySelector('.active');
-     if (prevSelected) {
-       prevSelected.classList.remove('active');
-     }
-     // Add the active class to the newly selected item
-     const newSelected = imgListRef.current.childNodes[id];
-     newSelected.classList.add('active');
      setSellect(e)
+     setKey(id)
   }
-  
+
   // choose the willaya
   const willayaChange = (event) => {
     setWillaya(event.target.value);
@@ -101,7 +96,6 @@ export default function Detail() {
 
   
 
-
   // get product from api with id
   useEffect(() => {
     setLoading(true);
@@ -123,11 +117,11 @@ export default function Detail() {
         clearTimeout(timeoutId);
       }
     };
-
+    
   }, [id]);
 
 
-
+console.log(key);
     return (
 	  <div className='detail'> 
 	      <Helmet>
@@ -140,11 +134,15 @@ export default function Detail() {
                 <Link to="/">{t("Accueil")}</Link>
             </span> 			
 			       <span className='link'>></span>
-            <span  className='link'>
+             {!loading?
+             <>
+              <span  className='link'>
                 <Link to={`/${product.category}`}>{t(product.category)}</Link>
              </span> 			
 			       <span className='link'>></span>
 			      <span className='link active'>{product.name}</span>
+             </>:<Skeleton animation="wave" style={{width:'20rem'}}/>}
+           
 			    </div>   
 					<div className="contentProd">
             <div className='detailCont'>
