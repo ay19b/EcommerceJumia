@@ -7,7 +7,6 @@ import { AuthContextProvider } from "./context/AuthContext";
 import  { persistor, store }  from './redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
-import { persistStore } from 'redux-persist'
 import './i18n';
 
 
@@ -27,6 +26,5 @@ root.render(
 	  </PersistGate> 
     </Provider>
   </React.StrictMode>
-  </Suspense>,
+  </Suspense>
 );
-

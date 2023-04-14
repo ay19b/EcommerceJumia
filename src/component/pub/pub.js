@@ -19,14 +19,14 @@ function Pub(){
     return(
 	 <div className='pub'>         
 	    <div className="ListPub">
-        {!loading?
+        {
          data.map((item)=>{
           const {id,img}=item;
           return(
            <img src={img} className='listImg' />  
           )
         })
-        :(<CircularProgress className='spinner'/>) }
+        }
         </div>
 	 </div>
     )

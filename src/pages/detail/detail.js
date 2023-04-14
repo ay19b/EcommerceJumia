@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useRef} from 'react'
+import React,{useState,useEffect,useRef, useLayoutEffect} from 'react'
 import { useParams,useLocation } from 'react-router-dom';
 import {MdOutlineAddShoppingCart} from 'react-icons/md'
 import {HiOutlineBriefcase} from 'react-icons/hi'
@@ -42,6 +42,7 @@ export default function Detail() {
   const [key, setKey] = useState(0);
   const prod = useSelector(SelectProduct);
   const firstImageUrl = product?.images?.[0]?.url;
+  const [img, setImg] = useState([]);
   const images = product?.images;
   const dispatch = useDispatch();
   /*const product =Data[id-1];*/
@@ -49,15 +50,30 @@ export default function Detail() {
   const [state, setState] = useState(false);
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
-  const [sellect, setSellect] = useState();
+  const [select, setSelect] = useState();
   const imgListRef = useRef(null);
 
-
+  
   //select image to show it 
-  const select =(e,id)=>{
-     setSellect(e)
+  const selectImg =(e,id)=>{
+     setSelect(e)
      setKey(id)
   }
+
+  // add border to image selected
+  const SelectBorder = () => {
+    const prevSelected = imgListRef?.current?.querySelector(".active");
+    if (prevSelected) {
+      prevSelected.classList.remove("active");
+    }
+    const firstSelected = imgListRef?.current?.childNodes[key];
+    firstSelected?.classList.add("active");
+  };
+
+
+  useEffect(() => {
+    SelectBorder();
+  }, [product, key]);
 
   // choose the willaya
   const willayaChange = (event) => {
@@ -94,8 +110,7 @@ export default function Detail() {
   }, [location]);
 
 
-  
-
+ 
   // get product from api with id
   useEffect(() => {
     setLoading(true);
@@ -105,6 +120,7 @@ export default function Detail() {
         .then(res => {
           setProd(res.data);
           setLoading(false);
+          imgListRef.current = res.data;
         })
         .catch(err => {
           console.log(err);
@@ -120,8 +136,6 @@ export default function Detail() {
     
   }, [id]);
 
-
-console.log(key);
     return (
 	  <div className='detail'> 
 	      <Helmet>
@@ -149,7 +163,7 @@ console.log(key);
 					    <div className="imgProd">
               {!loading?<>
 						  <img 
-                src={sellect?sellect:firstImageUrl}
+                src={select?select:firstImageUrl}
                 alt={product.desc} 
 						    className='selectImg'
                 style={i18n.language === 'fr'?{marginRight: '12px'}:{marginLeft: '12px'}}
@@ -158,7 +172,7 @@ console.log(key);
               <div className='listImage' ref={imgListRef}>
                 {images?.map((img,index)=>{
                   return (
-                    <div className='itemImg' key={index} onClick={() => select(img.url, index)}>
+                    <div className='itemImg' key={index} onClick={() => selectImg(img.url, index)}>
                      <img src={img.url} className='img' alt={img.alt}/>
                     </div>
                   )
