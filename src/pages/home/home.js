@@ -1,4 +1,4 @@
-import React from 'react';
+import { useContext, useEffect, useState,Suspense } from "react";
 import Layout from '../../component/layout/layout';
 import Main from '../../component/main/main';
 import Pub from '../../component/pub/pub';
@@ -12,9 +12,12 @@ import {useTranslation} from 'react-i18next'
 import titleLogo from '../../images/titleLogo.png'
 
 
+
+
 export default function Home() {
     const {t} = useTranslation();
-   
+
+	
     return (
 	<div className="home">
 	 <Helmet>
@@ -35,6 +38,6 @@ export default function Home() {
 	    <Category cag={'Informatique'} title={'Informatique'}/>
      </Layout>
 	</div>
-	</div>
+	</div>	
     )
 }

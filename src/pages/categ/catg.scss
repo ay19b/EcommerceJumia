@@ -32,6 +32,7 @@
 	 .img{
 	   width: 100%;
        height: 70%;
+	   object-fit: contain;
 	 }
 	 .prodName{
 	   font-size: 15px;
@@ -63,3 +64,18 @@
 		justify-content: center;
 	}
 }
+@media only screen and (max-width: 500px) {
+	.categories .listProduct .product{
+	  height: 12rem;
+	  width: 10.05rem;
+	}
+	.categories .listProduct .product .img{
+	  height: 60%;
+	}
+	.categories .listProduct .product .prodName{
+	  font-size: 14px;
+	}
+	.categories .listProduct .product .price{
+	  color:black;
+	}
+  }
