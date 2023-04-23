@@ -14,10 +14,10 @@ import './sliderCategory.scss'
 
 export default function SliderCategory({cag,title,prod}) {
   const { dispatch } = useContext(MenuContext);
-	const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [product, setProd] = useState([]);
   const [loading, setLoading] = useState(true);
-  const api = "https://dashboard-api-v8p2.onrender.com";
+  const api = "https://control-panel-ua7l.vercel.app";
   const skeletonProducts = [];
   SwiperCore.use([EffectFlip, Navigation, Pagination]);
 
