@@ -13,7 +13,7 @@ export default function DialogImg({open,handleClose}) {
   const [product, setProd] = useState([]);
   const { id  } = useParams();
   const {t,i18n} = useTranslation();
-  const api = "https://dashboard-api-v8p2.onrender.com";
+  const api = "https://control-panel-ua7l.vercel.app";
   const [loading, setLoading] = useState(true);
   
 
