@@ -17,8 +17,8 @@ function Pub(){
       }, [pub]);
 
     return(
-	 <div className='pub'>         
-	    <div className="ListPub">
+     <div className='pub'>         
+      <div className="ListPub">
         {
          data.map((item)=>{
           const {id,img}=item;
@@ -31,7 +31,7 @@ function Pub(){
         })
         }
         </div>
-	 </div>
+    </div>
     )
 }
 export default Pub;
