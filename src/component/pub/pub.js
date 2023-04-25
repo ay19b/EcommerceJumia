@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import "react-multi-carousel/lib/styles.css";
 import pub from "./data";
 import './pub.scss';
-import CircularProgress from '@mui/material/CircularProgress';
+import Skeleton from '@mui/material/Skeleton';
 
 function Pub(){
     const [data, setData] = useState([]);
@@ -10,8 +10,8 @@ function Pub(){
 
 
     useEffect(() => {
+      setData(pub);
         setTimeout(() => {
-          setData(pub);
           setLoading(false);
         }, 1000);
       }, [pub]);
@@ -23,7 +23,10 @@ function Pub(){
          data.map((item)=>{
           const {id,img}=item;
           return(
-           <img src={img} className='listImg' />  
+            loading?
+            <Skeleton variant="rectangular" className='listImg' key={id}/>:
+            <img src={img} className='listImg' key={id}/>
+            
           )
         })
         }

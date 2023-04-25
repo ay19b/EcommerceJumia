@@ -6,8 +6,7 @@ import './banner.scss';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-import CircularProgress from '@mui/material/CircularProgress';
-
+import Skeleton from '@mui/material/Skeleton';
 
 function Carousel(){
     const [data, setData] = useState();
@@ -44,7 +43,7 @@ function Carousel(){
                    </SwiperSlide>                  
                )
            })}
-      </Swiper>:(<CircularProgress className='spinner'/>)}
+      </Swiper>:(<Skeleton variant="rectangular" height="100%" />)}
 	 </div>
     )
 }

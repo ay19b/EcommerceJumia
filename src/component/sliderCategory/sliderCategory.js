@@ -17,7 +17,7 @@ export default function SliderCategory({cag,title,prod}) {
 	const { t, i18n } = useTranslation();
   const [product, setProd] = useState([]);
   const [loading, setLoading] = useState(true);
-  const api = "https://control-panel-ua7l.vercel.app";
+  const api = "https://dashboard-api-v8p2.onrender.com";
   const skeletonProducts = [];
   SwiperCore.use([EffectFlip, Navigation, Pagination]);
 
