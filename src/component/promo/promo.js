@@ -24,9 +24,9 @@ export default function Promo() {
            <Typography variant='h6'>{t('CODES PROMOS TVs')}</Typography>
        </div>
        <div className='bannerPub'>
-         {loading?<img src={one} alt='a' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}
-         {loading?<img src={two} alt='a' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}
-         {loading?<img src={three} alt='a' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}   
+         {loading?<img src={one} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}
+         {loading?<img src={two} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}
+         {loading?<img src={three} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}   
        </div>       
     </div>
   )
