@@ -66,7 +66,7 @@ export default function SliderCategory({cag,title,prod}) {
                         return(
                            <SwiperSlide key={product._id} className='product'>
                             <Link to={`/product/${product._id}`} key={product._id} onClick={() => dispatch({ type: "open" })}>
-                              <img src={product.images[0].url} onError={Error} alt={product._id} className='img'/>
+                              <img src={product.images[0].url} onError={Error}  className='img'/>
                               <h6 className='prodName'>{product.name}-{product.desc}</h6>
                               <h6  className={i18n.language === 'ar'?"price rtl":'price'}>{product.price} {t("DA")} </h6>
                             </Link>

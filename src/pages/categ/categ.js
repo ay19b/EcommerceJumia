@@ -67,7 +67,7 @@ return (
                   return( 
                   <div className='product' key={product._id}>
                     <Link to={`/product/${product._id}`} key={product._id} onClick={() => dispatch({ type: "open" })} >
-                       <img src={product.images[0].url}  alt={product.desc} className='img'/>
+                       <img src={product.images[0].url}  className='img'/>
                        <h6 className='prodName'>{product.name}-{product.desc}</h6>
                        <h6 className='price'>{product.price} {t("DA")}</h6>
                     </Link>
