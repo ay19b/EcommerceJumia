@@ -10,6 +10,7 @@ import SwiperCore, { EffectFlip, Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './sliderCategory.scss'
+import { Data } from "../../Library/data";
 
 
 export default function SliderCategory({cag,title,prod}) {
@@ -17,7 +18,6 @@ export default function SliderCategory({cag,title,prod}) {
   const { t, i18n } = useTranslation();
   const [product, setProd] = useState([]);
   const [loading, setLoading] = useState(true);
-  const api = "https://dashboard-api-v8p2.onrender.com";
   const skeletonProducts = [];
   SwiperCore.use([EffectFlip, Navigation, Pagination]);
 
@@ -35,15 +35,10 @@ export default function SliderCategory({cag,title,prod}) {
 
   // get products from api 
   useEffect(() => {
-    axios.get(`${api}/products`)
-      .then(res => {
-        setProd(res.data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.log(err);
-        setLoading(false);
-      });
+    setProd(Data)   
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500);
   }, [prod]);
 
 

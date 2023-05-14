@@ -7,7 +7,7 @@ import './detail.scss'
 import axios from "axios"
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
+import { Data } from "../../Library/data";
 
 export default function DialogImg({open,handleClose}) {
   const [product, setProd] = useState([]);
@@ -18,17 +18,14 @@ export default function DialogImg({open,handleClose}) {
   
 
   // get product from api with id
-  useEffect(() => {
-    axios.put(`${api}/products/${id}`)
-    .then(res => {
-      setProd(res.data)
-      setLoading(false);
-    })
-    .catch(err => {
-      console.log(err);
-      setLoading(false);
-    });
-  }, [id]);
+  useEffect(()=>{
+    const filter = Data.filter((item)=> item._id === id)
+    setProd(filter[0])
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500);
+  })
+
 
 
   return (

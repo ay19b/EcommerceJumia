@@ -28,7 +28,7 @@ import titleLogo from '../../images/titleLogo.png'
 import DialogImg from './dialogeImg'
 import axios from "axios"
 import Skeleton from '@mui/material/Skeleton';
-
+import { Data } from "../../Library/data";
 
 
 export default function Detail() {
@@ -110,31 +110,14 @@ export default function Detail() {
   }, [location]);
 
 
- 
-  // get product from api with id
-  useEffect(() => {
-    setLoading(true);
-    let timeoutId = null;
-    timeoutId = setTimeout(() => {
-      axios.put(`${api}/products/${id}`)
-        .then(res => {
-          setProd(res.data);
-          setLoading(false);
-          imgListRef.current = res.data;
-        })
-        .catch(err => {
-          console.log(err);
-          setLoading(false);
-        });
-    }, 500);
 
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
-    };
-    
-  }, [id]);
+  useEffect(()=>{
+    const filter = Data.filter((item)=> item._id === id)
+    setProd(filter[0])
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500);
+  })
 
     return (
 	  <div className='detail'> 

@@ -8,19 +8,17 @@ import { useContext } from "react";
 import {useTranslation} from 'react-i18next'
 import {Helmet} from "react-helmet";
 import titleLogo from '../../images/titleLogo.png'
-import axios from "axios"
 import Skeleton from '@mui/material/Skeleton';
+import { Data } from "../../Library/data";
+
 
 const Category=()=> {
   const { category } = useParams();
   const { dispatch } = useContext(MenuContext);
   const location = useLocation();
   const {t} = useTranslation();
-  const [prod, setProd] = useState([]);
   const [loading, setLoading] = useState(true);
-  const api = "https://dashboard-api-v8p2.onrender.com";
   const skeletonProducts = [];
-
 
 // skelton loading before get a products from api 
   for (let i = 0; i < 6; i++) {
@@ -39,18 +37,11 @@ const Category=()=> {
   }, [location]);
   
    // get products from api 
-  useEffect(() => {
-    axios.get(`${api}/products`)
-      .then(res => {
-        setProd(res.data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.log(err);
-        setLoading(false);
-      });
-  }, [prod]);
-
+  useEffect(()=>{
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500);
+  })
 
 return (
 	<div className='categories'>
@@ -69,7 +60,7 @@ return (
 		 
         <div className='listProduct'>
         {!loading?
-           prod
+           Data
               .filter((filterData) => filterData.category === category)
               .slice(0, 10)
               .map((product)=>{               

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { Typography} from "@mui/material";
 import one from '../../images/fashionJumia.jpg'
 import './fashion.scss'
