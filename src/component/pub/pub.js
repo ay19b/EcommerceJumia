@@ -3,6 +3,8 @@ import "react-multi-carousel/lib/styles.css";
 import pub from "./data";
 import './pub.scss';
 import Skeleton from '@mui/material/Skeleton';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 function Pub(){
     const [data, setData] = useState([]);
@@ -25,8 +27,7 @@ function Pub(){
           return(
             loading?
             <Skeleton variant="rectangular" className='listImg' key={id}/>:
-            <img src={img} className='listImg' key={id}/>
-            
+            <LazyLoadImage src={img} className='listImg' key={id} />   
           )
         })
         }

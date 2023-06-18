@@ -7,13 +7,11 @@ import two from '../../images/2.png'
 import three from '../../images/3.png'
 import "./main.scss"
 import {useTranslation} from 'react-i18next'
-
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Main = () => {
 	const {t} = useTranslation();
-	
-	
+
     return (
       <section className='main'>
         <div className='contMain'>
@@ -36,7 +34,7 @@ const Main = () => {
 			 </div>
 			 
 			 <div className='blackFrd'>
-			  <img src={black} alt="black"/>
+			  <LazyLoadImage src={black} alt="black"/>
 			 </div>
 		   </div>
 		 </div>

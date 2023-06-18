@@ -13,6 +13,7 @@ import { Data } from "../../Library/data";
 
 
 const Category=()=> {
+  const [catg, setCategory] = useState([]);
   const { category } = useParams();
   const { dispatch } = useContext(MenuContext);
   const location = useLocation();
@@ -21,7 +22,7 @@ const Category=()=> {
   const skeletonProducts = [];
 
 // skelton loading before get a products from api 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 10; i++) {
     skeletonProducts.push(
       <div key={i} className='productSkelton'>
         <Skeleton variant="rectangular" height={200} />
@@ -38,10 +39,13 @@ const Category=()=> {
   
    // get products from api 
   useEffect(()=>{
+    setLoading(true)
+    const filter = Data.filter((filterData) => filterData.category === category)
+    setCategory(filter)
     setTimeout(() => {
       setLoading(false)
     }, 1500);
-  })
+  },[category])
 
 return (
 	<div className='categories'>
@@ -57,11 +61,10 @@ return (
 			    <span className='link'>></span>
 			    <span className='link active'>{t(category)}</span>
 			 </div>  
-		 
+       {!loading?
         <div className='listProduct'>
-        {!loading?
-           Data
-              .filter((filterData) => filterData.category === category)
+        
+           {catg
               .slice(0, 10)
               .map((product)=>{               
                   return( 
@@ -73,9 +76,10 @@ return (
                     </Link>
                   </div>
                   )
-              })
-          : <div className="listSkelton">{skeletonProducts}</div> }  
-         </div>
+              })}
+              
+         </div> 
+         : <div className="listSkelton">{skeletonProducts}</div> } 
    </Layout> 
    </div>
             

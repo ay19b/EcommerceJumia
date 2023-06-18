@@ -70,11 +70,11 @@ const Nav = () => {
 				</div>
 				<div className="contGrid">
 				  <div className='langs'>
-				    <div className={i18n.language === 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
+				    <div className={i18n.language === 'fr' || localStorage.getItem("lng") === 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
                         <img src={france} alt="france" className="img"/>
                         <h6>francais</h6>
                      </div>
-                     <div className={i18n.language === 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
+                     <div className={i18n.language === 'ar' || localStorage.getItem("lng") === 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
                         <img src={algeria} alt="algeria" className="img"/>
                         <h6>العربية</h6>
                      </div>

@@ -1,8 +1,13 @@
-import Loya from "../images/supermarche/loya.jpg"
+import CafeOne from "../images/supermarche/cafe1.jpg"
+import CafeTwo from "../images/supermarche/cafe2.jpg"
+import CafeThree from "../images/supermarche/cafe3.jpg"
 import Omo from "../images/supermarche/omo.jpg"
 import Pasta from "../images/supermarche/pasta.jpg"
 import Sugar from "../images/supermarche/sugar.jpg"
 import Isis from "../images/supermarche/isis.jpg"
+import IsisTwo from "../images/supermarche/isis2.jpg"
+import IsisThree from "../images/supermarche/isis3.jpg"
+import IsisFour from "../images/supermarche/isis4.jpg"
 import Maxon from "../images/supermarche/maxon.jpg"
 import Grunchy from "../images/supermarche/grunchy.jpg"
 
@@ -10,11 +15,19 @@ import Casque from "../images/informatique/casque.jpg"
 import Dell from "../images/informatique/dell.jpg"
 import TP from "../images/informatique/TP-link.jpg"
 import Lenovo from "../images/informatique/lenovo.jpg"
+import Lenovo2 from "../images/informatique/lenovo2.jpg"
 import Parleur from "../images/informatique/haut parleur.jpg"
 import Table from "../images/informatique/table pc.jpg"
+import Table2 from "../images/informatique/table2.jpg"
+import Table3 from "../images/informatique/table3.jpg"
+import Table4 from "../images/informatique/table4.jpg"
 
 import Basket from "../images/mode/basket noir.jpg"
-import Vest from "../images/mode/vest.jpg"
+import BasketTwo from "../images/mode/basket noir2.jpg"
+import Vest from "../images/mode/vest1.jpg"
+import VestTwo from "../images/mode/vest2.jpg"
+import VestThree from "../images/mode/vest3.jpg"
+import VestFour from "../images/mode/vest4.jpg"
 import Yellow from "../images/mode/basket.jpg"
 import Collier from "../images/mode/collier.jpg"
 import Puma from '../images/mode/puma.jpg'
@@ -22,10 +35,14 @@ import Watch from '../images/mode/watch.jpg'
 import Doudoune from '../images/mode/doudoune.jpg'
 
 import LG from '../images/elctro/LG.jpg'
+import LG2 from '../images/elctro/LG2.jpg'
 import Techwood from '../images/elctro/techwood.jpg'
+import TechwoodTwo from '../images/elctro/techwood2.jpg'
 import BlenderPortable from '../images/elctro/blender portable.jpg'
 import Blender from "../images/elctro/blender electrique.jpg"
 import Robuste from '../images/elctro/robuste.jpg'
+import RobusteTwo from '../images/elctro/robuste2.jpg'
+import RobusteThree from '../images/elctro/robuste3.jpg'
 import Petrin from "../images/elctro/petrin.jpg"
  
 import PumaBallon from '../images/sport/puma ballon.jpg'
@@ -33,22 +50,34 @@ import Gardien from "../images/sport/gardien.jpg"
 import PumaSoulier from '../images/sport/puma soulier.jpg'
 import Ballon from '../images/sport/ballon.jpg'
 import Floot from "../images/sport/flott.jpg"
+import Floot2 from "../images/sport/flott2.jpg"
+import Floot3 from "../images/sport/flott3.jpg"
+import Floot4 from "../images/sport/flott4.jpg"
 import Barre from '../images/sport/barre.jpg'
+import Barre2 from '../images/sport/barre2.jpg'
 import Sonashi from '../images/sport/pese.jpg'
 
 
 export const Data = [
     {
       "_id": '6422ed5fd0438dc6d7452af4',
-      "name": "Loya Lait En Poudre",
-      "price": 420,
-      "disc": "Loya Lait En Poudre -Boite -500 G",
+      "name": "L'Or Café Capsules Forza - Intensité 9",
+      "price": 840,
+      "disc": "L'Or Café Capsules Forza - Intensité 9",
       "stock": 10000,
       "quantity": 0,
       "images": [
         {
-          "url": Loya,
-          "alt": "milk.jpg"
+          "url":CafeOne ,
+          "alt": "cafe1.jpg"
+        },
+        {
+          "url": CafeTwo,
+          "alt": "cafe2.jpg"
+        },
+        {
+          "url": CafeThree,
+          "alt": "cafe3.jpg"
         }
       ],
       "star": 4,
@@ -66,7 +95,7 @@ export const Data = [
         {
           "url": Omo,
           "alt": "omo.jpg"
-        }
+        },
       ],
       "star": 4,
       "added": false,
@@ -287,14 +316,6 @@ export const Data = [
         {
           "url": Ballon,
           "alt": "111.jpg"
-        },
-        {
-          "url": Ballon,
-          "alt": "2222.jpg"
-        },
-        {
-          "url": Ballon,
-          "alt": "3333.jpg"
         }
       ],
       "star": 4,
@@ -315,11 +336,15 @@ export const Data = [
           "alt": "1.jpg"
         },
         {
-          "url": Isis,
+          "url": IsisTwo,
           "alt": "2.jpg"
         },
         {
-          "url": Isis,
+          "url": IsisThree,
+          "alt": "3.jpg"
+        },
+        {
+          "url": IsisFour,
           "alt": "3.jpg"
         }
       ],
@@ -338,10 +363,6 @@ export const Data = [
         {
           "url": Maxon,
           "alt": "11.jpg"
-        },
-        {
-          "url": Maxon,
-          "alt": "21.jpg"
         }
       ],
       "star": 4,
@@ -378,8 +399,8 @@ export const Data = [
           "alt": "basket.jpg"
         },
         {
-          "url": Basket,
-          "alt": "sss.jpg"
+          "url": BasketTwo,
+          "alt": "basket.jpg"
         }
       ],
       "star": 4,
@@ -387,8 +408,8 @@ export const Data = [
     },
     {
       "_id":"6431979794d72ee47d20998a",
-      "name": "Veste Pour Homme Gris-zk889",
-      "price": 5000,
+      "name": "Milanista Veste En Cuir Véritable Pour Homme Milanista - Noir- Mvh73",
+      "price": 9000,
       "category": "Mode",
       "disc": "",
       "stock": 10,
@@ -396,15 +417,19 @@ export const Data = [
       "images": [
         {
           "url": Vest,
-          "alt": "ssd.jpg"
+          "alt": "vest.jpg"
         },
         {
-          "url": Vest,
-          "alt": "ffdd.jpg"
+          "url": VestTwo,
+          "alt": "vest.jpg"
         },
         {
-          "url": Vest,
-          "alt": "gf.jpg"
+          "url": VestThree,
+          "alt": "vest.jpg"
+        },
+        {
+          "url": VestFour,
+          "alt": "vest.jpg"
         }
       ],
       "star": 4,
@@ -424,7 +449,7 @@ export const Data = [
           "alt": "tech1.jpg"
         },
         {
-          "url": Techwood,
+          "url": TechwoodTwo,
           "alt": "tech2.jpg"
         }
       ],
@@ -462,12 +487,8 @@ export const Data = [
           "alt": "1.jpg"
         },
         {
-          "url": LG,
+          "url": LG2,
           "alt": "2.jpg"
-        },
-        {
-          "url": LG,
-          "alt": "3.jpg"
         }
       ],
       "star": 4,
@@ -475,7 +496,7 @@ export const Data = [
     },
     {
       "_id":"6432bd3bf79ed163aa750b10",
-      "name": "Partagez ce produit Robuste Fer A Repasser Ultra-gliss 2000 W - Blanc/Bordeaux",
+      "name": "Robuste Fer A Repasser Ultra-gliss 2000 W - Blanc/Bordeaux",
       "price": 4600,
       "category": "Électroménager, TV & Audio",
       "disc": "",
@@ -487,11 +508,11 @@ export const Data = [
           "alt": "rob.jpg"
         },
         {
-          "url": Robuste,
+          "url": RobusteTwo,
           "alt": "rob2.jpg"
         },
         {
-          "url": Robuste,
+          "url": RobusteThree,
           "alt": "rob3.jpg"
         }
       ],
@@ -512,11 +533,15 @@ export const Data = [
           "alt": "poids.jpg"
         },
         {
-          "url": Floot,
+          "url": Floot2,
           "alt": "poids2.jpg"
         },
         {
-          "url": Floot,
+          "url": Floot3,
+          "alt": "poids3.jpg"
+        },
+        {
+          "url": Floot4,
           "alt": "poids3.jpg"
         }
       ],
@@ -537,7 +562,7 @@ export const Data = [
           "alt": "barre.jpg"
         },
         {
-          "url": Barre,
+          "url": Barre2,
           "alt": "barre2.jpg"
         }
       ],
@@ -573,14 +598,6 @@ export const Data = [
         {
           "url": PumaSoulier,
           "alt": "puma.jpg"
-        },
-        {
-          "url": PumaSoulier,
-          "alt": "puma1.jpg"
-        },
-        {
-          "url": PumaSoulier,
-          "alt": "puma2.jpg"
         }
       ],
       "star": 4,
@@ -615,10 +632,6 @@ export const Data = [
         {
           "url": PumaBallon,
           "alt": "1ball.jpg"
-        },
-        {
-          "url": PumaBallon,
-          "alt": "2ball.jpg"
         }
       ],
       "star": 4,
@@ -638,7 +651,7 @@ export const Data = [
           "alt": "lenovo.jpg"
         },
         {
-          "url": Lenovo,
+          "url": Lenovo2,
           "alt": "lenovo2.jpg"
         }
       ],
@@ -676,12 +689,16 @@ export const Data = [
           "alt": "table.jpg"
         },
         {
-          "url": Table,
+          "url": Table2,
           "alt": "table2.jpg"
         },
         {
-          "url": Table,
+          "url": Table3,
           "alt": "table3.jpg"
+        },
+        {
+          "url": Table4,
+          "alt": "table4.jpg"
         }
       ],
       "star": 4,

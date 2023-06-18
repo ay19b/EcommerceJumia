@@ -112,17 +112,18 @@ export default function Detail() {
 
 
   useEffect(()=>{
+    setLoading(true)
     const filter = Data.filter((item)=> item._id === id)
     setProd(filter[0])
     setTimeout(() => {
       setLoading(false)
     }, 1500);
-  })
+  },[id])
 
     return (
 	  <div className='detail'> 
 	      <Helmet>
-          <title>{product.desc}</title>
+          <title>{product.name}</title>
 				  <link rel="icon" href={titleLogo} />
         </Helmet>
         <Layout>
@@ -153,9 +154,10 @@ export default function Detail() {
                 onClick={ClickOpen}
               />
               <div className='listImage' ref={imgListRef}>
-                {images?.map((img,index)=>{
+                {images.length>1 &&
+                images?.map((img,index)=>{
                   return (
-                    <div className='itemImg' key={index} onClick={() => selectImg(img.url, index)}>
+                    <div className={`itemImg ${key === index ? 'active' : ''}`} key={index} onClick={() => selectImg(img.url, index)}>
                      <img src={img.url} className='img' alt={img.alt}/>
                     </div>
                   )

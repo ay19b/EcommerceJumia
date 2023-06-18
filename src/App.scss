@@ -40,17 +40,17 @@
 }
 
 .listSkelton{
-	display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  width: max-content;
+  display: grid;
+  gap: 3%;
+	grid-template-columns: 17% 17% 17% 17% 17%;
+  padding: 18px 0;
   justify-content: center;
+  background-color: white;
+  margin-top: 15px;
     .productSkelton{
-	    width: 11.595rem;
+	    width: 100%;
       height: 14rem;
       border: 3px solid transparent;
-      margin-top: 12px;
-      margin-bottom: 12px;
     }
 }
 
@@ -60,7 +60,19 @@
 }
 }
 
-
+@media only screen and (max-width: 1170px) {
+	.listSkelton{
+		grid-template-columns: 22% 22% 22% 22%;
+	}
+}
+@media only screen and (max-width: 850px) {
+	.listSkelton{
+		grid-template-columns: 30% 30% 30%;
+		.productSkelton{
+			width: 90%;
+		}
+	}
+}
  
 @media only screen and (max-width: 810px) {
 	 .MuiContainer-root{
@@ -68,8 +80,21 @@
         padding-right: 8px !important;
 	 }
  }
+ @media only screen and (max-width: 600px) {
+	.listSkelton{
+		grid-template-columns:45% 45%;
+	}
+}
  @media only screen and (max-width:400px){
   .headProd h6 {
     font-size: 18px !important;
   }
  }
+ @media only screen and (max-width: 410px) {
+	.listSkelton{
+		grid-template-columns:70%;
+		.productSkelton{
+			width: 100%;
+		}
+	}
+}

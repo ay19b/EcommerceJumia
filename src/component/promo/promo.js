@@ -6,6 +6,7 @@ import three from '../../images/codePr3.jpg'
 import './promo.scss'
 import {useTranslation} from 'react-i18next'
 import Skeleton from '@mui/material/Skeleton';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function Promo() {
 	const {t} = useTranslation();
@@ -24,9 +25,9 @@ export default function Promo() {
            <Typography variant='h6'>{t('CODES PROMOS TVs')}</Typography>
        </div>
        <div className='bannerPub'>
-         {loading?<img src={one} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}
-         {loading?<img src={two} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}
-         {loading?<img src={three} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}   
+         {loading?<LazyLoadImage src={one} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}
+         {loading?<LazyLoadImage src={two} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}
+         {loading?<LazyLoadImage src={three} alt='' className='img'/>:(<Skeleton variant="rectangular" className='img' />)}   
        </div>       
     </div>
   )
