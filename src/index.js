@@ -4,7 +4,7 @@ import './index.scss';
 import App from './App';
 import { MenuContextProvider } from './context/menuContext';
 import { AuthContextProvider } from "./context/AuthContext";
-import  { persistor, store }  from './redux/store';
+import  { persistor, store }  from './app/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react'
 import './i18n';

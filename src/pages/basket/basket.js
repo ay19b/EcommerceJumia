@@ -6,8 +6,8 @@ import {FaTrash} from "react-icons/fa";
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import { useSelector,useDispatch } from "react-redux";
-import {incrementProduct,decrementProduct} from "../../redux/productSlice"
-import {SelectProduct} from '../../redux/productSlice'
+import {incrementProduct,decrementProduct} from "../../features/productSlice"
+import {SelectProduct} from '../../features/productSlice'
 import AlertDialog from './dialoge'
 import {TiShoppingCart} from "react-icons/ti";
 import {useTranslation} from 'react-i18next'
@@ -16,9 +16,11 @@ import mark from '../../images/mark.png'
 import titleLogo from '../../images/titleLogo.png'
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import SliderCategory from '../../component/sliderCategory/sliderCategory';
 
 const Cart=()=> {
   const product = useSelector(SelectProduct);
+  const seenProd = JSON.parse(localStorage.getItem("products")) || [];
   const cartProducts =product? product.filter((product) => product.added):null;
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
@@ -29,6 +31,7 @@ const Cart=()=> {
 		e.target.onerror = null
     e.target.src = mark
 	} 
+
   
   // open AlertDialog 
   const handleClickOpen = () => {
@@ -57,7 +60,8 @@ const Cart=()=> {
     return acc + curr;
   }, 0):null;
 
-  
+  console.log(seenProd.length);
+
   return (
 	<div className='cart'> 
 	    <Helmet>
@@ -66,7 +70,7 @@ const Cart=()=> {
       </Helmet>
     <Layout>
 		{cartProducts && cartProducts.length>=1?
-           <div className='contentCart'>     
+           <div className='contentCart' style={{marginBottom:seenProd?'20px':'78px'}}>     
 			<div className="CartProd">
 				<span className='title'>{t("Panier")} ({cartProducts?cartProducts.length:null})</span>
 				<Divider/>
@@ -132,7 +136,7 @@ const Cart=()=> {
 			</div> 			
 			</div>		               
 		:
-		 <div className='emptyBasket'>
+		 <div className='emptyBasket' style={{marginBottom:seenProd?'20px':'78px'}}>
        <TiShoppingCart className='iconEmpty'/>
        <h5 className='empty'>{t("Votre panier est vide")} !</h5>
        <h6 className='emptyCatg'>{t("Parcourez nos catégories et découvrez nos meilleures offres")}!</h6>
@@ -141,6 +145,7 @@ const Cart=()=> {
 		   </Link>
      </div>
 		}  
+    {seenProd.length>0 && <SliderCategory title={'Vus récemment'} products={seenProd}/>}
     </Layout>  
 		</div> 
             

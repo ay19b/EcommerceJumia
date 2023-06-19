@@ -27,6 +27,12 @@ export const productSlice = createSlice({
         itemInCart.quantity--;
       } 
     },
+    saveProductVisit:(state,action) => {
+      const itemInCart = state.find((item) => item._id === action.payload._id);
+      if (!itemInCart) {
+        state.push({ ...action.payload, quantity: 1,added: true});
+      } 
+    }
   },
 })
    

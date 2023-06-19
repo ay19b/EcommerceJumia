@@ -15,7 +15,7 @@ import './nav.scss';
 import {MenuContext} from '../../context/menuContext'
 import { useContext } from "react";
 import Sidebar from '../sidebar/sidebar'
-import {SelectProduct} from '../../redux/productSlice';
+import {SelectProduct} from '../../features/productSlice';
 import {useSelector} from "react-redux";
 import {useTranslation} from 'react-i18next'
 import useMediaQuery from '@mui/material/useMediaQuery'

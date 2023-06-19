@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import Sidebar from '../sidebar/sidebar'
 import Carousel from '../banner/banner'
 import black from '../../images/black.jpg'
@@ -8,9 +8,21 @@ import three from '../../images/3.png'
 import "./main.scss"
 import {useTranslation} from 'react-i18next'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Skeleton from '@mui/material/Skeleton';
+
 
 const Main = () => {
 	const {t} = useTranslation();
+	const [img, setImg] = useState();
+    const [loading, setLoading] = useState(true);
+
+	
+    useEffect(() => {
+		setImg(black);
+		  setTimeout(() => {
+			setLoading(false);
+		  }, 1200);
+	});
 
     return (
       <section className='main'>
@@ -34,7 +46,10 @@ const Main = () => {
 			 </div>
 			 
 			 <div className='blackFrd'>
-			  <LazyLoadImage src={black} alt="black"/>
+			  {!loading?
+			  <LazyLoadImage src={img} alt="black" className='img'/>:
+			  <Skeleton variant="rectangular" className='img' />
+			  }
 			 </div>
 		   </div>
 		 </div>

@@ -161,7 +161,13 @@
    background-color: rgba(0,0,0,0.2)!important;
 }
   
-  
+.category .headProd {
+	color: black;
+	background-color: white !important;
+}
+.category .headProd .headProdRight h6{
+	display: none !important;
+}  
   
 }
 

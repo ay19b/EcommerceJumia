@@ -6,7 +6,7 @@ import skthree from '../../images/skthree.jpg'
 import skfour from '../../images/skfour.jpg'
 import './offer.scss'
 import {useTranslation} from 'react-i18next'
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 export default function Offer() {
   const {t} = useTranslation();
@@ -17,10 +17,10 @@ export default function Offer() {
           <Typography variant='h6'>{t('Offres incontournables')}</Typography>
       </div>
        <div className='offerbanner'>               
-          <img src={skone} alt='a' className='img'/>
-          <img src={sktwo} alt='a' className='img'/>
-          <img src={skthree} alt='a' className='img'/>
-          <img src={skfour} alt='a' className='img'/>
+          <LazyLoadImage src={sktwo} alt='a' className='img'/>
+          <LazyLoadImage src={skone} alt='a' className='img'/>
+          <LazyLoadImage src={skthree} alt='a' className='img'/>
+          <LazyLoadImage src={skfour} alt='a' className='img'/>
       </div>     
     </div>
   )
