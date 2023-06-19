@@ -145,7 +145,7 @@ const Cart=()=> {
 		   </Link>
      </div>
 		}  
-    {seenProd.length>0 && <SliderCategory title={'Vus récemment'} products={seenProd}/>}
+    {seenProd.length>1 && <SliderCategory title={'Vus récemment'} products={seenProd}/>}
     </Layout>  
 		</div> 
             

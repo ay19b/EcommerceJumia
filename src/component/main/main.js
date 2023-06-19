@@ -47,7 +47,7 @@ const Main = () => {
 			 
 			 <div className='blackFrd'>
 			  {!loading?
-			  <LazyLoadImage src={img} alt="black" className='img'/>:
+			  <LazyLoadImage src={img} className='img'/>:
 			  <Skeleton variant="rectangular" className='img' />
 			  }
 			 </div>
