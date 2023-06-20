@@ -17,6 +17,7 @@ import titleLogo from '../../images/titleLogo.png'
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import SliderCategory from '../../component/sliderCategory/sliderCategory';
+import {Data} from '../../Library/data'
 
 const Cart=()=> {
   const product = useSelector(SelectProduct);
@@ -26,13 +27,24 @@ const Cart=()=> {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const {t,i18n} = useTranslation();
+  const chosenIds = ['6422ef6fd0438dc6d7452cce','6432c431bc8500059b07869e','6432bd3bf79ed163aa750b10','6422ed5fd0438dc6d7452af4','6431974694d72ee47d209988','643196e93db153410979bb5a','6422f063d0438dc6d7452d21','643194c14bac77437d63ab5a'];
+  const [Requested,setRequested] = useState([]);
   const { currentUser } = useContext(AuthContext);
   function Error(e){
 		e.target.onerror = null
     e.target.src = mark
 	} 
 
+
+  useEffect(()=>{
+    const selectedProducts = chosenIds.map(id => {
+      return Data.find(product => product._id === id);
+    });
+
+    setRequested(selectedProducts)
+  })
   
+
   // open AlertDialog 
   const handleClickOpen = () => {
     setOpen(true);
@@ -60,7 +72,7 @@ const Cart=()=> {
     return acc + curr;
   }, 0):null;
 
-  console.log(seenProd.length);
+ 
 
   return (
 	<div className='cart'> 
@@ -146,6 +158,7 @@ const Cart=()=> {
      </div>
 		}  
     {seenProd.length>1 && <SliderCategory title={'Vus récemment'} products={seenProd}/>}
+    <SliderCategory title={'Les plus demandés'} products={Requested}/>
     </Layout>  
 		</div> 
             

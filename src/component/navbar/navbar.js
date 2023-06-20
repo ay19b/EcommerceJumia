@@ -103,9 +103,11 @@ const Nav = () => {
 				   style={i18n.language === 'ar'?{marginLeft: "8px"}:{marginRight: "8px"}}
                    placeholder={t("Cherchez un produit, une marque ou une catégorie")}
                    InputProps={{
-                   startAdornment: <InputAdornment position="start">
-                                      <HiSearch />
-                                   </InputAdornment> 
+                   startAdornment: 
+				        (<InputAdornment position="start">
+                            <HiSearch />
+                        </InputAdornment>),
+						style: i18n.language === 'ar' ? { direction: 'rtl' } : {} 
                    }} 
 
                   />
