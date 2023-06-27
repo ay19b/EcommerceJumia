@@ -9,20 +9,18 @@ import "./main.scss"
 import {useTranslation} from 'react-i18next'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Skeleton from '@mui/material/Skeleton';
-
+import { Blurhash } from 'react-blurhash';
 
 const Main = () => {
 	const {t} = useTranslation();
 	const [img, setImg] = useState();
-    const [loading, setLoading] = useState(true);
-
+    const [loading, setLoading] = useState(false);
+	const blurhash = 'LSJF#sI=H@bH0jxFJ-ay}txEwaoK';
 	
-    useEffect(() => {
-		setImg(black);
-		  setTimeout(() => {
-			setLoading(false);
-		  }, 1200);
-	});
+
+	const handleImageLoad = () => {
+		setLoading(true);
+	  };
 
     return (
       <section className='main'>
@@ -46,10 +44,14 @@ const Main = () => {
 			 </div>
 			 
 			 <div className='blackFrd'>
-			  {!loading?
-			  <LazyLoadImage src={img} className='img'/>:
-			  <Skeleton variant="rectangular" className='img' />
-			  }
+		     {!loading &&<Blurhash hash={blurhash} className='img' /> }
+			  <img 
+			     src={black} 
+				 alt=''
+				 className='img' 
+				 onLoad={handleImageLoad}
+				 style={{ display: loading ? 'block' : 'none' }}
+				 />
 			 </div>
 		   </div>
 		 </div>

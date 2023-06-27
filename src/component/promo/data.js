@@ -1,45 +1,24 @@
-import food from "../../images/banner/one.jpg";
-import Hi_tec from "../../images/banner/two.jpg";
-import hygin from "../../images/banner/three.jpg";
-import plage from "../../images/banner/four.jpg";
-import sx from "../../images/banner/five.jpg";
-import sd from "../../images/banner/six.jpg";
-import tshirt from "../../images/banner/seven.png";
-import vacance from "../../images/banner/eight.jpg";
+import one from '../../images/codePr1.jpg'
+import two from '../../images/codePr2.jpg'
+import three from '../../images/codePr3.jpg'
 
 
-const Banner=[
+const Data=[
     {
         id:1,
-        img:food,
+        img:one,
+        blurHash:'LWF=B;Bt,-V?xvElxBoMn-9~sls,'
     },
     {
         id:2,
-        img:Hi_tec,
+        img:two,
+        blurHash:'LZGk2^B@,-Z~tlI[xBf+XAERoIt6'
     },
     {
         id:3,
-        img:hygin,
+        img:three,
+        blurHash:'LQF#?{A#,,R$%3AJ$xjIv%5?s8$g'
     },
-    {
-        id:4,
-        img:plage,
-    },
-    {
-        id:5,
-        img:sx,
-    },
-    {
-        id:6,
-        img:sd,
-    },
-    {
-        id:7,
-        img:tshirt,
-    },
-    {
-        id:8,
-        img:vacance,
-    },
+ 
 ]
-export default Banner;
+export default Data;

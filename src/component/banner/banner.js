@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState} from 'react';
 import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Banner from "./data";
@@ -6,23 +6,20 @@ import './banner.scss';
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-import Skeleton from '@mui/material/Skeleton';
+import { Blurhash } from 'react-blurhash';
 
 function Carousel(){
-    const [data, setData] = useState();
+    const [data, setData] = useState(Banner);
     const [loading, setLoading] = useState(false);
 
-    useEffect(()=>{
-      setTimeout(()=>{
-        setLoading(true)
-        setData(Banner)
-      },1500)
-    })
+    const handleImageLoad = () => {
+      setLoading(true);
+    };
+  
 
 
     return(
 	<div className='banner'>
-     {loading?
       <Swiper
         modules={[Autoplay, Pagination]}
         pagination={{clickable: true}}
@@ -36,14 +33,20 @@ function Carousel(){
         className='swiper-container'
       >
        {data.map((item)=>{
-               const {id,img}=item;
+               const {id,img,blurHash}=item;
                return(
                    <SwiperSlide key={id} className='listImg'>
-                       <img src={img} alt={id} className='listImg' />
+			                 {!loading && <Blurhash hash={blurHash} className="listImg" />}
+                       <img 
+                         src={img}
+                         alt={id}
+                         className='listImg'
+                         onLoad={handleImageLoad}
+                         style={{ display: loading ? 'block' : 'none' }}/>
                    </SwiperSlide>                  
                )
            })}
-      </Swiper>:(<Skeleton variant="rectangular" height="100%" />)}
+      </Swiper>
 	 </div>
     )
 }

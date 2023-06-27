@@ -15,50 +15,62 @@ const pub=[
     {
         id:1,
         img:one,
+        blurHash:'LGG7xS#i}Yro0OOX-Ubuv%n3~BV?',
     },
     {
         id:2,
         img:two,
+        blurHash:'L%P}-+jYZ~jY{bbHf7fkFzjYkCe.',
     },
     {
         id:3,
         img:three,
+        blurHash:'LhOB_iae=;sR}gW;%0ofN#nhN2ae',
     },
     {
         id:4,
         img:four,
+        blurHash:'LEOfJWW~ALVZ3FY6@rkC0pQ-}@S^',
     },
     {
         id:5,
         img:five,
+        blurHash:'LBSB^S%-R5$I?2uI%Ntj8]nfb=n3'
     },
     {
         id:6,
         img:six,
+        blurHash:'LeM?C$W.cFs%2]X8o#oc}TnhVsad'
     },
     {
         id:7,
         img:seven,
+        blurHash:'LMDnrQ$w{@xTxFXSs8buqZM{=pRQ'
     },
     {
         id:8,
         img:eight,
+        blurHash:'LGH{4r?Gd;rpL#tRE2f+PqMw+us8'
     },
 	{
         id:9,
         img:nine,
+        blurHash:'LgMs$mxZv~V?{0t7n,RjAcjYsRRi'
     },
     {
         id:10,
         img:ten,
+        blurHash:'LEJ%tdI901?GASIoIAkCQon#~VH?'
     },
     {
         id:11,
         img:eleven,
+        blurHash:'LDG[?Ezm~9E100IossbF0TJ.:~,.'
     },
     {
         id:12,
         img:tweleve,
+        blurHash:'LXOyCmMw%1RO7{R*xaWV}txaV?t7'
     },
 ]
 

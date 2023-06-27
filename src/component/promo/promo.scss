@@ -9,12 +9,12 @@
   .bannerPub{
     display: flex;
     justify-content: space-between;
-	background-color: white;
-	margin-top: 8px;
+	  background-color: white;
+	  margin-top: 8px;
 	.img{
 	  cursor:pointer;
-	  width: 100%;
-    height: 13rem;
+	  width: 100% !important;
+    height: 13rem !important;
 	  &:hover{
         transform: scale(1.05,1.05);
         outline: none;
@@ -29,9 +29,9 @@
       overflow-x: scroll;
       overflow-y: hidden;
 	  .img{
-        width: 100vw;
-        height: 20rem;
-        margin-bottom: 6px;
+        width: 100vw !important;
+        height: 20rem !important;
+        margin-bottom: 6px !important;
 	  }
    }
   }
@@ -50,8 +50,8 @@
       overflow-y: hidden;
       flex-direction: row;
 	  .img{
-	    object-fit: contain;
-      height: 13rem;
+	    object-fit: contain !important;
+      height: 13rem !important;
 	  }
    }
   }

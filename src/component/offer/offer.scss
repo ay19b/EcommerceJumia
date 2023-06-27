@@ -11,13 +11,15 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-	background-color: white;
-	padding-bottom: 10px;
+	  background-color: white;
+	  padding-bottom: 10px;
     margin-top: 8px;
     padding-top: 10px;
 	.img{
 	  cursor:pointer;
 	  margin-bottom: 8px;
+    width: 48% !important;
+    height: 12rem !important;
 	  &:hover{
         transform: scale(1.01,1.01);
         outline: none;
@@ -37,8 +39,8 @@
       flex-wrap: inherit;
       justify-content: flex-start;
      .img {
-       width: 100vw;
-       height: 15rem;
+       width: 100vw !important;
+       height: 15rem !important;
      }
     }
   }

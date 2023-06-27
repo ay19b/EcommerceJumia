@@ -36,7 +36,8 @@ const Nav = () => {
 	const { currentUser } = useContext(AuthContext);
 	const nav = useRef();
 	const matches = useMediaQuery('(max-width:1000px)');
-	
+
+
 
 	// change the language and save it in localstorage
     const handleChangeLng = (lng) => {
