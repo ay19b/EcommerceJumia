@@ -1,40 +1,40 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState} from 'react';
 import "react-multi-carousel/lib/styles.css";
 import pub from "./data";
 import './pub.scss';
-import Skeleton from '@mui/material/Skeleton';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Blurhash } from 'react-blurhash';
 
 function Pub(){
     const [data, setData] = useState(pub);
-    const [loading, setLoading] = useState(false);
 
-    const handleImageLoad = () => {
-      setLoading(true);
-      };
+
+    const handleImageLoad = (itemId) => {
+      setData((prevData) =>
+        prevData.map((item) =>
+          item.id === itemId ? { ...item, loading: true } : item
+        )
+      );
+    };
 
     return(
      <div className='pub'>         
       <div className="ListPub">
-        {
-         data.map((item)=>{
-          const {id,img,blurHash}=item;
-          return(
-            <>
-            {!loading &&<Blurhash hash={blurHash} className='listImg' /> }
-            <img
-               src={img}
-               alt=''
-               className='listImg'
-               key={id}
-               onLoad={handleImageLoad}
-               style={{ display: loading ? 'block' : 'none' }}
-            />   
-            </>
-          )
-        })
-        }
+
+        {data.map((item) => {
+          const { id, img, blurHash, loading } = item;
+          return (
+            <React.Fragment key={id}>
+              {!loading && <Blurhash hash={blurHash} className="listImg" />}
+              <img
+                src={img}
+                alt=""
+                className="listImg"
+                onLoad={() => handleImageLoad(id)}
+                style={{ display: loading ? "block" : "none" }}
+              />
+            </React.Fragment>
+          );
+        })}
         </div>
     </div>
     )

@@ -12,7 +12,6 @@ export default function Layout({children}) {
 	       </Container>	
 		     <ScrollToTop />
 	       <Footer />
-		 
       </>
   );
 }

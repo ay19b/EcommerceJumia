@@ -24,7 +24,6 @@ export default function Home() {
         <title>{t('Jumia Algérie | Téléphones, TV, supermarché, santé et hygiène, etc.')}</title>
 		<link rel="icon" href={titleLogo} />
      </Helmet>
-	 <div className="content">
      <Layout>
         <Main />
 	    <Pub />
@@ -37,7 +36,6 @@ export default function Home() {
 	    <Category cag={'Articles de sport'} title={'Articles de sport'}/>
 	    <Category cag={'Informatique'} title={'Informatique'}/>
      </Layout>
-	</div>
 	</div>	
     )
 }
