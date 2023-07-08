@@ -24,7 +24,7 @@ import { auth } from "../../firebase";
 import {signOut } from "firebase/auth";
 
 
-const Nav = () => {
+const Nav = ({changeLang}) => {
 	const [dropConnect, setDropConnect] = useState(false);
 	const [dropHelp, setDropHelp] = useState(false);
     const { dispatch } = useContext(MenuContext);
@@ -38,13 +38,6 @@ const Nav = () => {
 	const matches = useMediaQuery('(max-width:1000px)');
 
 
-
-	// change the language and save it in localstorage
-    const handleChangeLng = (lng) => {
-		window.location.reload();
-		i18n.changeLanguage(lng);
-		localStorage.setItem("lng", lng);
-	};   
 
 	//if logout the user
 	const handleLogout = () => {
@@ -71,11 +64,11 @@ const Nav = () => {
 				</div>
 				<div className="contGrid">
 				  <div className='langs'>
-				    <div className={i18n.language === 'fr' || localStorage.getItem("lng") === 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
+				    <div className={i18n.language === 'fr' || localStorage.getItem("lng") === 'fr'?"lang active":"lang"} onClick={() => changeLang("fr")}> 
                         <img src={france} alt="france" className="img"/>
                         <h6>francais</h6>
                      </div>
-                     <div className={i18n.language === 'ar' || localStorage.getItem("lng") === 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
+                     <div className={i18n.language === 'ar' || localStorage.getItem("lng") === 'ar'?"lang active":"lang"} onClick={() => changeLang('ar')}>
                         <img src={algeria} alt="algeria" className="img"/>
                         <h6>العربية</h6>
                      </div>
@@ -89,8 +82,7 @@ const Nav = () => {
 			    <div  className={i18n.language === 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
 	              <Sidebar />	
 	            </div>
-			  <div className='contLast'>
-			    
+			  <div className='contLast'>		    
 			    <div className="logo">
 				 <HiMenu className="menu" onClick={() => dispatch({ type: "TOGGLE" })}/>
 				 <Link to="/" className="imglogo"><img src={jumia} className="img" alt='logo'/></Link>

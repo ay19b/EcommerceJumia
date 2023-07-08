@@ -19,6 +19,10 @@
         transform: scale(1.05,1.05);
         outline: none;
      }
+     canvas{
+      width: auto !important;
+      position: inherit !important;
+     }
 	}
   }
 }

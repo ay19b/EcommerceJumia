@@ -11,13 +11,9 @@ import france from "../../images/france.png";
 import {useTranslation} from 'react-i18next'
 
 
-const Footer=()=> {
+const Footer=({changeLang})=> {
     const { t, i18n } = useTranslation();
-    const handleChangeLng = (lng) => {
-	  	i18n.changeLanguage(lng);
-	  	localStorage.setItem("lng", lng);
-  	};
-	
+
   return (
     <div className='footer'>
      <Container>
@@ -55,11 +51,11 @@ const Footer=()=> {
 		     <img src={app} alt="app" className='imgSvg'/>
         </div>
 				 <div className='langs'>
-				    <div className={i18n.language === 'fr'?"lang active":"lang"} onClick={() => handleChangeLng("fr")}> 
+				    <div className={i18n.language === 'fr'?"lang active":"lang"} onClick={() => changeLang("fr")}> 
               <img src={france} className="img" alt="france"/>
               <h6>francais</h6>
             </div>
-            <div className={i18n.language === 'ar'?"lang active":"lang"} onClick={() => handleChangeLng("ar")}>
+            <div className={i18n.language === 'ar'?"lang active":"lang"} onClick={() => changeLang("ar")}>
               <img src={algeria} className="img" alt="algeria"/>
               <h6>العربية</h6>
             </div>

@@ -11,12 +11,10 @@ import Login from './component/signin/login';
 
 function App() {
 	const {t} = useTranslation();
-	
 
 	
   return (
-    <div className="App" style={{direction:t('ltr')}}>
-      
+    <div className="App" style={{direction:t('ltr')}}>    
      <BrowserRouter>
         <Routes>
           <Route path="/">
