@@ -79,7 +79,8 @@ const Nav = ({changeLang}) => {
 		  </div>
 		  <div  ref={nav} className={matches?'LastHeader':!navbar?'LastHeader':'LastHeader'}> 
 		    <Container> 
-			    <div  className={i18n.language === 'ar'?!menu ? 'Sidebar off' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
+			    <div  
+				 className={i18n.language === 'ar'?!menu ? 'Sidebar closeArabic' : 'Sidebar':!menu ? 'Sidebar close' : 'Sidebar'}>
 	              <Sidebar />	
 	            </div>
 			  <div className='contLast'>		    

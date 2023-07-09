@@ -7,11 +7,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {useTranslation} from 'react-i18next'
 import Signin from './component/signin/signin';
 import Login from './component/signin/login';
+import { useEffect } from 'react';
 
 
 function App() {
 	const {t} = useTranslation();
 
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('lng');
+    if (!storedLanguage) {
+      localStorage.setItem('lng', 'fr'); // Set default language to 'fr'
+    }
+  }, []);
 	
   return (
     <div className="App" style={{direction:t('ltr')}}>    

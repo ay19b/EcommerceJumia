@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState,useEffect} from 'react';
 import { Autoplay, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Banner from "./data";
@@ -16,7 +16,6 @@ function Carousel(){
       setLoading(true);
     };
   
-
 
     return(
 	<div className='banner'>
@@ -39,7 +38,7 @@ function Carousel(){
 			                 {!loading && <Blurhash hash={blurHash} className="listImg" />}
                        <img 
                          src={img}
-                         alt={id}
+                         alt=''
                          className='listImg'
                          onLoad={handleImageLoad}
                          style={{ display: loading ? 'block' : 'none' }}/>

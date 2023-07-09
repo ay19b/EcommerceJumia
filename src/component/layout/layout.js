@@ -14,18 +14,18 @@ export default function Layout({children}) {
 
   if (loading) {
     return (
-   <div class="spinner">
-    <div></div>   
-    <div></div>    
-    <div></div>    
-    <div></div>    
-    <div></div>    
-    <div></div>    
-    <div></div>    
-    <div></div>    
-    <div></div>    
-    <div></div>    
-   </div>
+      <div class="spinner">
+       <div></div>   
+       <div></div>    
+       <div></div>    
+       <div></div>    
+       <div></div>    
+       <div></div>    
+       <div></div>    
+       <div></div>    
+       <div></div>    
+       <div></div>    
+     </div>
     )
   }
 
@@ -33,12 +33,9 @@ export default function Layout({children}) {
   // change the language and save it in localstorage
   const handleChangeLng = (lng) => {
     setLoading(true); // Set loading state to true
-    // Simulating a delay of 2 seconds for demonstration purposes
-    setTimeout(() => {
-      i18n.changeLanguage(lng);
-      localStorage.setItem("lng", lng);
-      setLoading(false); // Set loading state to false
-    }, 2400);
+    i18n.changeLanguage(lng);
+    localStorage.setItem("lng", lng);
+    setLoading(false); // Set loading state to false
   };
 
   return (
