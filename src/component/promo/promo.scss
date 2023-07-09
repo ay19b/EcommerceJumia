@@ -20,7 +20,7 @@
         outline: none;
      }
      canvas{
-      width: auto !important;
+      width: 100% !important;
       position: inherit !important;
      }
 	}
@@ -36,6 +36,10 @@
         width: 100vw !important;
         height: 20rem !important;
         margin-bottom: 6px !important;
+        canvas{
+          width: auto !important;
+          position: inherit !important;
+         }
 	  }
    }
   }
